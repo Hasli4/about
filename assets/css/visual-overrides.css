@@ -1,0 +1,866 @@
+/* File: assets/css/visual-overrides.css
+   Update: ensure mobile menu appears below header (uses --header-height variable),
+           keep visual layers and readability intact.
+   NOTE: only this file changed.
+*/
+
+/* ===== Variables ===== */
+:root{
+  --grad-top: 214 30% 16%;
+  --grad-bottom: 214 32% 12%;
+
+  --blob-color-a: 97,208,255;
+  --blob-color-b: 102,167,255;
+  --blob-color-c: 80,200,190;
+
+  --blob-blur: 12px;
+  --particles-glow-rgba: 97,208,255;
+
+  /* header height variable (script will update this dynamically) */
+  --header-height: 72px;
+}
+
+/* ===== Base / gradient layer ===== */
+html, body {
+  min-height: 100% !important;
+  height: 100% !important;
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* fixed full-page gradient — lighter */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -9999;
+  pointer-events: none;
+  background: linear-gradient(180deg, hsl(var(--grad-top)), hsl(var(--grad-bottom)));
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: translateZ(0);
+  will-change: opacity, transform;
+}
+
+/* Remove stripe overlay (banding source) */
+body::before {
+  display: none !important;
+  background-image: none !important;
+  opacity: 0 !important;
+}
+
+/* Ambient soft blobs layer */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1; /* above gradient, below DOM blobs */
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background-image:
+    radial-gradient(460px 360px at 6% 18%, rgba(var(--blob-color-a),0.16), transparent 30%),
+    radial-gradient(420px 340px at 86% 72%, rgba(var(--blob-color-b),0.14), transparent 24%);
+  opacity: 0.78;
+  animation: float-blobs 22s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+@keyframes float-blobs {
+  0%{ transform: translate3d(0,0,0); }
+  50%{ transform: translate3d(0,-12px,0); }
+  100%{ transform: translate3d(0,0,0); }
+}
+
+/* Visual animated DOM layer: blobs + particles container */
+#visual-animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 2; /* above ambient blobs, below main content */
+  pointer-events: none;
+  overflow: visible;
+  contain: paint;
+}
+
+/* Particles container — stronger subtle glow */
+#vparticles{
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 36px rgba(var(--particles-glow-rgba),0.16)) saturate(1.08);
+  opacity: 1;
+  will-change: transform, opacity, filter;
+}
+
+/* DOM-blobs */
+.blob {
+  position: absolute;
+  pointer-events: none;
+  filter: blur(var(--blob-blur));
+  opacity: 0.52;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+  transform: translate3d(0,0,0);
+}
+.blob--one{
+  width: 820px; height: 460px; left: -8%; top: 3%;
+  background: radial-gradient(closest-side, rgba(var(--blob-color-a),0.32), transparent 38%);
+  animation: blob-float-1 24s ease-in-out infinite;
+}
+.blob--two{
+  width: 600px; height: 420px; right: -6%; top: 26%;
+  background: radial-gradient(closest-side, rgba(var(--blob-color-b),0.28), transparent 36%);
+  animation: blob-float-2 20s ease-in-out infinite;
+}
+.blob--three{
+  width: 520px; height: 380px; left: 28%; bottom: -6%;
+  background: radial-gradient(closest-side, rgba(var(--blob-color-c),0.24), transparent 36%);
+  animation: blob-float-3 26s ease-in-out infinite;
+}
+@keyframes blob-float-1{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(20px,-12px,0) scale(1.03)}100%{transform:translate3d(0,0,0) scale(1)}}
+@keyframes blob-float-2{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-14px,14px,0) scale(1.02)}100%{transform:translate3d(0,0,0) scale(1)}}
+@keyframes blob-float-3{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(10px,-16px,0) scale(1.035)}100%{transform:translate3d(0,0,0) scale(1)}}
+
+/* Keep content above decorative layers */
+header, main, footer, .container, .about, .adv-card, .course-card {
+  position: relative;
+  z-index: 3;
+}
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  body::after { animation: none !important; opacity: 0.45 !important; }
+  .blob { animation: none !important; opacity: 0.24 !important; filter: blur(8px) !important; }
+  #vparticles { opacity: 0.95 !important; filter: none !important; }
+}
+
+/* Mobile: tone down intensity but keep visibility */
+@media (max-width: 900px) {
+  body::after { opacity: 0.66 !important; }
+  .blob { opacity: 0.36 !important; filter: blur(10px) !important; }
+  #vparticles { filter: drop-shadow(0 8px 20px rgba(var(--particles-glow-rgba),0.10)) !important; }
+}
+
+/* Safety: hide any rogue heavy overlays */
+.dark-overlay, .visual-darken, .heavy-veil { display:none !important; opacity:0 !important; pointer-events:none !important; }
+
+/* Prevent inline white backgrounds from bleeding through */
+*[style*="#fff" i], *[style*="white" i], *[style*="rgb(255,255,255)"] {
+  background: none !important;
+  background-image: none !important;
+}
+
+/* ===== MENU: mobile behaviour fixed below header =====
+   Use CSS variable --header-height (in px) set by JS to position the panel.
+*/
+@media (max-width:1100px){
+  nav ul { display: none !important; }
+  .menu-toggle { display: inline-flex !important; }
+
+  .menu-toggle[aria-expanded="true"] + ul {
+    display: flex !important;
+    flex-direction: column !important;
+    position: fixed !important;
+    /* position below header using computed header height */
+    top: calc(var(--header-height, 72px) + 8px) !important;
+    left: 8px !important;
+    right: 8px !important;
+    width: calc(100% - 16px) !important;
+    max-width: calc(100% - 16px) !important;
+    max-height: calc(100vh - (var(--header-height, 72px) + 24px)) !important;
+    margin: 0 auto !important;
+    padding: 14px !important;
+    gap: 10px !important;
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    background: linear-gradient(180deg, rgba(6,12,18,0.98), rgba(4,8,12,0.96)) !important;
+    box-shadow: 0 12px 36px rgba(2,6,16,0.64) !important;
+    border-radius: 10px !important;
+    z-index: 220 !important;
+  }
+
+  /* nudge lower on very small screens */
+  @media (max-width: 420px) {
+    .menu-toggle[aria-expanded="true"] + ul {
+      top: calc(var(--header-height, 72px) + 22px) !important;
+      max-height: calc(100vh - (var(--header-height, 72px) + 36px)) !important;
+    }
+  }
+
+  .menu-toggle[aria-expanded="true"] + ul li { width: 100% !important; }
+  .menu-toggle[aria-expanded="true"] + ul a {
+    display: block !important;
+    width: 100% !important;
+    padding: 12px 14px !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+  }
+
+  /* ensure header sits above panel so phone bubble remains visible */
+  header { z-index: 240 !important; position: relative !important; }
+}
+
+/* Force header links and phone to be fully white for maximum contrast */
+header nav a, header .site-title, header .site-title + div, .phone, .phone * {
+  color: rgb(255,255,255) !important;
+  text-shadow: none !important;
+}
+.phone { color: rgb(255,255,255) !important; }
+
+/* Course tab labels white */
+.courses-tabs .tab-btn, .courses-tabs .tab-btn div,
+.courses-tabs .tab-btn.active, .courses-tabs .tab-btn.active div {
+  color: #ffffff !important;
+}
+
+/* Menu panel scrollbar styling */
+.menu-toggle[aria-expanded="true"] + ul::-webkit-scrollbar { height: 6px; width: 6px; }
+.menu-toggle[aria-expanded="true"] + ul::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 6px; }
+
+/* Reduce effects & blur on small screens */
+@media (max-width: 900px) {
+  body::before { background-size: 200px 200px, 200px 200px !important; opacity: 0.02 !important; }
+}
+@media (max-width: 700px) {
+  .blob { opacity: 0.45; filter: blur(12px); }
+  #vparticles { opacity: 0.36; }
+  .adv-card, .course-card, .about {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(18,22,30, 0.7) !important;
+  }
+}
+
+
+/* ===== Desktop: make top menu visually match header (transparent, no panel bg) ===== */
+@media (min-width: 1101px) {
+  /* Remove any background that makes the desktop menu look like a separate panel */
+  nav ul {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+  }
+
+  /* Ensure menu links are visually consistent with header */
+  nav a,
+  nav ul li a {
+    background: transparent !important;
+    color: rgb(255,255,255) !important;
+    text-shadow: none !important;
+  }
+
+  /* Keep hover state subtle and consistent with header */
+  nav a:hover,
+  nav ul li a:hover {
+    background: rgba(255,255,255,0.02) !important;
+    color: rgb(255,255,255) !important;
+  }
+
+  /* If any desktop-specific menu panel was previously styled, hide its decoration */
+  nav ul[style] { background: transparent !important; box-shadow: none !important; }
+}
+
+/* === Unified arrows + course-card sizing tweaks ===
+   Put this at the end of visual-overrides.css
+*/
+
+/* Unified arrow visual (applies to both tabs arrows and card scroll arrows) */
+.unified-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 36px;
+  padding: 0;
+  border-radius: 8px; /* rectangular with small radius */
+  background: rgba(8,12,18,0.50) !important; /* semi-opaque dark */
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 20px rgba(6,12,20,0.45);
+  cursor: pointer;
+  transition: transform 160ms ease, opacity 160ms ease, background 160ms ease;
+  z-index: 120; /* above cards but below any header overlays */
+}
+
+/* Hover / focus states */
+.unified-arrow:hover,
+.unified-arrow:focus {
+  transform: translateY(-2px);
+  opacity: 0.98;
+  background: rgba(10,18,28,0.64) !important;
+}
+
+/* Make sure tabs-arrow and scroll-btn share the unified look */
+.tabs-arrow { /* small arrows beside tabs */
+  /* override previous rectangle if any */
+  width: 42px;
+  height: 36px;
+}
+.scroll-btn.unified-arrow { /* card scroll arrows (desktop keep original placement unless below media query) */
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+}
+
+/* === Card sizing: slightly larger cards, smaller padding, tighter gaps === */
+.panel-cards {
+  gap: 14px !important; /* slightly smaller gap so cards appear larger together */
+  padding-bottom: 8px; /* baseline; further increased on small screens to avoid overlap */
+}
+
+/* make the visible card area larger by increasing flex-basis and reducing inner padding */
+.course-card {
+  flex: 0 0 340px !important;     /* increase base width from 320 -> 340 */
+  max-width: 340px !important;
+  padding: 12px !important;       /* reduced inner padding */
+  min-height: 420px;              /* keep height for content consistency */
+  box-sizing: border-box;
+}
+
+/* slightly increase media area inside card for visibility */
+.course-media { height: 200px !important; }
+
+/* adjust typography spacing inside card for compactness */
+.course-title { font-size: 18px; margin-bottom: 6px !important; }
+.course-desc  { margin-bottom: 10px !important; }
+
+/* make panel-cards show a little breathing room at bottom to accommodate bottom arrows on mobile */
+.courses-wrapper { padding-bottom: 16px !important; }
+
+/* === Mobile / narrow screens: move scroll arrows down and increase bottom padding so arrows don't overlap content === */
+@media (max-width: 600px) {
+  /* Move card scroll arrows below cards so they don't cover content */
+  .courses-wrapper .scroll-btn {
+    top: auto !important;
+    bottom: 10px !important;
+    transform: translateY(0) !important;
+    opacity: 0.78 !important;
+    /* reduce size a little on mobile so they don't cover too much */
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 30px rgba(6,12,20,0.42);
+  }
+
+  /* Ensure scroll area has additional bottom padding so last card is not hidden under arrows */
+  .panel-cards { padding-bottom: 56px !important; }
+
+  /* Tabs arrows (level selection) keep unified look but smaller */
+  .tabs-arrow.unified-arrow {
+    width: 36px !important;
+    height: 34px !important;
+    opacity: 0.88;
+  }
+
+  /* Cards on mobile: keep large visual but adapt to viewport */
+  .course-card { flex: 0 0 92% !important; max-width: 92% !important; padding: 12px !important; }
+  .course-media { height: 220px !important; }
+}
+
+/* === Desktop: keep original arrow vertical placement but adopt unified style === */
+@media (min-width: 1101px) {
+  .courses-wrapper .scroll-btn {
+    top: calc(50% + 6px) !important; /* restore vertical centering */
+    bottom: auto !important;
+  }
+
+  /* Tabs arrows: hide on desktop unless overflow (existing JS controls display). Keep unified styling available. */
+  .tabs-arrow { /* keep size slightly smaller than scroll arrows */
+    width: 40px;
+    height: 36px;
+  }
+
+  /* Slightly larger cards on desktop */
+  .course-card { flex: 0 0 360px !important; max-width: 360px !important; padding: 14px !important; }
+  .course-media { height: 200px !important; }
+  .panel-cards { gap: 18px !important; }
+}
+
+/* === Accessibility: ensure arrows are keyboard-focus visible === */
+.unified-arrow:focus {
+  outline: 2px solid rgba(97,208,255,0.22);
+  outline-offset: 2px;
+  box-shadow: 0 10px 30px rgba(97,208,255,0.08), 0 2px 6px rgba(0,0,0,0.35);
+}
+
+/* assets/css/visual-overrides.css
+   Brightness boost for mobile particles + safer z-indexing so visuals never cover content.
+   Only visual tweaks — keep structure and other rules untouched.
+*/
+
+/* ===== Variables (kept / extended) ===== */
+:root{
+  --bg-top: 210 36% 10%;
+  --bg-bottom: 214 38% 8%;
+  --text-main-hsl: 210 18% 95%;
+  --text-sub-hsl: 210 12% 72%;
+  --card-bg-rgba: 18,22,30;
+  --card-alpha: 0.56;
+  --accent-cyan-rgb: 23,150,255;
+  --accent-cyan2-rgb: 60,190,200;
+  --blob-blur: 14px; /* 12-20px recommended */
+
+  --visual-gradient-z: -9999;
+  --visual-blobs-z: -9998;
+  --visual-particles-z: -9997;
+}
+
+/* Ensure base gradient layer and visuals sit *behind* content (avoid covering) */
+html::before { z-index: var(--visual-gradient-z) !important; }
+body::after    { z-index: var(--visual-blobs-z) !important; }
+#visual-animated-bg { z-index: var(--visual-blobs-z) !important; }
+#visual-animated-bg, #vparticles { pointer-events: none !important; }
+
+/* Make sure particles container is behind content but above gradient */
+#vparticles { position: fixed; inset: 0; z-index: var(--visual-particles-z) !important; pointer-events: none !important; }
+
+/* ===== Boosted visuals on capable mobiles =====
+   JS toggles .visuals-boost-mobile on <html> when we want stronger mobile visuals.
+*/
+.visuals-boost-mobile #vparticles {
+  /* slightly stronger glow and opacity for better visibility on phones */
+  opacity: 1 !important;
+  filter: drop-shadow(0 8px 20px rgba(97,208,255,0.10)) saturate(1.12) !important;
+  transition: filter 240ms ease, opacity 240ms ease;
+}
+.visuals-boost-mobile .blob {
+  opacity: 0.78 !important;
+  filter: blur(calc(var(--blob-blur) - 4px)) !important; /* a touch sharper */
+  transform: translate3d(0,0,0) !important;
+}
+
+/* Also gently brighten the CSS body blobs if boosting */
+.visuals-boost-mobile body::after {
+  opacity: 1 !important;
+  /* subtle increased intensity but still low-contrast under content */
+  background-image:
+    radial-gradient(420px 320px at 8% 18%, rgba(97,208,255,0.10), transparent 28%),
+    radial-gradient(380px 300px at 86% 72%, rgba(100,140,255,0.08), transparent 22%);
+  transition: opacity 280ms ease;
+}
+
+/* If device is low-power or prefers-reduced-motion, ensure visuals are muted */
+@media (prefers-reduced-motion: reduce) {
+  .visuals-boost-mobile #vparticles,
+  .visuals-boost-mobile .blob,
+  .visuals-boost-mobile body::after { opacity: 0.25 !important; filter: none !important; animation: none !important; }
+}
+
+/* ===== Ensure blobs/particles never cover content readability =====
+   make visuals visually behind main content by using negative z-index and not increasing opacity too much.
+*/
+#visual-animated-bg { position: fixed; inset: 0; overflow: visible; z-index: var(--visual-blobs-z) !important; }
+#visual-animated-bg .blob { will-change: transform, opacity; contain: paint; mix-blend-mode: screen; }
+
+/* Mobile-specific: make blobs a bit larger but less blurry for clarity */
+@media (max-width: 767px) {
+  .blob--one { width: 760px; height: 480px; }
+  .blob--two { width: 560px; height: 360px; }
+  .blob--three { width: 520px; height: 380px; }
+  /* if boosting flag is present, the visuals are already intensified via .visuals-boost-mobile */
+}
+
+/* Safety: in case some earlier rule put particles with positive z-index, force them behind content */
+#vparticles, #visual-animated-bg { z-index: var(--visual-particles-z) !important; }
+
+/* Minor: ensure particle canvas doesn't introduce scrollbars or opaque background */
+#vparticles > canvas { background: transparent !important; display: block !important; }
+
+/* Keep blobs animation smooth and GPU-friendly (transform only) */
+@keyframes blob-float-1 { 0%{transform:translate3d(0,0,0) scale(1)} 50%{transform:translate3d(18px,-12px,0) scale(1.03)} 100%{transform:translate3d(0,0,0) scale(1)} }
+@keyframes blob-float-2 { 0%{transform:translate3d(0,0,0) scale(1)} 50%{transform:translate3d(-12px,10px,0) scale(1.02)} 100%{transform:translate3d(0,0,0) scale(1)} }
+@keyframes blob-float-3 { 0%{transform:translate3d(0,0,0) scale(1)} 50%{transform:translate3d(8px,-16px,0) scale(1.025)} 100%{transform:translate3d(0,0,0) scale(1)} }
+
+/* Accessibility: if a user or environment still sees visuals obstructing, class to reduce everything */
+.visuals-muted #vparticles, .visuals-muted .blob, .visuals-muted body::after { opacity: 0.18 !important; filter: none !important; }
+
+/* ===== Reviews carousel styles (append to visual-overrides.css) ===== */
+.reviews-wrap {
+  position: relative;
+  overflow: hidden;
+  padding: 8px 2px;
+  margin-top: 12px;
+  z-index: 3; /* над визуальными слоями */
+}
+
+.reviews-track {
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+  /* animation will be set dynamically by JS (duration depends on width) */
+  animation-name: reviews-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  will-change: transform;
+  /* make sure track doesn't wrap */
+  flex-wrap: nowrap;
+}
+
+/* Keyframes: move left by 50% (works with duplicated content) */
+@keyframes reviews-scroll {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-50%,0,0); }
+}
+
+.review-card {
+  flex: 0 0 360px; /* width of visible card on desktop */
+  max-width: 360px;
+  background: rgba(var(--card-bg-rgba), 0.9); /* slightly stronger to read text */
+  border-radius: 12px;
+  padding: 18px;
+  position: relative;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+  transition: transform 260ms var(--easing), box-shadow 260ms var(--easing);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.98);
+}
+
+/* Slight lift on hover/focus */
+.review-card:hover,
+.review-card:focus-within {
+  transform: translate3d(0,-8px,0);
+  box-shadow: 0 20px 48px rgba(6,12,26,0.6);
+}
+
+/* Name and text */
+.review-name {
+  margin: 0 0 8px;
+  font-family: var(--mono);
+  font-size: 15px;
+  color: rgba(255,255,255,0.98);
+}
+.review-text {
+  margin: 0;
+  color: rgba(210,220,230,0.92);
+  line-height: 1.4;
+  margin-bottom: 22px;
+}
+
+/* Avito link in bottom-right */
+.review-avito {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  text-decoration: none;
+  transition: transform 160ms ease, background 160ms ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+.review-avito:hover,
+.review-avito:focus {
+  transform: translateY(-3px);
+  background: linear-gradient(90deg, rgba(var(--accent-cyan-rgb),0.98), rgba(var(--accent-cyan2-rgb),0.98));
+}
+
+/* Make cards responsive and slightly larger viewport fit */
+@media (max-width: 900px) {
+  .review-card { flex: 0 0 280px; max-width: 280px; min-height: 120px; }
+}
+@media (max-width: 480px) {
+  .reviews-wrap { padding: 6px 0; }
+  .review-card { flex: 0 0 86%; max-width: 86%; min-height: 120px; }
+  .review-avito { right: 8px; bottom: 8px; width: 30px; height: 30px; }
+}
+
+/* Pause animation when hovering or when prefers-reduced-motion */
+.reviews-wrap:hover .reviews-track,
+.reviews-wrap:focus-within .reviews-track { animation-play-state: paused !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-track { animation: none !important; transform: none !important; }
+}
+
+/* Reviews: left/right full-height arrows (add to visual-overrides.css) */
+.reviews-wrap { position: relative; } /* ensure relative */
+
+.reviews-arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 46px;                 /* узкие */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, rgba(6,10,14,0.14), rgba(6,10,14,0.06));
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 8px;
+  opacity: 0.58;               /* полупрозрачные */
+  transition: opacity 160ms ease, transform 160ms ease;
+  z-index: 6;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 8px 20px rgba(2,6,12,0.45);
+}
+
+/* left / right placement — с небольшим отступом внутрь, чтобы не цеплять край */
+.reviews-arrow.reviews-arrow-left  { left: 6px;  }
+.reviews-arrow.reviews-arrow-right { right: 6px; }
+
+/* сужаем визуально, чтобы не закрывать контент (полупрозрачная полоска) */
+.reviews-arrow .chev {
+  width: 18px;
+  height: 28px;
+  display: inline-block;
+  color: rgba(255,255,255,0.95);
+  font-size: 20px;
+  line-height: 1;
+  text-align: center;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 8px rgba(4,12,24,0.45));
+}
+
+/* hover / focus */
+.reviews-arrow:hover,
+.reviews-arrow:focus {
+  opacity: 0.95;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* on very small screens make arrows slightly narrower and inset more */
+@media (max-width: 480px) {
+  .reviews-arrow { width: 40px; left: 4px; right: 4px; }
+  .reviews-arrow .chev { width: 16px; height: 22px; font-size: 18px; }
+}
+
+/* ensure arrows do not appear when reduced motion preference set */
+@media (prefers-reduced-motion: reduce) {
+  .reviews-arrow { display: none !important; }
+}
+
+/* File: assets/css/visual-overrides.css
+   Updated: fixes for Reviews carousel (no shake), arrow sizing on mobile,
+   and small style/position tweaks so arrows don't move with content.
+   This file preserves existing visual system; added only targeted rules.
+*/
+
+/* --- Existing variables and important base rules should be kept earlier in file.
+   The following are incremental additions/overrides focused on the reviews area
+   and arrow behaviour (do not remove other parts of visual-overrides.css). */
+
+/* Ensure this block is placed near end of visual-overrides.css to override earlier rules. */
+
+/* Generic selectors for review carousel (covers several possible class/id names used) */
+.reviews, .testimonials, .reviews-carousel, #reviews, #testimonials {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate; /* keep layering contained */
+}
+
+/* The inner track that scrolls (try to match common names). If your markup uses other names,
+   these rules still try to catch common patterns. */
+.reviews .reviews-track,
+.reviews .reviews-row,
+.reviews-carousel .reviews-track,
+.testimonials .track,
+#reviews .track,
+.reviews-track,
+.testimonials-track {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  will-change: transform;
+  transform: translate3d(0,0,0);
+  transition: transform 0.32s cubic-bezier(.22,.9,.32,1); /* used for manual jumps; RAF loop will override */
+}
+
+/* Flow animation class (when JS enables continuous flow via CSS fallback) */
+.reviews-flowing .reviews-track,
+.reviews-flowing .reviews-row,
+.reviews-flowing .reviews-carousel-track {
+  /* no-op fallback; JS provides uniform RAF-based movement for precise control */
+}
+
+/* Arrows: positioned absolutely so they DON'T scroll with content.
+   They span full height but are narrow; translucent; unobtrusive. */
+.reviews-arrow,
+.reviews .reviews-arrow,
+.reviews-carousel .reviews-arrow,
+.testimonials .reviews-arrow,
+.reviews .arrow,
+.reviews-arrow-left,
+.reviews-arrow-right {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 48px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  pointer-events: auto;
+  background: linear-gradient(90deg, rgba(6,10,14,0.18), rgba(6,10,14,0.08));
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 6px;
+  color: rgba(255,255,255,0.92);
+  opacity: 0.62;
+  transition: opacity 160ms ease, transform 160ms ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 6px 20px rgba(2,6,12,0.45);
+}
+
+/* Left / right placement */
+.reviews-arrow.left,
+.reviews-arrow-left { left: 8px; }
+.reviews-arrow.right,
+.reviews-arrow-right { right: 8px; }
+
+/* Make arrows narrower and less intrusive on mobile */
+@media (max-width: 700px) {
+  .reviews-arrow,
+  .reviews .reviews-arrow,
+  .reviews-carousel .reviews-arrow {
+    width: 36px;
+    min-width: 36px;
+    background: linear-gradient(90deg, rgba(6,10,14,0.14), rgba(6,10,14,0.06));
+    opacity: 0.56;
+    border-radius: 6px;
+  }
+
+  /* ensure arrows don't cover the full width; place them slightly inset */
+  .reviews-arrow.left { left: 6px; }
+  .reviews-arrow.right { right: 6px; }
+}
+
+/* When arrows are hovered or focused, increase visibility */
+.reviews-arrow:hover,
+.reviews-arrow:focus {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+/* Small icon inside arrow (keeps visual scale consistent) */
+.reviews-arrow svg, .reviews-arrow i {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* Ensure arrows remain fixed relative to container (not part of scrollable content) */
+.reviews .reviews-arrow,
+.testimonials .reviews-arrow {
+  position: absolute;
+}
+
+/* Track item sizing: make cards slightly larger and reduce inner padding so more size fits */
+.reviews .review-card,
+.testimonials .review-card,
+.reviews-carousel .review-card {
+  flex: 0 0 auto;
+  min-width: 240px;
+  max-width: 340px;
+  margin: 0;
+  padding: 14px;
+  border-radius: 10px;
+  background: rgba(18,22,30,0.72);
+  box-shadow: 0 8px 30px rgba(6,12,20,0.5);
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+/* Slight lift on hover for clarity */
+.reviews .review-card:hover,
+.testimonials .review-card:hover {
+  transform: translate3d(0,-6px,0);
+  box-shadow: 0 18px 48px rgba(6,12,20,0.62);
+}
+
+/* To avoid arrows moving with the content, ensure they are siblings of the track, not inside it.
+   If HTML places arrows inside the track, these rules force them out visually (but best to keep arrows outside in markup). */
+.reviews .reviews-track .reviews-arrow,
+.testimonials .track .reviews-arrow {
+  position: absolute;
+  top: 0;
+  pointer-events: none; /* if arrows are inside track unexpectedly, prevent them from interfering */
+}
+
+/* Paused state: when .reviews-paused class applied to container, reduce motion and remove jitter */
+.reviews.reviews-paused .reviews-track,
+.testimonials.reviews-paused .reviews-track,
+.reviews-carousel.reviews-paused .reviews-track {
+  /* If JS hands control to RAF, this class will pause RAF loop; CSS transition remains for manual moves */
+  transition: transform 360ms cubic-bezier(.22,.9,.32,1);
+}
+
+/* Hide huge buttons on very small screens, smaller arrow style */
+@media (max-width: 420px) {
+  .reviews-arrow { width: 34px; min-width: 34px; opacity: 0.5; }
+  .reviews .review-card { min-width: 86%; max-width: 86%; padding: 12px; }
+}
+
+/* Prevent shaking: ensure transform origin and GPU layer */
+.reviews .reviews-track,
+.testimonials .reviews-track {
+  transform-origin: 0 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translate3d(0,0,0);
+}
+
+/* Accessibility: visible focus rings */
+.reviews-arrow:focus, .reviews-arrow:active {
+  outline: 2px solid rgba(97,208,255,0.14);
+  outline-offset: 2px;
+}
+
+/* If the container uses a CSS animation previously, ensure we don't apply conflicting animations.
+   The JS module will prefer RAF control; these are safety fallbacks. */
+.reviews .reviews-track[data-animated="css"] {
+  animation-play-state: paused !important;
+}
+
+/* Reduce pointer occlusion: ensure arrows sit above track items visually */
+.reviews-arrow { z-index: 50; }
+
+/* End of targeted reviews/arrow styles */
+
+/* End of file — other existing rules remain unchanged above in project CSS */
+/* End of file */
+
+.phone{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border-radius:10px;
+  background:linear-gradient(90deg,hsl(var(--accent1-h) var(--accent-s) 62%),hsl(var(--accent2-h) var(--accent-s) 60%)) !important;
+  color: #041122 !important;
+  text-decoration:none;
+  font-weight:700;
+  white-space:nowrap;
+  -webkit-text-fill-color: #ffffff;
+}
+
+.course-media {
+  height: 180px;              /* или ваша высота */
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.course-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;        /* картинка целиком помещается */
+  display: block;
+}

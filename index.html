@@ -1,0 +1,1927 @@
+<!-- index.html (cleaned) -->
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Игорь Мизёв — Программист · Преподаватель</title>
+    <meta
+      name="description"
+      content="Репетитор по программированию, курсы для детей и взрослых — Python, Web, Unity, робототехника и др. Пробное занятие."
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main stylesheet (moved from inline) -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Visual overrides (must load after main styles) -->
+    <link rel="stylesheet" href="assets/css/visual-overrides.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="logo">IM</div>
+          <div>
+            <div class="site-title">Игорь Мизёв</div>
+            <div style="font-size: 12px; color: var(--muted)">
+              Программист · Преподаватель
+            </div>
+          </div>
+        </div>
+
+        <nav aria-label="Главное меню">
+          <button
+            class="menu-toggle"
+            aria-expanded="false"
+            aria-controls="main-nav"
+          >
+            ☰
+          </button>
+          <ul id="main-nav" data-no-binary-container>
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#programs">Курсы</a></li>
+            <li><a href="#design">Дизайн</a></li>
+            <li><a href="#music">Музыка</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <div class="actions">
+          <div class="socials" aria-hidden="false" data-no-binary-container>
+            <a
+              href="https://t.me/ig_mizyovv"
+              title="Telegram"
+              aria-label="Telegram"
+              class="contact-link"
+              data-value="ig_mizyovv"
+              data-action="default"
+              rel="noopener noreferrer"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M22 2L3 11.2l4.2 1.4L10 21l3-2.8 6.8 4.6L22 2z"
+                  fill="#009dff"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://vk.com/ig_mizyovv"
+              class="contact-link"
+              data-value="ig_mizyovv"
+              data-action="default"
+              title="VK"
+              aria-label="VK"
+            >
+              <!-- <svg width="18" height="18" viewBox="0 0 24 24"><path d="M2 2h20v20H2z" fill="none"/></svg> -->
+              <img width="18" src="assets/images/VK_Logo.webp" alt="VK Logo" />
+            </a>
+            <a
+              href="#"
+              class="contact-link"
+              data-action="whatsapp"
+              data-value="+7 950 469-74-61"
+              data-url="https://wa.me/79504697461?text=Здравствуйте!%20Интересует%20обучение%20программированию"
+              title="WhatsApp"
+              aria-label="WhatsApp"
+            >
+              <img
+                width="18"
+                src="assets/images/WhatsApp.webp"
+                alt="WhatsApp Logo"
+              />
+            </a>
+            <a
+              href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207"
+              target="_blank"
+              title="Avito"
+              aria-label="Avito"
+            >
+              <!-- <svg width="18" height="18" viewBox="0 0 24 24">
+            <circle cx="6" cy="12" r="3" fill="#f59e0b"/><circle cx="18" cy="12" r="3" fill="#10b981"/>
+          </svg> -->
+              <img
+                width="18"
+                src="assets/images/avito_logo.webp"
+                alt="Avito Logo"
+                style="border-radius: 25%"
+              />
+            </a>
+          </div>
+
+          <a
+            class="phone contact-link"
+            href="tel:+79504697461"
+            data-action="tel"
+            data-value="+79504697461"
+            >+7 (950) 469-74-61</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="about" class="hero" aria-labelledby="about-title">
+        <div class="hero-grid">
+          <div class="avatar" aria-hidden="true">
+            <img src="assets/images/avatar_quad.webp" alt="Фото" />
+          </div>
+
+          <div class="about">
+            <h1 id="about-title">Игорь Мизёв — преподаватель и разработчик</h1>
+            <p class="lead">
+              Репетитор по программированию для вас и вашего ребёнка. Обучаю с
+              нуля и без опыта — работаю с учениками от 5 до 99 лет.
+            </p>
+            <p class="small">
+              Владею Python, JavaScript, HTML, WordPress, Unity, C#, Roblox
+              Studio, Scratch и другими инструментами. Работаю с робототехникой
+              (Lego WeDo 2.0, EV3) и платформой Arduino. <br />
+              Образование: высшее — «Мехатроника и робототехника». Диплом о
+              профессиональной переподготовке — «WEB‑разработчик». <br />
+              <br />
+              О себе: целеустремлённый, ответственный, люблю работать с детьми и
+              постоянно изучаю новые технологии.
+            </p>
+          </div>
+        </div>
+
+        <!-- advantages: отдельные блочные карточки с преимуществами -->
+        <div class="advantages-grid">
+          <div class="adv-card">
+            <h4>Индивидуальный план</h4>
+            <p>
+              К каждому ученику составляется личный учебный план,
+              ориентированный на цели и скорость изучения.
+            </p>
+          </div>
+
+          <div class="adv-card">
+            <h4>Онлайн / офлайн</h4>
+            <p>
+              Проводятся занятия в удобном формате: выезд на дом, у меня или
+              онлайн — по вашему выбору.
+            </p>
+          </div>
+
+          <div class="adv-card">
+            <h4>Материалы после урока</h4>
+            <p>
+              С каждого занятия отправляю конспект и при необходимости домашнее
+              задание для закрепления навыков.
+            </p>
+          </div>
+
+          <div class="adv-card">
+            <h4>Опыт 7+ лет</h4>
+            <p>
+              Более 7 лет работы с детьми, опыт преподавания в академии
+              робототехники и международной школе программирования.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    <!-- Programs -->
+<section id="programs" style="margin-top: 36px">
+  <div
+    style="
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    "
+  >
+    <h2 style="font-family: var(--mono); margin-top: 0">Курсы</h2>
+    <p style="color: var(--muted); margin-bottom: 12px">
+      Выберите блок по возрасту и уровню, чтобы увидеть программы и
+      краткие описания.
+    </p>
+
+    <div style="display: flex; align-items: center; gap: 8px">
+      <!-- tabs arrow (mobile visible) -->
+      <button
+        class="tabs-arrow tabs-left unified-arrow"
+        aria-hidden="true"
+      >
+        ◀
+      </button>
+
+      <div
+        class="courses-tabs"
+        role="tablist"
+        aria-label="Выбор уровня курсов"
+      >
+        <button
+          class="tab-btn active"
+          data-tab="tab1"
+          aria-pressed="true"
+        >
+          <div style="font-size: 12px; color: var(--muted)">от 6 лет</div>
+          <div style="font-weight: 700">Начальный</div>
+        </button>
+        <button class="tab-btn" data-tab="tab2" aria-pressed="false">
+          <div style="font-size: 12px; color: var(--muted)">от 9 лет</div>
+          <div style="font-weight: 700">Базовый</div>
+        </button>
+        <button class="tab-btn" data-tab="tab3" aria-pressed="false">
+          <div style="font-size: 12px; color: var(--muted)">
+            от 11 лет
+          </div>
+          <div style="font-weight: 700">Продвинутый</div>
+        </button>
+        <button class="tab-btn" data-tab="tab4" aria-pressed="false">
+          <div style="font-size: 12px; color: var(--muted)">от 9 лет</div>
+          <div style="font-weight: 700">Робототехника</div>
+        </button>
+      </div>
+
+      <button
+        class="tabs-arrow tabs-right unified-arrow"
+        aria-hidden="true"
+      >
+        ▶
+      </button>
+    </div>
+
+    <div class="courses-wrapper">
+      <!-- card arrows (positioned relative to wrapper) -->
+      <button
+        class="scroll-btn left hidden unified-arrow"
+        aria-hidden="true"
+      >
+        ◀
+      </button>
+      <button
+        class="scroll-btn right hidden unified-arrow"
+        aria-hidden="true"
+      >
+        ▶
+      </button>
+
+      <div class="courses-scroll" tabindex="0">
+        <div class="courses-content">
+          <!-- tab1 panel -->
+          <div id="tab1" class="tab-panel active">
+            <div class="panel-cards">
+              <article class="course-card">
+                <div class="course-meta">6-10 лет</div>
+                <div class="course-media">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="assets/images/courses/computer_literacy_quad.webp"
+                    />
+                    <img
+                      src="assets/images/courses/computer_literacy_165.webp"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <h3 class="course-title">
+                  Обучение компьютерной грамотности
+                </h3>
+                <p class="course-desc">
+                  Работа с текстами, таблицами, презентациями и облачными
+                  хранилищами, работа в интернете.
+                </p>
+                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+              </article>
+
+              <article class="course-card">
+                <div class="course-meta">7-9 лет</div>
+                <div class="course-media">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="assets/images/courses/scratch_quad.webp"
+                    />
+                    <img
+                      src="assets/images/courses/scratch_165.webp"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <h3 class="course-title">
+                  Визуальное программирование на Scratch
+                </h3>
+                <p class="course-desc">
+                  Основы логики, переменных, событий — создание игр и
+                  мультфильмов.
+                </p>
+                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+              </article>
+
+              <article class="course-card">
+                <div class="course-meta">8+ лет</div>
+                <div class="course-media">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="assets/images/courses/roblox_quad.webp"
+                    />
+                    <img
+                      src="assets/images/courses/roblox_165.webp"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <h3 class="course-title">Roblox Studio — создание игр</h3>
+                <p class="course-desc">
+                  Инструменты редактора, основы Lua, проектирование
+                  уровней и механик, изучение професии геймдизайнера.
+                </p>
+                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+              </article>
+            </div>
+          </div>
+
+          <!-- tab2 panel -->
+          <div id="tab2" class="tab-panel">
+            <div class="panel-cards">
+              <article class="course-card">
+                <div class="course-meta">9+ лет</div>
+                <div class="course-media">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="assets/images/courses/ai_quad.webp"
+                    />
+                    <img
+                      src="assets/images/courses/ai_165.webp"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <h3 class="course-title">Обучение работе с ИИ</h3>
+                <p class="course-desc">
+                  Инструменты генерации изображений, музыки, видео и 3D;
+                  применение ИИ для учебных и творческих задач, принципы
+                  работы с нейросетями, промптинг, обучение моделей.
+                </p>
+                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+              </article>
+
+              <article class="course-card">
+                <div class="course-meta">10+ лет</div>
+                <div class="course-media">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="assets/images/courses/web_development_quad.webp"
+                    />
+                    <img
+                      src="assets/images/courses/web_development_165.webp"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <h3 class="course-title">Веб-разработка</h3>
+                <p class="course-desc">
+                  HTML и CSS, адаптивная верстка, взаимодействие с
+                  JavaScript; создание лендингов и интерактивных страниц,
+                  публикация проектов в интернете.
+                </p>
+                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+              </article>
+
+              <article class="course-card">
+                <div class="course-meta">9+ лет</div>
+                <div class="course-media">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="assets/images/courses/graphic_design_quad.webp"
+                    />
+                    <img
+                      src="assets/images/courses/graphic_design_165.webp"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <h3 class="course-title">Графический дизайн</h3>
+                <p class="course-desc">
+                  Основы верстки, айдентики, растровой и векторной
+                  графики; работа в Photoshop, Blender и Tinkercad; съёмка
+                  и монтаж видео.
+                </p>
+                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+              </article>
+            </div>
+          </div>
+
+          <!-- tab3 panel -->
+          <div id="tab3" class="tab-panel">
+            <div class="panel-cards">
+              <article class="course-card">
+                <div class="course-meta">11+ лет</div>
+                <div class="course-media">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="assets/images/courses/python_dev_quad.webp"
+                    />
+                    <img
+                      src="assets/images/courses/python_dev_165.webp"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <h3 class="course-title">Python-разработка</h3>
+                <p class="course-desc">
+                  Изучение языка через практические кейсы: игры, боты,
+                  утилиты, работа с базами данных и веб-сайтами; сбор
+                  портфолио с проектами, которые можно показать
+                  работодателю.
+                </p>
+                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+              </article>
+
+              <article class="course-card">
+                <div class="course-meta">12+ лет</div>
+                <div class="course-media">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="assets/images/courses/unity_csharp_quad.webp"
+                    />
+                    <img
+                      src="assets/images/courses/unity_csharp_165.webp"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <h3 class="course-title">Unity + C#</h3>
+                <p class="course-desc">
+                  Создание игр и приложений в Unity: перемещение объектов,
+                  скрипты, изучение языка С#, игровые механики и базовые
+                  физические взаимодействия.
+                </p>
+                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+              </article>
+
+              <article class="course-card">
+                <div class="course-meta">14+ лет</div>
+                <div class="course-media">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="assets/images/courses/informatics_exam_quad.webp"
+                    />
+                    <img
+                      src="assets/images/courses/informatics_exam_165.webp"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <h3 class="course-title">ЕГЭ/ОГЭ по информатике</h3>
+                <p class="course-desc">
+                  Индивидуальная подготовка с упором на практику. Разбор
+                  задач различными способами и систематическое повторение.
+                </p>
+                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+              </article>
+
+              <article class="course-card">
+                <div class="course-meta">7+ лет</div>
+                <div class="course-media">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="assets/images/courses/math_informatics_quad.webp"
+                    />
+                    <img
+                      src="assets/images/courses/math_informatics_165.webp"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <h3 class="course-title">
+                  Школьная программа.<br />Математика и информатика
+                </h3>
+                <p class="course-desc">
+                  Индивидуальная подготовка с упором на практику. помощь с
+                  алгоритмами, Pascal, работой в учебных редакторах и
+                  любыми темами, требуемыми в школе.
+                </p>
+                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+              </article>
+            </div>
+          </div>
+
+          <!-- tab4 panel -->
+          <div id="tab4" class="tab-panel">
+            <div class="panel-cards">
+              <article class="course-card">
+                <div class="course-meta">9+ лет</div>
+                <div class="course-media">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="assets/images/courses/wedo_quad.webp"
+                    />
+                    <img
+                      src="assets/images/courses/wedo_165.webp"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <h3 class="course-title">Lego WeDo 2.0</h3>
+                <p class="course-desc">
+                  начальная робототехника: создание и программирование
+                  простых моделей в блочном языке, а также в среде
+                  разработки WeDo.
+                </p>
+                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+              </article>
+
+              <article class="course-card">
+                <div class="course-meta">10+ лет</div>
+                <div class="course-media">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="assets/images/courses/ev3_quad.webp"
+                    />
+                    <img
+                      src="assets/images/courses/ev3_165.webp"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <h3 class="course-title">Lego EV3</h3>
+                <p class="course-desc">
+                  Продвинутые конструкции с большим количеством датчиков и
+                  более сложным программированием.
+                </p>
+                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+              </article>
+
+              <article class="course-card">
+                <div class="course-meta">12+ лет</div>
+                <div class="course-media">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="assets/images/courses/arduino_quad.webp"
+                    />
+                    <img
+                      src="assets/images/courses/arduino_165.webp"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <h3 class="course-title">Arduino</h3>
+                <p class="course-desc">
+                  Основы схемотехники и электроники: сборка схем, работа с
+                  датчиками и программирование плат. Изучения
+                  программирования на базе языка Arduino C.
+                </p>
+                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+              </article>
+
+              <article class="course-card">
+                <div class="course-meta">6+ лет</div>
+                <div class="course-media">
+                  <picture>
+                    <source
+                      media="(max-width: 600px)"
+                      srcset="assets/images/courses/other_robots_quad.webp"
+                    />
+                    <img
+                      src="assets/images/courses/other_robots_165.webp"
+                      alt=""
+                    />
+                  </picture>
+                </div>
+                <h3 class="course-title">Другое</h3>
+                <p class="course-desc">
+                  Lego Boost, создание систем умного дома, настройка
+                  серверов и другие практические проекты.
+                </p>
+                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section id="reviews" style="margin-top: 20px">
+        <div
+          style="
+            background: var(--card);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+          "
+        >
+          <h2 style="font-family: var(--mono); margin-top: 0">Отзывы</h2>
+          <p style="color: var(--muted); margin-bottom: 12px">
+            Реальные отзывы от родителей и учеников, взяты с
+            <a
+              href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+              >веб-сайта «Авито»</a
+            >
+          </p>
+
+          <div class="reviews-wrap" aria-hidden="false">
+            <div class="reviews-track" role="list">
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Наталья</h3>
+                <p class="review-text">
+                  Обратились к Игорю, чтобы решить задачу с Arduino. Быстро
+                  выполнил поставленную задачу. Был вежлив и деликатен. Спасибо,
+                  обратимся еще в следующий раз. Рекомендуем.
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Евгения</h3>
+                <p class="review-text">
+                  Пробовали других репетиторов — были только вводные занятия без
+                  структуры. С Игорем полноценный урок: объясняет понятно,
+                  закрепляет практикой. Внимательный, цена адекватная.
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Виктор</h3>
+                <p class="review-text">
+                  Обратился с помощью в подготовке к чемпионату по
+                  программированию, практически ничего не знал, но после
+                  нескольких занятий всё стало понятно. Очень рекомендую данного
+                  репетитора!
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Олег Кивокурцев</h3>
+                <p class="review-text">
+                  Вожу ребенка к Игорю на занятия по информатике. Очень доволен
+                  качеством уроков. Всегда интересно, методично, весело. Ребенок
+                  точно полюбит этот предмет
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Иван</h3>
+                <p class="review-text">
+                  Хочу поблагодарить Игоря за занятия с сыном: последовательно
+                  осваивают программирование и уже создают мини-игры. Игорь
+                  терпеливо объясняет и всегда помогает.
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Ольга</h3>
+                <p class="review-text">
+                  Хочу выразить благодарность за идеально выполненный проект —
+                  ребёнок впервые получил 5 по предмету. Обязательно будем
+                  обращаться ещё!
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Наталья</h3>
+                <p class="review-text">
+                  Все отлично! Игорь очень терпеливый педагог, сыну нравится
+                  заниматься. Постоянно помогает, объясняет, всегда на связи.
+                  Рекомендую!
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Игнат</h3>
+                <p class="review-text">
+                  Отличный преподаватель. Ребенок с интересом занимается Unity и
+                  C#. Игорь всегда готов помочь и объяснить сложные моменты.
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Александра</h3>
+                <p class="review-text">
+                  Игорь очень ответственно подходит к работе, понятно объясняет
+                  (ребёнку 10 лет), всегда отправляет краткий отчёт после урока
+                  и домашнее задание. Мы довольны!
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Ольга</h3>
+                <p class="review-text">
+                  Хочу выразить благодарность за идеально выполненный проект —
+                  ребёнок впервые получил 5 по предмету. Обязательно будем
+                  обращаться ещё!
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Михаил</h3>
+                <p class="review-text">
+                  Все отлично. Прекрасный преподаватель и просто хороший
+                  человек. Сразу нашел подход к детям 10 и 12 лет. Занимаются с
+                  большим удовольствием. Однозначно рекомендую к сотрудничеству.
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Никита</h3>
+                <p class="review-text">
+                  Отличный преподаватель: всего за 4 занятия объяснил материал и
+                  помог разобраться в коде лучше, чем за целый курс в институте.
+                  Позитивный, объясняет понятно и умеет найти подход к любому
+                  ученику. Однозначно рекомендую!
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Алина</h3>
+                <p class="review-text">
+                  Очень грамотное объяснение материала, структурированные
+                  занятия. Преподаватель отлично подстроился по быстрый темп,
+                  помог за пару занятий освоить базу. Быстрое взаимодействие и
+                  ответы на вопросы. Очень рекомендую его всем, кто хочет
+                  освоить Питон.
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Анна Владимировна</h3>
+                <p class="review-text">
+                  Игорь занимается с моим сыном. Он отлично наладил контакт с
+                  ребёнком, занятия проходят ёмко и продуктивно. Запрос был на
+                  обучение программированию — Игорь даёт домашние задания и
+                  подбирает дополнительный материал. Я как мама полностью
+                  довольна процессом и результатом.
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+
+              <article class="review-card" role="listitem">
+                <h3 class="review-name">Татьяна</h3>
+                <p class="review-text">
+                  Очень хороший преподаватель! Вежливый, отзывчивый, объясняет
+                  всё понятно — ребёнок на занятия бежал с удовольствием.
+                  Обязательно будем обращаться в следующем учебном году.
+                  Рекомендую!
+                </p>
+                <a
+                  class="review-avito"
+                  href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207#open-reviews-list"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Отзывы на Авито"
+                >
+                  <!-- Маленькая иконка Avito (placeholder) -->
+                  <!-- <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="6" cy="12" r="3" fill="#f59e0b"/>
+                      <circle cx="18" cy="12" r="3" fill="#10b981"/>
+                  </svg> -->
+                  <img
+                    width="18"
+                    src="assets/images/avito_logo.webp"
+                    alt="Avito Logo"
+                    style="border-radius: 25%"
+                  />
+                </a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Reviews -->
+      <section id="design" style="margin-top: 20px; min-height: 120px">
+        <div
+          style="
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+          "
+        >
+          <h2 style="font-family: var(--mono); margin-top: 0">Дизайн</h2>
+
+          <p style="color: var(--muted); margin-bottom: 12px">
+            Создаю графику в векторе и растре, делаю афиши, иллюстрации,
+            рекламные материалы и любые виды визуального контента. Работаю с
+            монтажом и моушен-дизайном, поэтому могу не только оформить
+            статичную картинку, но и оживить её движением. Для меня важно, чтобы
+            дизайн был не просто красивым, а цеплял внимание, передавал
+            настроение и решал задачу. Ниже — портфолио с некоторыми моими
+            работами.
+          </p>
+
+          <!-- === ВСТАВИТЬ iframe с изолированной галереей === -->
+          <div style="margin-top: 14px">
+            <iframe
+              src="assets/gallery.html"
+              title="Портфолио — галерея работ"
+              loading="lazy"
+              style="
+                width: 100%;
+                height: 720px;
+                border: 0;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: var(--shadow);
+              "
+              aria-label="Встраиваемая галерея портфолио"
+            >
+            </iframe>
+          </div>
+
+          <noscript>
+            <p style="color: var(--muted); margin-top: 10px">
+              Чтобы увидеть галерею, включите JavaScript в браузере.
+            </p>
+          </noscript>
+        </div>
+      </section>
+
+      <section
+        id="music"
+        style="margin-top: 20px; min-height: 120px"
+        aria-labelledby="music-title"
+      >
+        <div
+          style="
+            background: var(--card);
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+          "
+        >
+          <!-- Подключение шрифтов (умышленно внутри секции, чтобы минимально влиять на остальную страницу) -->
+          <!-- <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet"> -->
+
+          <h2 id="music-title" style="font-family: var(--mono); margin-top: 0">
+            Музыка
+          </h2>
+          <p style="color: var(--muted); margin-bottom: 14px">
+            PR-директор кавер-группы
+            <a href="https://vk.com/necoverok" target="_blank">«НеКавер»</a> и
+            дизайнер коллектива. За плечами — десятки живых выступлений на
+            частных мероприятиях и городских фестивалях. Я занимаюсь
+            организацией концертов, продвижением и коммуникацией с заказчиками —
+            вы получаете готовое шоу, от первых переговоров до финальных
+            аплодисментов. Свяжитесь
+            <a
+              href="https://t.me/ig_mizyovv"
+              class="contact-link"
+              data-value="ig_mizyovv"
+              data-action="default"
+              >со мной</a
+            >
+            — обсудим формат, репертуар и бюджет под ваше событие.
+          </p>
+
+          <!--  HTML КАРТОЧЕК -->
+          <div class="card-grid" aria-hidden="false" style="margin-top: 12px">
+            <!-- Card 1 -->
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-face card-front one">
+                  <div>
+                    <h2>Состав группы</h2>
+                    <p>
+                      Профессиональные музыканты с опытом живых выступлений и
+                      студийных записей
+                    </p>
+                  </div>
+                  <p>Нажмите, чтобы узнать подробности</p>
+                </div>
+                <div class="card-face card-back">
+                  <div>
+                    <h3>Кто в составе</h3>
+                    <ul class="features">
+                      <li>
+                        <a href="https://vk.com/dariiv23" target="_blank"
+                          >Вокалистка</a
+                        >
+                      </li>
+                      <li>
+                        <a href="https://vk.com/akatae4va2" target="_blank"
+                          >Гитарист</a
+                        >
+                      </li>
+                      <li>
+                        <a href="https://vk.com/tut_nicheg0_net" target="_blank"
+                          >Бас-гитарист</a
+                        >
+                      </li>
+                      <li>
+                        <a href="https://vk.com/olexsandrsamadi" target="_blank"
+                          >Барабанщик</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="cta-buttons">
+                    <a
+                      href="https://vk.com/necoverok?z=clip-225829746_456239032"
+                      data-no-binary
+                      target="_blank"
+                      class="primary"
+                      >Подробнее</a
+                    >
+                    <a
+                      href="https://vk.com/gim225829746"
+                      data-no-binary
+                      target="_blank"
+                      class="secondary"
+                      >Связаться</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-face card-front two">
+                  <div>
+                    <h2>Репертуар и стиль</h2>
+                    <p>
+                      Гибкий репертуар: от современных поп-хитов и инди до фанка
+                      и хип-хопа.
+                    </p>
+                  </div>
+                  <p>Нажмите, чтобы узнать подробности</p>
+                </div>
+                <div class="card-face card-back">
+                  <div>
+                    <h3>Что мы играем</h3>
+                    <ul class="features">
+                      <li>Хиты прошлого в современных аранжировках</li>
+                      <li>Актуальные треки и каверы</li>
+                      <li>Акустические блоки и танцевальные сеты</li>
+                    </ul>
+                  </div>
+                  <div class="cta-buttons">
+                    <a
+                      href="https://vk.com/necoverok?z=clip-225829746_456239032"
+                      target="_blank"
+                      class="primary"
+                      >Подробнее</a
+                    >
+                    <a
+                      href="https://vk.com/gim225829746"
+                      target="_blank"
+                      class="secondary"
+                      >Связаться</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-face card-front three">
+                  <div>
+                    <h2>Наши услуги</h2>
+                    <p>
+                      Полный концертный сервис: от подготовки программы до
+                      технического сопровождения
+                    </p>
+                  </div>
+                  <p>Нажмите, чтобы узнать подробности</p>
+                </div>
+                <div class="card-face card-back">
+                  <div>
+                    <h3>Что включено</h3>
+                    <ul class="features">
+                      <li>Звук, свет, звукорежиссёр</li>
+                      <li>Несколько блоков музыки</li>
+                      <li>Видео/аудио-демо и отзывы</li>
+                    </ul>
+                  </div>
+                  <div class="cta-buttons">
+                    <a
+                      href="https://vk.com/necoverok?z=clip-225829746_456239032"
+                      target="_blank"
+                      class="primary"
+                      >Подробнее</a
+                    >
+                    <a
+                      href="https://vk.com/gim225829746"
+                      target="_blank"
+                      class="secondary"
+                      >Связаться</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <!-- <div class="card">
+        <div class="card-inner">
+          <div class="card-face card-front four">
+            <div>
+              <h2>Pulse Metrics</h2>
+              <p>Real-time monitoring platform with predictive analytics and anomaly detection.</p>
+            </div>
+            <p>Tap or click to flip</p>
+          </div>
+          <div class="card-face card-back">
+            <div>
+              <h3>Highlights</h3>
+              <ul class="features">
+                <li>Live dashboards</li>
+                <li>Predictive forecasting</li>
+                <li>Custom alerts & triggers</li>
+                <li>AI-based anomaly tracking</li>
+              </ul>
+            </div>
+            <div class="cta-buttons">
+              <a href="#" class="primary">Start Free</a>
+              <a href="#" class="secondary">View Demo</a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+          </div>
+          <!-- /.card-grid -->
+
+          <!-- Scoped CSS ( всё стилизовано под #music, чтобы не ломать остальную страницу) -->
+          <style>
+            /* --- Переменные: локальные для секции #music --- */
+            #music {
+              --mc-bg: #0a0c10;
+              --mc-card-bg: rgba(20, 25, 35, 0.9);
+              --mc-accent: #00f5ff;
+              --mc-text: #fafbfd;
+              --mc-text-dim: #ffffff;
+              --mc-radius: 20px;
+              --mc-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+            }
+
+            /* Сетка карточек */
+            #music .card-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+              gap: 30px;
+              width: 100%;
+              max-width: 1200px;
+              margin: 0;
+            }
+
+            /* Карточка (3D-переворот) */
+            #music .card {
+              perspective: 1000px;
+              cursor: pointer;
+              position: relative;
+              transform-style: preserve-3d;
+            }
+
+            #music .card-inner {
+              position: relative;
+              width: 100%;
+              min-height: 360px;
+              transform-style: preserve-3d;
+              border-radius: var(--mc-radius);
+              transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+              will-change: transform;
+            }
+
+            #music .card.flipped .card-inner {
+              transform: rotateY(180deg);
+            }
+
+            #music .card-face {
+              position: absolute;
+              inset: 0;
+              border-radius: var(--mc-radius);
+              background: var(--mc-card-bg);
+              box-shadow: var(--mc-shadow);
+              padding: 24px;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              backface-visibility: hidden;
+              transform-style: preserve-3d;
+              transition:
+                box-shadow 0.3s,
+                filter 0.3s;
+              color: var(--mc-text);
+            }
+
+            #music .card-face::before {
+              content: "";
+              position: absolute;
+              inset: 0;
+              border-radius: var(--mc-radius);
+              box-shadow:
+                0 0 12px rgba(0, 255, 255, 0.25),
+                0 0 25px rgba(0, 255, 255, 0.15) inset;
+              opacity: 0;
+              transition: opacity 0.4s;
+              pointer-events: none;
+            }
+
+            #music .card:hover .card-face::before,
+            #music .card.flipped .card-face::before {
+              opacity: 1;
+              animation: music-pulse 2s infinite alternate;
+            }
+
+            @keyframes music-pulse {
+              0% {
+                box-shadow:
+                  0 0 12px rgba(0, 255, 255, 0.25),
+                  0 0 25px rgba(0, 255, 255, 0.15) inset;
+              }
+              50% {
+                box-shadow:
+                  0 0 22px rgba(0, 255, 255, 0.4),
+                  0 0 35px rgba(0, 255, 255, 0.25) inset;
+              }
+              100% {
+                box-shadow:
+                  0 0 12px rgba(0, 255, 255, 0.25),
+                  0 0 25px rgba(0, 255, 255, 0.15) inset;
+              }
+            }
+
+            /* Front */
+            #music .card-front h2 {
+              font-family:
+                "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular,
+                Menlo, Monaco, monospace;
+              font-size: 1.6rem;
+              color: var(--mc-accent);
+              margin-bottom: 0.5rem;
+            }
+            #music .card-front p {
+              font-size: 1rem;
+              color: var(--mc-text-dim);
+              line-height: 1.5;
+            }
+
+            /* фоновые картинки для front faces (исходные URL сохранены) */
+            #music .one {
+              background: url("assets/images/card2.webp");
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+
+            #music .two {
+              background: url("assets/images/card1.webp");
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+
+            #music .three {
+              background: url("assets/images/card3.webp");
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+            /* #music .four{ background: url("https://iili.io/KST8L1R.webp"); background-position: center; background-repeat: no-repeat; background-size: cover; } */
+
+            /* Back */
+            #music .card-back {
+              transform: rotateY(180deg);
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            }
+            #music .card-back h3 {
+              font-family: "Orbitron", "Inter", sans-serif;
+              font-size: 1.4rem;
+              color: var(--mc-accent);
+              margin-bottom: 1rem;
+            }
+
+            /* Лист с фичами */
+            #music ul.features {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+            }
+            #music ul.features li {
+              margin-bottom: 0.6rem;
+              padding-left: 1.4rem;
+              position: relative;
+              color: var(--mc-text-dim);
+              font-size: 0.95rem;
+            }
+            #music ul.features li::before {
+              content: "⚡";
+              position: absolute;
+              left: 0;
+              color: var(--mc-accent);
+            }
+
+            /* CTA */
+            #music .cta-buttons {
+              display: flex;
+              gap: 12px;
+              margin-top: 1.5rem;
+            }
+            #music .cta-buttons a {
+              flex: 1;
+              text-align: center;
+              text-decoration: none;
+              padding: 10px 14px;
+              border-radius: 8px;
+              font-weight: 600;
+              transition: all 0.3s;
+              display: inline-block;
+            }
+            #music .cta-buttons a.primary {
+              background: var(--mc-accent);
+              color: #000;
+            }
+            #music .cta-buttons a.primary:hover {
+              background: #00ffff;
+            }
+            #music .cta-buttons a.secondary {
+              border: 1px solid var(--mc-accent);
+              color: var(--mc-accent);
+            }
+            #music .cta-buttons a.secondary:hover {
+              background: rgba(0, 255, 255, 0.1);
+            }
+
+            /* Адаптив */
+            @media (max-width: 768px) {
+              #music .card-inner {
+                min-height: 300px;
+              }
+              #music .card-face {
+                padding: 18px;
+              }
+              #music .card-front h2 {
+                font-size: 1.3rem;
+              }
+              #music .card-back h3 {
+                font-size: 1.2rem;
+              }
+              #music ul.features li {
+                font-size: 0.9rem;
+              }
+              /* чуть уменьшим gap на мобильных */
+              #music .card-grid {
+                gap: 18px;
+              }
+            }
+
+            /* Комбо: градиент под текст + текстовый шадоу */
+            #music .card-front > div {
+              position: relative;
+              z-index: 2;
+            }
+
+            #music .card-front > div::before {
+              content: "";
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              height: 48%;
+              z-index: 1;
+              pointer-events: none;
+              background: linear-gradient(
+                180deg,
+                rgba(2, 6, 18, 0) 0%,
+                rgba(4, 10, 26, 0.46) 45%,
+                rgba(4, 10, 26, 0.72) 100%
+              );
+            }
+
+            #music .card-front h2,
+            #music .card-front p {
+              position: relative;
+              z-index: 3;
+              text-shadow:
+                0 6px 18px rgba(0, 8, 20, 0.72),
+                0 1px 2px rgba(0, 0, 0, 0.4);
+            }
+
+            /* Стили для подсказки "Tap or click to flip" — выделяем так же, как заголовки */
+            #music .card-front > p {
+              position: relative;
+              z-index: 3; /* поверх overlay'а */
+              display: inline-block; /* подложка оборачивает текст по ширине */
+              margin: 0;
+              padding: 6px 10px;
+              font-size: 0.95rem;
+              font-weight: 600;
+              color: #eafcff; /* чуть мягче белого */
+              background: linear-gradient(
+                180deg,
+                rgba(3, 30, 70, 0.56),
+                rgba(6, 12, 28, 0.44)
+              );
+              border-radius: 8px;
+              text-shadow: 0 6px 18px rgba(0, 8, 20, 0.7);
+              box-shadow: 0 6px 18px rgba(0, 0, 0, 0.36);
+              pointer-events: none; /* чтобы клик шёл на карточку, а не на подпись */
+              -webkit-backdrop-filter: blur(4px);
+              backdrop-filter: blur(4px);
+            }
+
+            /* Если нужно — можно сделать чуть более компактно на мобильных */
+            @media (max-width: 480px) {
+              #music .card-front > p {
+                padding: 4px 8px;
+                font-size: 0.9rem;
+                border-radius: 6px;
+                -webkit-backdrop-filter: none;
+                backdrop-filter: none; /* у некоторых устройств это медленно, поэтому отключаем */
+              }
+            }
+          </style>
+
+          <!-- Scoped JS: логика переворота и 3D-реакции. Ограничено секцией #music -->
+          <script>
+            (function () {
+              const musicRoot = document.getElementById("music");
+              if (!musicRoot) return;
+
+              const isTouch = "ontouchstart" in window;
+
+              musicRoot.querySelectorAll(".card").forEach((card) => {
+                const inner = card.querySelector(".card-inner");
+
+                // Tap/click flip с subtle scale-bounce (как в оригинале)
+                card.addEventListener("click", () => {
+                  const wasFlipped = card.classList.contains("flipped");
+                  const baseRotate = wasFlipped ? 0 : 180;
+
+                  // короткая "отскок"-фаза
+                  inner.style.transition = "transform 0.15s ease-out";
+                  inner.style.transform = `rotateY(${baseRotate}deg) scale(1.05)`;
+
+                  setTimeout(() => {
+                    inner.style.transition =
+                      "transform 0.7s cubic-bezier(.4,.2,.2,1)";
+                    // применим окончательную трансформацию (и переключим класс)
+                    inner.style.transform = `rotateY(${baseRotate}deg) scale(1)`;
+                    card.classList.toggle("flipped");
+                  }, 150);
+                });
+
+                // Эффект 3D-параллакса на мыши (только для non-touch)
+                if (!isTouch) {
+                  card.addEventListener("mousemove", (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -10;
+                    const rotateY = ((x - centerX) / centerX) * 10;
+                    const baseRotate = card.classList.contains("flipped")
+                      ? 180
+                      : 0;
+                    inner.style.transform = `rotateY(${baseRotate}deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1)`;
+                  });
+
+                  card.addEventListener("mouseleave", () => {
+                    const baseRotate = card.classList.contains("flipped")
+                      ? 180
+                      : 0;
+                    inner.style.transform = `rotateY(${baseRotate}deg) rotateX(0deg) rotateY(0deg) scale(1)`;
+                  });
+                }
+              });
+            })();
+          </script>
+        </div>
+      </section>
+
+      <section id="contacts" style="margin-top: 26px">
+        <div
+          style="
+            background: linear-gradient(180deg, #fff, #f8fbff);
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+          "
+        >
+          <h3 style="font-family: var(--mono)">Контакты</h3>
+          <p style="color: var(--muted)">
+            Телефон:
+            <a
+              href="tel:+79504697461"
+              class="contact-link"
+              data-value="+79504697461"
+              data-action="tel"
+              >+7 (950) 469-74-61</a
+            >
+          </p>
+          <p style="color: var(--muted)">
+            Telegram -
+            <a
+              href="https://t.me/ig_mizyovv"
+              class="contact-link"
+              data-value="ig_mizyovv"
+              data-action="default"
+              >@ig_mizyovv</a
+            >
+          </p>
+          <p style="color: var(--muted)">
+            Email -
+            <a
+              href="mailto:ig.mizyovvv@gmail.com"
+              class="contact-link"
+              data-action="mailto"
+              data-value="ig.mizyovvv@gmail.com"
+              >ig.mizyovvv@gmail.com</a
+            >
+          </p>
+          <p style="color: var(--muted)">
+            Avito -
+            <a
+              href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207"
+              target="_blank"
+              >Игорь Мизёв</a
+            >
+          </p>
+        </div>
+      </section>
+      <section id="footer">
+        <footer>
+          <div
+            style="margin-top: 26px; text-align: center; color: var(--muted)"
+          >
+            © Игорь Мизёв — Все права защищены
+          </div>
+        </footer>
+      </section>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite">
+      Скопировано
+    </div>
+    <script>
+      // Mobile menu logic with outside-click close + ESC
+      const toggle = document.querySelector(".menu-toggle");
+      const navUl = document.querySelector("nav ul");
+      const nav = document.querySelector("nav");
+      function openMenu() {
+        toggle && toggle.setAttribute("aria-expanded", "true");
+        navUl.style.display = "flex";
+        navUl.style.flexDirection = "column";
+        navUl.style.background = "white";
+        navUl.style.position = "absolute";
+        navUl.style.right = "20px";
+        navUl.style.top = "64px";
+        navUl.style.padding = "12px";
+        navUl.style.boxShadow = "var(--shadow)";
+        navUl.style.zIndex = 150;
+      }
+      function closeMenu() {
+        toggle && toggle.setAttribute("aria-expanded", "false");
+        navUl.style.display = "";
+      }
+      toggle &&
+        toggle.addEventListener("click", (e) => {
+          const expanded = toggle.getAttribute("aria-expanded") === "true";
+          if (expanded) closeMenu();
+          else openMenu();
+          e.stopPropagation();
+        });
+      document.addEventListener("click", (e) => {
+        if (window.innerWidth <= 1200) {
+          const isInsideNav = nav.contains(e.target);
+          const isMenuOpen =
+            toggle && toggle.getAttribute("aria-expanded") === "true";
+          if (isMenuOpen && !isInsideNav) {
+            closeMenu();
+          }
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (href === "#") return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            if (window.innerWidth <= 1200) {
+              closeMenu();
+            }
+          }
+        });
+      });
+
+      // Courses: panels shown separately; arrows scroll the active panel's cards; tabs have their own arrows on mobile
+      (function () {
+        const tabs = Array.from(document.querySelectorAll(".tab-btn"));
+        const panels = Array.from(document.querySelectorAll(".tab-panel"));
+        const wrapper = document.querySelector(".courses-wrapper");
+        const leftBtn = wrapper.querySelector(".scroll-btn.left");
+        const rightBtn = wrapper.querySelector(".scroll-btn.right");
+        const tabsContainer = document.querySelector(".courses-tabs");
+        const tabsLeft = document.querySelector(".tabs-left");
+        const tabsRight = document.querySelector(".tabs-right");
+
+        function setActive(id) {
+          panels.forEach((p) => p.classList.toggle("active", p.id === id));
+          tabs.forEach((t) =>
+            t.classList.toggle("active", t.dataset.tab === id),
+          );
+          // reset scroll position of active panel
+          const panel = document.querySelector("#" + id);
+          const cards = panel.querySelector(".panel-cards");
+          cards && cards.scrollTo({ left: 0, behavior: "smooth" });
+          updateArrowsFor(id);
+          updateTabsArrows();
+        }
+
+        function updateArrowsFor(id) {
+          const panel = document.querySelector("#" + id);
+          const cards = panel.querySelector(".panel-cards");
+          if (!cards) {
+            leftBtn.classList.add("hidden");
+            rightBtn.classList.add("hidden");
+            return;
+          }
+          // show arrows only if overflow horizontally
+          if (cards.scrollWidth > cards.clientWidth + 4) {
+            leftBtn.classList.remove("hidden");
+            rightBtn.classList.remove("hidden");
+          } else {
+            leftBtn.classList.add("hidden");
+            rightBtn.classList.add("hidden");
+          }
+        }
+
+        function getCardStep(cards) {
+          const card = cards.querySelector(".course-card");
+          if (!card) return Math.round(cards.clientWidth * 0.8);
+          const style = getComputedStyle(cards);
+          const gap = parseInt(style.gap) || 18;
+          return Math.round(card.clientWidth + gap);
+        }
+
+        // tab clicks
+        tabs.forEach((t) =>
+          t.addEventListener("click", () => setActive(t.dataset.tab)),
+        );
+
+        // arrows for cards -> scroll the active panel by one card
+        leftBtn.addEventListener("click", () => {
+          const active = document.querySelector(".tab-panel.active");
+          const cards = active.querySelector(".panel-cards");
+          const step = getCardStep(cards);
+          cards.scrollBy({ left: -step, behavior: "smooth" });
+        });
+        rightBtn.addEventListener("click", () => {
+          const active = document.querySelector(".tab-panel.active");
+          const cards = active.querySelector(".panel-cards");
+          const step = getCardStep(cards);
+          cards.scrollBy({ left: step, behavior: "smooth" });
+        });
+
+        // tabs arrows (mobile) -> scroll tabs row by one tab width
+        function getTabStep() {
+          const tab = tabsContainer.querySelector(".tab-btn");
+          if (!tab) return Math.round(tabsContainer.clientWidth * 0.5);
+          return Math.round(
+            tab.offsetWidth +
+              parseInt(getComputedStyle(tabsContainer).gap || 10),
+          );
+        }
+        tabsLeft &&
+          tabsLeft.addEventListener("click", () => {
+            tabsContainer.scrollBy({ left: -getTabStep(), behavior: "smooth" });
+          });
+        tabsRight &&
+          tabsRight.addEventListener("click", () => {
+            tabsContainer.scrollBy({ left: getTabStep(), behavior: "smooth" });
+          });
+
+        // show/hide tab arrows on desktop only when tabs overflow
+        function updateTabsArrows() {
+          if (!tabsContainer || !tabsLeft || !tabsRight) return;
+          const overflow =
+            tabsContainer.scrollWidth > tabsContainer.clientWidth + 4;
+          // on mobile we show arrows by CSS; here control desktop appearance
+          if (window.innerWidth > 480) {
+            tabsLeft.style.display = overflow ? "flex" : "none";
+            tabsRight.style.display = overflow ? "flex" : "none";
+          } else {
+            // mobile: ensure visible (CSS handles it too)
+            tabsLeft.style.display = "flex";
+            tabsRight.style.display = "flex";
+          }
+        }
+
+        // recalc on resize and when content changes
+        window.addEventListener("resize", () => {
+          const active = document.querySelector(".tab-panel.active");
+          if (active) updateArrowsFor(active.id);
+          updateTabsArrows();
+        });
+        panels.forEach((p) => {
+          const cards = p.querySelector(".panel-cards");
+          if (cards) {
+            new ResizeObserver(() => {
+              if (p.classList.contains("active")) updateArrowsFor(p.id);
+            }).observe(cards);
+          }
+        });
+
+        // init
+        setActive("tab1");
+        // small delay to ensure fonts/layout applied
+        setTimeout(updateTabsArrows, 120);
+      })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.0/tsparticles.bundle.min.js"></script>
+    <script src="assets/js/visual-init.js"></script>
+    <script src="assets/js/review.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

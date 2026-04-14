@@ -1,0 +1,480 @@
+
+/* ======================================================== */
+/* assets/css/style.css (created from inline <style> block) */
+/* ======================================================== */
+:root{
+  --bg-h: 216;
+  --bg-s: 26%;
+  --bg-l: 8%;
+  --text-main: 96%;
+  --text-sub: 90%;
+  --muted: 90%;
+  --accent1-h: 187; /* cyan */
+  --accent2-h: 230; /* electric blue */
+  --accent-s: 86%;
+  --accent-l: 56%;
+  --glass-alpha: 0.07;
+  --glass-border: rgba(255,255,255,0.04);
+  --card-radius: 14px;
+  --shadow-soft: 0 10px 30px rgba(6,12,22,0.56);
+  --shadow-strong: 0 22px 60px rgba(4,8,18,0.72);
+  --shadow: 0 8px 24px rgba(6,12,20,0.55);
+  --blur: 12px;
+  --trans: 420ms;
+  --easing: cubic-bezier(.22,.9,.32,1);
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  --mono: var(--font-mono);
+  /* card background used by inline-styled panels that referenced var(--card) */
+  --card: linear-gradient(180deg, rgba(18,22,30,0.78), rgba(12,14,18,0.52));
+}
+*{box-sizing:border-box}
+html,body{height:100%;min-height:100%;background-color:hsl(calc(var(--bg-h)-6) calc(var(--bg-s)+3%) 6%) !important; background:linear-gradient(180deg,hsl(var(--bg-h) var(--bg-s) 7%),hsl(calc(var(--bg-h)-6) calc(var(--bg-s)+2%) 4%)) !important; color:hsl(210 12% var(--text-main)) !important;}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  padding-bottom:40px;
+  position:relative;
+  overflow-x:hidden;
+  background-attachment:fixed;
+  color: hsl(210 12% var(--text-main));
+}
+:root{ color-scheme: dark; }
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:1; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.008) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.006) 1px, transparent 1px);
+  background-size:88px 88px,88px 88px;
+  opacity:0.09;
+}
+body::after{
+  content:"";
+  position:fixed; inset:0; z-index:1; pointer-events:none; mix-blend-mode: screen;
+  background-image:
+    radial-gradient(400px 300px at 10% 20%, rgba(70,160,220,0.06), transparent 25%),
+    radial-gradient(380px 280px at 85% 70%, rgba(120,100,220,0.05), transparent 22%);
+  opacity:0.95;
+  animation: float-blobs 18s linear infinite;
+}
+@keyframes float-blobs {
+  0%{transform:translateY(0) translateX(0)}
+  50%{transform:translateY(-18px) translateX(12px)}
+  100%{transform:translateY(0) translateX(0)}
+}
+#vparticles{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:0.78;filter:blur(0.2px)}
+.container{
+  max-width:1300px;
+  width:calc(100% - 80px);
+  margin:0 auto;
+  padding:28px 20px;
+  position:relative;
+  z-index:3
+}
+header{position:sticky;top:0;z-index:60;background:linear-gradient(180deg, rgba(8,12,18,0.64), rgba(6,10,14,0.56));backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.02)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,hsl(var(--accent1-h) var(--accent-s) 52%),hsl(var(--accent2-h) var(--accent-s) 50%));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-family:var(--mono)}
+.site-title{font-family:var(--mono);font-weight:600;font-size:16px;color:rgba(255,255,255,0.98)}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+nav a{color:rgba(255,255,255,0.96);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;display:inline-block;white-space:nowrap;text-align:center}
+nav a:hover{background:rgba(255,255,255,0.02)}
+.actions{display:flex;gap:12px;align-items:center}
+.socials{display:flex;gap:8px;align-items:center}
+.socials a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.02);text-decoration:none}
+.phone{display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border-radius:10px;
+  background:linear-gradient(90deg,hsl(var(--accent1-h) var(--accent-s) 62%),hsl(var(--accent2-h) var(--accent-s) 60%)) !important;
+  color:#041122;
+  text-decoration:none;
+  font-weight:700;
+  white-space:nowrap}
+.menu-toggle{display:none;background:transparent;border:0;padding:8px}
+.hero{padding:36px 0}
+.hero-grid{
+  display:grid;
+  grid-template-columns:360px 1fr;
+  gap:28px;
+  align-items:center
+}
+.avatar{
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+.avatar img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.02) contrast(1.04);
+}
+.about{
+  background:var(--card);
+  padding:22px;
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(255,255,255,0.02)
+}
+.about h1{
+  margin:0 0 8px;
+  font-family:var(--mono);
+  font-size:22px;
+  color:rgba(255,255,255,0.98);
+  text-shadow:0 1px 0 rgba(0,0,0,0.3)
+}
+.about p.lead{margin:0 0 14px;color:rgba(255, 255, 255, 1);font-weight:600}
+.about p.small{margin:0 0 10px;color:rgba(255, 255, 255, 1)}
+.btn-primary{display:inline-block;background:linear-gradient(90deg,hsl(var(--accent1-h) var(--accent-s) calc(var(--accent-l) + 4%)),hsl(var(--accent2-h) var(--accent-s) var(--accent-l)));color:#041122;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:0 10px 36px rgba(35,150,200,0.12);transition:transform 180ms var(--easing),box-shadow 180ms var(--easing),filter 180ms}
+.btn-primary:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 26px 60px rgba(50,170,220,0.18);filter:brightness(1.03)}
+.advantages-grid{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;align-items:stretch}
+.adv-card{background:linear-gradient(180deg, rgba(20,24,30,0.88), rgba(12,16,20,0.6));padding:18px;border-radius:12px;min-height:120px;display:flex;flex-direction:column;justify-content:center;border:1px solid rgba(255,255,255,0.02);box-shadow:var(--shadow);transition:transform 320ms var(--easing),box-shadow 320ms var(--easing),box-shadow 320ms ease}
+.adv-card::before{content:"";position:absolute;z-index:0;inset:auto;pointer-events:none;border-radius:12px}
+.adv-card h4{margin:0 0 8px;color:hsl(var(--accent2-h) 88% 80%);font-weight:700}
+.adv-card p{margin:0;color:rgba(220,230,240,1)}
+.adv-card:hover{transform:translateY(-8px);box-shadow:0 22px 60px rgba(12,20,34,0.72)}
+.courses-tabs{display:flex;gap:10px;flex-wrap:nowrap;margin-bottom:12px;overflow:auto;margin:0 auto;-ms-overflow-style:none;scrollbar-width:none}
+.courses-tabs::-webkit-scrollbar{display:none;height:0}
+.tab-btn{background:transparent;border:1px solid rgba(255,255,255,0.03);padding:10px 14px;border-radius:10px;cursor:pointer;min-width:160px;text-align:center;color:rgba(230,240,255,0.96)}
+.tab-btn:hover{background:rgba(255,255,255,0.02)}.tab-btn.active{background:linear-gradient(90deg,hsl(var(--accent1-h) var(--accent-s) calc(var(--accent-l) - 4%)),hsl(var(--accent2-h) var(--accent-s) var(--accent-l)));color:#041122;border-color:transparent}
+.courses-wrapper{position:relative;padding-top:18px}
+.courses-scroll{overflow:hidden;padding:8px 8px}
+.courses-content{position:relative}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.panel-cards{display:flex;gap:18px;overflow-x:auto;scroll-behavior:smooth;padding-bottom:8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;width:100%}
+.panel-cards{ -ms-overflow-style: none; scrollbar-width: none; }
+.panel-cards::-webkit-scrollbar{ display:none; height:0; }
+.course-card{flex:0 0 320px;background:linear-gradient(180deg, rgba(16,20,26,0.9), rgba(10,14,18,0.6));border-radius:14px;padding:16px;border:1px solid rgba(255,255,255,0.02);box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:420px;scroll-snap-align:start;max-width:320px;transition:transform 360ms var(--easing),box-shadow 360ms var(--easing),border-color 360ms var(--easing)}
+.course-card::after{content:"";position:absolute;inset:0;border-radius:14px;pointer-events:none;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));mix-blend-mode:overlay}
+.course-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 28px 80px rgba(6,18,30,0.78);border-color:rgba(100,200,230,0.09)}
+.course-media{height:180px;border-radius:10px;overflow:hidden;background:linear-gradient(135deg, rgba(255,245,225,0.02), rgba(255,240,220,0.01));margin-bottom:12px;display:flex;align-items:center;justify-content:center}
+.course-meta{font-size:12px;color:rgba(190,205,220,0.9);margin-bottom:8px}
+.course-title{font-family:var(--mono);font-size:18px;margin:0 0 8px;color:rgba(255,255,255,0.98)}
+.course-desc{flex:1;color:rgba(200,210,220,0.88);margin-bottom:12px}
+.course-cta{display:inline-block;text-decoration:none;font-weight:700;color:hsl(var(--accent1-h) var(--accent-s) var(--accent-l))}
+.scroll-btn{position:absolute;top:calc(50% + 6px);transform:translateY(-50%);background:rgba(8,12,18,0.38);border:1px solid rgba(255,255,255,0.03);border-radius:8px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow);z-index:60;opacity:0.66;transition:opacity 160ms ease}
+.scroll-btn.left{left:8px}
+.scroll-btn.right{right:8px}
+.scroll-btn.hidden{display:none}
+*[style*="#fff" i], *[style*="white" i], *[style*="rgb(255,255,255)"] {
+  background: none !important;
+  background-image: none !important;
+  color: inherit !important;
+  box-shadow: none !important;
+}
+#contacts > div[style], #design > div[style], #music > div[style], section[style] {
+  background: var(--card) !important;
+  color: inherit !important;
+  box-shadow: var(--shadow) !important;
+  border-color: rgba(255,255,255,0.02) !important;
+}
+
+/* небольшой стилистический фикс для стрелок (страховка) */
+.reviews-arrow { box-sizing: border-box; }
+.reviews-arrow .chev { display:inline-block; transform: translateY(-1px); }
+@media (max-width: 600px) {
+  .reviews-arrow { width: 36px !important; height: 36px !important; font-size: 16px !important; border-radius: 6px !important; }
+}
+
+nav ul{ background: linear-gradient(180deg, rgba(6,12,18,0.96), rgba(4,8,12,0.94)) !important; color: inherit !important; }
+[style*="var(--card)"]{ background: var(--card) !important; }
+#contacts div[style], #design div[style], #music div[style] { background: var(--card) !important; color: inherit !important; box-shadow: var(--shadow) !important; }
+body, main, section, article, aside, header, footer, .about, .adv-card, .course-card { color: rgba(255,255,255,0.98) !important; }
+.small, .muted, .chip, p { color: rgb(210, 220, 230) !important; }
+.course-media img, .avatar img { background: transparent !important; }
+@media (max-width: 700px) { #vparticles { opacity: 0.44 !important; } }
+@media (prefers-reduced-motion: no-preference){
+  body { background-position: center top; animation: bg-pan 30s linear infinite; }
+  @keyframes bg-pan{0%{background-position:45% 0%}50%{background-position:55% 4%}100%{background-position:45% 0%}}
+}
+@media (max-width:1100px){.container{width:calc(100% - 48px)}.hero-grid{grid-template-columns:1fr}nav ul{display:none}.menu-toggle{display:inline-flex}}
+@media (max-width:480px){.container{padding:18px;width:calc(100% - 32px)}header .nav{flex-wrap:wrap;align-items:center;gap:10px}.brand{flex:0 1 auto;min-width:0}.menu-toggle{display:inline-flex}nav{order:3;width:100%}nav ul{display:none}.actions{flex:0 1 auto;display:flex;align-items:center;gap:8px;order:1}.socials{order:1}.phone{font-size:90%;order:2;width:100%;justify-content:flex-start;margin-top:6px;white-space:normal;padding:8px 10px; background:linear-gradient(90deg,hsl(var(--accent1-h) var(--accent-s) 62%),hsl(var(--accent2-h) var(--accent-s) 60%)) !important;}.logo{width:40px;height:40px}.about h1{font-size:18px}body{overflow-x:hidden}.panel-cards{gap:12px}.course-card{flex:0 0 92%;min-height:360px}.scroll-btn.left{left:8px}.scroll-btn.right{right:8px}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.course-card,.adv-card{transform:none!important;box-shadow:none!important}}
+
+/* ---------------------------
+   Унифицированный стиль ссылок
+   Кодерский неон, underline + glow
+   --------------------------- */
+
+/* базовые переменные (подстройте под вашу тему при необходимости) */
+:root {
+  --link-accent: rgba(97,208,255,1);      /* cyan-ish */
+  --link-accent-2: rgba(60,170,255,1);    /* accent shift */
+  --link-muted: rgba(180,200,215,0.86);
+  --link-underline-h: 2px;
+  --link-underline-gap: 3px;
+}
+
+/* Сброс стандартной внешности ссылок */
+a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  transition: color 220ms cubic-bezier(.2,.9,.2,1);
+  /* делаем текст "градиентным" — эффект кибер/технологичный */
+  background-image: linear-gradient(90deg, var(--link-accent), var(--link-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 0 8px rgba(0,0,0,0.45); /* тонкий контраст */
+  font-weight: 600;
+}
+
+/* visited — чуть затемнённый оттенок */
+a:visited {
+  opacity: 0.92;
+  filter: saturate(.9) brightness(.95);
+}
+
+/* underline (псевдоэлемент) — анимируется scaleX */
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(-1 * var(--link-underline-gap));
+  height: var(--link-underline-h);
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(97,208,255,0.9), rgba(60,170,255,0.9));
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 280ms cubic-bezier(.2,.9,.2,1), opacity 200ms;
+  opacity: 0.85;
+  pointer-events: none;
+  box-shadow: 0 8px 28px rgba(60,170,255,0.06);
+}
+
+/* hover / focus — разворачиваем подчёркивание и усиливаем свечение */
+a:hover::after,
+a:focus::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* hover glow на тексте */
+a:hover,
+a:focus {
+  text-shadow:
+    0 6px 28px rgba(2,20,40,0.6),
+    0 0 24px rgba(97,208,255,0.14);
+  outline: none;
+}
+
+/* focus (для клавиатуры) — явный фокус-стиль */
+a:focus {
+  box-shadow: 0 0 0 3px rgba(97,208,255,0.08), 0 10px 30px rgba(2,10,24,0.6);
+  border-radius: 6px;
+}
+
+/* маленькие ссылки / в тексте — уменьшим визуальную нагрузку */
+a.small, .muted a {
+  font-weight: 600;
+  -webkit-text-fill-color: unset;
+  background-image: none;
+  color: var(--link-accent);
+  text-shadow: none;
+}
+a.small::after { height: 1px; bottom: -2px; opacity: .7; }
+
+/* visited accent (подсказка цвета) */
+a:visited::after { opacity: 0.7; }
+
+/* ============================
+   Бинарные частицы (0/1)
+   ============================ */
+
+.binary-particle {
+  position: fixed;
+  left: 0; top: 0;
+  transform: translate3d(0,0,0);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--link-accent);
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform, opacity;
+  opacity: 1;
+  text-shadow: 0 2px 8px rgba(97,208,255,0.12), 0 0 6px rgba(60,170,255,0.06);
+  /* тонкое вращение (задаётся JS через переменную) */
+  transform-origin: center center;
+}
+
+/* движение: летят в направлении (dx, dy) — задаётся через инлайн-переменные */
+@keyframes binary-fly {
+  to {
+    transform: translate3d(var(--dx, 0px), var(--dy, -40px), 0) rotate(var(--rot, 0deg)) scale(0.65);
+    opacity: 0;
+  }
+}
+
+/* время и easing регулируется через animation */
+.binary-particle.animate {
+  animation: binary-fly 700ms cubic-bezier(.2,.9,.22,1) forwards;
+}
+
+/* Уважение к prefers-reduced-motion: отключаем анимацию */
+@media (prefers-reduced-motion: reduce) {
+  .binary-particle { display: none !important; }
+  a::after { transition: none !important; transform: none !important; opacity: 1 !important; }
+}
+
+/* 1) Полный сброс «кодерской» стилизации для помеченных ссылок и для CTA-кнопок */
+a[data-no-binary],
+#music .cta-buttons a,
+.card .cta-buttons a {
+  /* убираем градиентный текст и background-clip */
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+
+  /* нормальный цвет/фон/текстовая тень (подставьте ваш текущий стиль кнопок) */
+  text-shadow: none !important;
+
+  /* откатываем позиционирование и подчёркивание */
+  position: relative !important;
+}
+
+/* 2) Скрываем подчёркивание-псевдоэлемент (global a::after) для CTA */
+a[data-no-binary]::after,
+#music .cta-buttons a::after,
+.card .cta-buttons a::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* 3) Hover / focus: отменяем глобальные hover-свечение для этих ссылок */
+a[data-no-binary]:hover,
+#music .cta-buttons a:hover {
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* 4) Если нужно — восстановите оригинальные стили кнопок (пример) */
+#music .cta-buttons a.primary {
+  background: var(--mc-accent); /* или ваш цвет */
+  color: #041122;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+#music .cta-buttons a.secondary {
+  background: transparent;
+  color: var(--mc-accent);
+  border: 1px solid rgba(0,255,255,0.12);
+}
+
+/* ================================
+   Сброс "кодерской" стилизации для всех ссылок ВНУТРИ контейнера
+   с data-no-binary-container (и для помеченных вручную ссылок)
+   ================================ */
+
+/* больше специфичности — контейнер + a */
+[data-no-binary-container] a,
+[data-no-binary-container] a * ,
+a[data-no-binary] ,
+a[data-no-binary] * {
+  /* убрать градиентный текст/фон-клип */
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+
+  /* вернуть нормальное цветовое поведение (наследует от родителя) */
+  /* color: inherit !important; */
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+
+  /* убрать тени/свечение */
+  text-shadow: none !important;
+  box-shadow: none !important;
+  -webkit-filter: none !important;
+  filter: none !important;
+
+  /* вернуть обычное позиционирование/отмена абсолютных смещений */
+  position: static !important;
+  transform: none !important;
+}
+
+/* Скрыть псевдоэлементы подчёркивания/анимации глобального a::after */
+[data-no-binary-container] a::after,
+[data-no-binary-container] a[data-no-binary]::after,
+a[data-no-binary]::after {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+}
+
+/* Убедиться, что hover/focus не применяют глобальные эффекты */
+[data-no-binary-container] a:hover,
+[data-no-binary-container] a:focus,
+a[data-no-binary]:hover,
+a[data-no-binary]:focus {
+  text-shadow: none !important;
+  box-shadow: none !important;
+  background-image: none !important;
+  color: inherit !important;
+}
+
+/* Если у кнопок есть отдельный класс (например .primary/.secondary),
+   можно вернуть их стиль явным образом (пример, подставьте ваши реальные значения): */
+[data-no-binary-container] .cta-buttons a,
+[data-no-binary-container] .btn,
+[data-no-binary-container] .button {
+  /* пример — подставьте ваши цвета/фон */
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)) !important;
+  color: #000000 !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  text-decoration: none !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+}
+
+.toast {
+  position: fixed;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -120%);
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(20, 20, 20, 0.72);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 9999;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  white-space: nowrap;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, -140%);
+}
+
