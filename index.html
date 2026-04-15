@@ -10,6 +10,10 @@
       content="Репетитор по программированию, курсы для детей и взрослых — Python, Web, Unity, робототехника и др. Пробное занятие."
     />
 
+    <link rel="icon" href="assets/images/logo/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/images/logo/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="assets/images/logo/favicon.ico" />
+
     <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;600&display=swap"
@@ -192,432 +196,443 @@
         </div>
       </section>
 
-    <!-- Programs -->
-<section id="programs" style="margin-top: 36px">
-  <div
-    style="
-      background: var(--card);
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-    "
-  >
-    <h2 style="font-family: var(--mono); margin-top: 0">Курсы</h2>
-    <p style="color: var(--muted); margin-bottom: 12px">
-      Выберите блок по возрасту и уровню, чтобы увидеть программы и
-      краткие описания.
-    </p>
-
-    <div style="display: flex; align-items: center; gap: 8px">
-      <!-- tabs arrow (mobile visible) -->
-      <button
-        class="tabs-arrow tabs-left unified-arrow"
-        aria-hidden="true"
-      >
-        ◀
-      </button>
-
-      <div
-        class="courses-tabs"
-        role="tablist"
-        aria-label="Выбор уровня курсов"
-      >
-        <button
-          class="tab-btn active"
-          data-tab="tab1"
-          aria-pressed="true"
+      <!-- Programs -->
+      <section id="programs" style="margin-top: 36px">
+        <div
+          style="
+            background: var(--card);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+          "
         >
-          <div style="font-size: 12px; color: var(--muted)">от 6 лет</div>
-          <div style="font-weight: 700">Начальный</div>
-        </button>
-        <button class="tab-btn" data-tab="tab2" aria-pressed="false">
-          <div style="font-size: 12px; color: var(--muted)">от 9 лет</div>
-          <div style="font-weight: 700">Базовый</div>
-        </button>
-        <button class="tab-btn" data-tab="tab3" aria-pressed="false">
-          <div style="font-size: 12px; color: var(--muted)">
-            от 11 лет
-          </div>
-          <div style="font-weight: 700">Продвинутый</div>
-        </button>
-        <button class="tab-btn" data-tab="tab4" aria-pressed="false">
-          <div style="font-size: 12px; color: var(--muted)">от 9 лет</div>
-          <div style="font-weight: 700">Робототехника</div>
-        </button>
-      </div>
+          <h2 style="font-family: var(--mono); margin-top: 0">Курсы</h2>
+          <p style="color: var(--muted); margin-bottom: 12px">
+            Выберите блок по возрасту и уровню, чтобы увидеть программы и
+            краткие описания.
+          </p>
 
-      <button
-        class="tabs-arrow tabs-right unified-arrow"
-        aria-hidden="true"
-      >
-        ▶
-      </button>
-    </div>
+          <div style="display: flex; align-items: center; gap: 8px">
+            <!-- tabs arrow (mobile visible) -->
+            <button
+              class="tabs-arrow tabs-left unified-arrow"
+              aria-hidden="true"
+            >
+              ◀
+            </button>
 
-    <div class="courses-wrapper">
-      <!-- card arrows (positioned relative to wrapper) -->
-      <button
-        class="scroll-btn left hidden unified-arrow"
-        aria-hidden="true"
-      >
-        ◀
-      </button>
-      <button
-        class="scroll-btn right hidden unified-arrow"
-        aria-hidden="true"
-      >
-        ▶
-      </button>
-
-      <div class="courses-scroll" tabindex="0">
-        <div class="courses-content">
-          <!-- tab1 panel -->
-          <div id="tab1" class="tab-panel active">
-            <div class="panel-cards">
-              <article class="course-card">
-                <div class="course-meta">6-10 лет</div>
-                <div class="course-media">
-                  <picture>
-                    <source
-                      media="(max-width: 600px)"
-                      srcset="assets/images/courses/computer_literacy_quad.webp"
-                    />
-                    <img
-                      src="assets/images/courses/computer_literacy_165.webp"
-                      alt=""
-                    />
-                  </picture>
+            <div
+              class="courses-tabs"
+              role="tablist"
+              aria-label="Выбор уровня курсов"
+            >
+              <button
+                class="tab-btn active"
+                data-tab="tab1"
+                aria-pressed="true"
+              >
+                <div style="font-size: 12px; color: var(--muted)">от 6 лет</div>
+                <div style="font-weight: 700">Начальный</div>
+              </button>
+              <button class="tab-btn" data-tab="tab2" aria-pressed="false">
+                <div style="font-size: 12px; color: var(--muted)">от 9 лет</div>
+                <div style="font-weight: 700">Базовый</div>
+              </button>
+              <button class="tab-btn" data-tab="tab3" aria-pressed="false">
+                <div style="font-size: 12px; color: var(--muted)">
+                  от 11 лет
                 </div>
-                <h3 class="course-title">
-                  Обучение компьютерной грамотности
-                </h3>
-                <p class="course-desc">
-                  Работа с текстами, таблицами, презентациями и облачными
-                  хранилищами, работа в интернете.
-                </p>
-                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
-              </article>
-
-              <article class="course-card">
-                <div class="course-meta">7-9 лет</div>
-                <div class="course-media">
-                  <picture>
-                    <source
-                      media="(max-width: 600px)"
-                      srcset="assets/images/courses/scratch_quad.webp"
-                    />
-                    <img
-                      src="assets/images/courses/scratch_165.webp"
-                      alt=""
-                    />
-                  </picture>
-                </div>
-                <h3 class="course-title">
-                  Визуальное программирование на Scratch
-                </h3>
-                <p class="course-desc">
-                  Основы логики, переменных, событий — создание игр и
-                  мультфильмов.
-                </p>
-                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
-              </article>
-
-              <article class="course-card">
-                <div class="course-meta">8+ лет</div>
-                <div class="course-media">
-                  <picture>
-                    <source
-                      media="(max-width: 600px)"
-                      srcset="assets/images/courses/roblox_quad.webp"
-                    />
-                    <img
-                      src="assets/images/courses/roblox_165.webp"
-                      alt=""
-                    />
-                  </picture>
-                </div>
-                <h3 class="course-title">Roblox Studio — создание игр</h3>
-                <p class="course-desc">
-                  Инструменты редактора, основы Lua, проектирование
-                  уровней и механик, изучение професии геймдизайнера.
-                </p>
-                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
-              </article>
+                <div style="font-weight: 700">Продвинутый</div>
+              </button>
+              <button class="tab-btn" data-tab="tab4" aria-pressed="false">
+                <div style="font-size: 12px; color: var(--muted)">от 9 лет</div>
+                <div style="font-weight: 700">Робототехника</div>
+              </button>
             </div>
+
+            <button
+              class="tabs-arrow tabs-right unified-arrow"
+              aria-hidden="true"
+            >
+              ▶
+            </button>
           </div>
 
-          <!-- tab2 panel -->
-          <div id="tab2" class="tab-panel">
-            <div class="panel-cards">
-              <article class="course-card">
-                <div class="course-meta">9+ лет</div>
-                <div class="course-media">
-                  <picture>
-                    <source
-                      media="(max-width: 600px)"
-                      srcset="assets/images/courses/ai_quad.webp"
-                    />
-                    <img
-                      src="assets/images/courses/ai_165.webp"
-                      alt=""
-                    />
-                  </picture>
-                </div>
-                <h3 class="course-title">Обучение работе с ИИ</h3>
-                <p class="course-desc">
-                  Инструменты генерации изображений, музыки, видео и 3D;
-                  применение ИИ для учебных и творческих задач, принципы
-                  работы с нейросетями, промптинг, обучение моделей.
-                </p>
-                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
-              </article>
+          <div class="courses-wrapper">
+            <!-- card arrows (positioned relative to wrapper) -->
+            <button
+              class="scroll-btn left hidden unified-arrow"
+              aria-hidden="true"
+            >
+              ◀
+            </button>
+            <button
+              class="scroll-btn right hidden unified-arrow"
+              aria-hidden="true"
+            >
+              ▶
+            </button>
 
-              <article class="course-card">
-                <div class="course-meta">10+ лет</div>
-                <div class="course-media">
-                  <picture>
-                    <source
-                      media="(max-width: 600px)"
-                      srcset="assets/images/courses/web_development_quad.webp"
-                    />
-                    <img
-                      src="assets/images/courses/web_development_165.webp"
-                      alt=""
-                    />
-                  </picture>
-                </div>
-                <h3 class="course-title">Веб-разработка</h3>
-                <p class="course-desc">
-                  HTML и CSS, адаптивная верстка, взаимодействие с
-                  JavaScript; создание лендингов и интерактивных страниц,
-                  публикация проектов в интернете.
-                </p>
-                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
-              </article>
+            <div class="courses-scroll" tabindex="0">
+              <div class="courses-content">
+                <!-- tab1 panel -->
+                <div id="tab1" class="tab-panel active">
+                  <div class="panel-cards">
+                    <article class="course-card">
+                      <div class="course-meta">6-10 лет</div>
+                      <div class="course-media">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              assets/images/courses/computer_literacy_quad.webp
+                            "
+                          />
+                          <img
+                            src="assets/images/courses/computer_literacy_165.webp"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <h3 class="course-title">
+                        Обучение компьютерной грамотности
+                      </h3>
+                      <p class="course-desc">
+                        Работа с текстами, таблицами, презентациями и облачными
+                        хранилищами, работа в интернете.
+                      </p>
+                      <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+                    </article>
 
-              <article class="course-card">
-                <div class="course-meta">9+ лет</div>
-                <div class="course-media">
-                  <picture>
-                    <source
-                      media="(max-width: 600px)"
-                      srcset="assets/images/courses/graphic_design_quad.webp"
-                    />
-                    <img
-                      src="assets/images/courses/graphic_design_165.webp"
-                      alt=""
-                    />
-                  </picture>
-                </div>
-                <h3 class="course-title">Графический дизайн</h3>
-                <p class="course-desc">
-                  Основы верстки, айдентики, растровой и векторной
-                  графики; работа в Photoshop, Blender и Tinkercad; съёмка
-                  и монтаж видео.
-                </p>
-                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
-              </article>
-            </div>
-          </div>
+                    <article class="course-card">
+                      <div class="course-meta">7-9 лет</div>
+                      <div class="course-media">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="assets/images/courses/scratch_quad.webp"
+                          />
+                          <img
+                            src="assets/images/courses/scratch_165.webp"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <h3 class="course-title">
+                        Визуальное программирование на Scratch
+                      </h3>
+                      <p class="course-desc">
+                        Основы логики, переменных, событий — создание игр и
+                        мультфильмов.
+                      </p>
+                      <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+                    </article>
 
-          <!-- tab3 panel -->
-          <div id="tab3" class="tab-panel">
-            <div class="panel-cards">
-              <article class="course-card">
-                <div class="course-meta">11+ лет</div>
-                <div class="course-media">
-                  <picture>
-                    <source
-                      media="(max-width: 600px)"
-                      srcset="assets/images/courses/python_dev_quad.webp"
-                    />
-                    <img
-                      src="assets/images/courses/python_dev_165.webp"
-                      alt=""
-                    />
-                  </picture>
+                    <article class="course-card">
+                      <div class="course-meta">8+ лет</div>
+                      <div class="course-media">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="assets/images/courses/roblox_quad.webp"
+                          />
+                          <img
+                            src="assets/images/courses/roblox_165.webp"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <h3 class="course-title">Roblox Studio — создание игр</h3>
+                      <p class="course-desc">
+                        Инструменты редактора, основы Lua, проектирование
+                        уровней и механик, изучение професии геймдизайнера.
+                      </p>
+                      <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+                    </article>
+                  </div>
                 </div>
-                <h3 class="course-title">Python-разработка</h3>
-                <p class="course-desc">
-                  Изучение языка через практические кейсы: игры, боты,
-                  утилиты, работа с базами данных и веб-сайтами; сбор
-                  портфолио с проектами, которые можно показать
-                  работодателю.
-                </p>
-                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
-              </article>
 
-              <article class="course-card">
-                <div class="course-meta">12+ лет</div>
-                <div class="course-media">
-                  <picture>
-                    <source
-                      media="(max-width: 600px)"
-                      srcset="assets/images/courses/unity_csharp_quad.webp"
-                    />
-                    <img
-                      src="assets/images/courses/unity_csharp_165.webp"
-                      alt=""
-                    />
-                  </picture>
-                </div>
-                <h3 class="course-title">Unity + C#</h3>
-                <p class="course-desc">
-                  Создание игр и приложений в Unity: перемещение объектов,
-                  скрипты, изучение языка С#, игровые механики и базовые
-                  физические взаимодействия.
-                </p>
-                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
-              </article>
+                <!-- tab2 panel -->
+                <div id="tab2" class="tab-panel">
+                  <div class="panel-cards">
+                    <article class="course-card">
+                      <div class="course-meta">9+ лет</div>
+                      <div class="course-media">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="assets/images/courses/ai_quad.webp"
+                          />
+                          <img src="assets/images/courses/ai_165.webp" alt="" />
+                        </picture>
+                      </div>
+                      <h3 class="course-title">Обучение работе с ИИ</h3>
+                      <p class="course-desc">
+                        Инструменты генерации изображений, музыки, видео и 3D;
+                        применение ИИ для учебных и творческих задач, принципы
+                        работы с нейросетями, промптинг, обучение моделей.
+                      </p>
+                      <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+                    </article>
 
-              <article class="course-card">
-                <div class="course-meta">14+ лет</div>
-                <div class="course-media">
-                  <picture>
-                    <source
-                      media="(max-width: 600px)"
-                      srcset="assets/images/courses/informatics_exam_quad.webp"
-                    />
-                    <img
-                      src="assets/images/courses/informatics_exam_165.webp"
-                      alt=""
-                    />
-                  </picture>
-                </div>
-                <h3 class="course-title">ЕГЭ/ОГЭ по информатике</h3>
-                <p class="course-desc">
-                  Индивидуальная подготовка с упором на практику. Разбор
-                  задач различными способами и систематическое повторение.
-                </p>
-                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
-              </article>
+                    <article class="course-card">
+                      <div class="course-meta">10+ лет</div>
+                      <div class="course-media">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              assets/images/courses/web_development_quad.webp
+                            "
+                          />
+                          <img
+                            src="assets/images/courses/web_development_165.webp"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <h3 class="course-title">Веб-разработка</h3>
+                      <p class="course-desc">
+                        HTML и CSS, адаптивная верстка, взаимодействие с
+                        JavaScript; создание лендингов и интерактивных страниц,
+                        публикация проектов в интернете.
+                      </p>
+                      <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+                    </article>
 
-              <article class="course-card">
-                <div class="course-meta">7+ лет</div>
-                <div class="course-media">
-                  <picture>
-                    <source
-                      media="(max-width: 600px)"
-                      srcset="assets/images/courses/math_informatics_quad.webp"
-                    />
-                    <img
-                      src="assets/images/courses/math_informatics_165.webp"
-                      alt=""
-                    />
-                  </picture>
+                    <article class="course-card">
+                      <div class="course-meta">9+ лет</div>
+                      <div class="course-media">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              assets/images/courses/graphic_design_quad.webp
+                            "
+                          />
+                          <img
+                            src="assets/images/courses/graphic_design_165.webp"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <h3 class="course-title">Графический дизайн</h3>
+                      <p class="course-desc">
+                        Основы верстки, айдентики, растровой и векторной
+                        графики; работа в Photoshop, Blender и Tinkercad; съёмка
+                        и монтаж видео.
+                      </p>
+                      <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+                    </article>
+                  </div>
                 </div>
-                <h3 class="course-title">
-                  Школьная программа.<br />Математика и информатика
-                </h3>
-                <p class="course-desc">
-                  Индивидуальная подготовка с упором на практику. помощь с
-                  алгоритмами, Pascal, работой в учебных редакторах и
-                  любыми темами, требуемыми в школе.
-                </p>
-                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
-              </article>
-            </div>
-          </div>
 
-          <!-- tab4 panel -->
-          <div id="tab4" class="tab-panel">
-            <div class="panel-cards">
-              <article class="course-card">
-                <div class="course-meta">9+ лет</div>
-                <div class="course-media">
-                  <picture>
-                    <source
-                      media="(max-width: 600px)"
-                      srcset="assets/images/courses/wedo_quad.webp"
-                    />
-                    <img
-                      src="assets/images/courses/wedo_165.webp"
-                      alt=""
-                    />
-                  </picture>
-                </div>
-                <h3 class="course-title">Lego WeDo 2.0</h3>
-                <p class="course-desc">
-                  начальная робототехника: создание и программирование
-                  простых моделей в блочном языке, а также в среде
-                  разработки WeDo.
-                </p>
-                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
-              </article>
+                <!-- tab3 panel -->
+                <div id="tab3" class="tab-panel">
+                  <div class="panel-cards">
+                    <article class="course-card">
+                      <div class="course-meta">11+ лет</div>
+                      <div class="course-media">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="assets/images/courses/python_dev_quad.webp"
+                          />
+                          <img
+                            src="assets/images/courses/python_dev_165.webp"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <h3 class="course-title">Python-разработка</h3>
+                      <p class="course-desc">
+                        Изучение языка через практические кейсы: игры, боты,
+                        утилиты, работа с базами данных и веб-сайтами; сбор
+                        портфолио с проектами, которые можно показать
+                        работодателю.
+                      </p>
+                      <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+                    </article>
 
-              <article class="course-card">
-                <div class="course-meta">10+ лет</div>
-                <div class="course-media">
-                  <picture>
-                    <source
-                      media="(max-width: 600px)"
-                      srcset="assets/images/courses/ev3_quad.webp"
-                    />
-                    <img
-                      src="assets/images/courses/ev3_165.webp"
-                      alt=""
-                    />
-                  </picture>
-                </div>
-                <h3 class="course-title">Lego EV3</h3>
-                <p class="course-desc">
-                  Продвинутые конструкции с большим количеством датчиков и
-                  более сложным программированием.
-                </p>
-                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
-              </article>
+                    <article class="course-card">
+                      <div class="course-meta">12+ лет</div>
+                      <div class="course-media">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              assets/images/courses/unity_csharp_quad.webp
+                            "
+                          />
+                          <img
+                            src="assets/images/courses/unity_csharp_165.webp"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <h3 class="course-title">Unity + C#</h3>
+                      <p class="course-desc">
+                        Создание игр и приложений в Unity: перемещение объектов,
+                        скрипты, изучение языка С#, игровые механики и базовые
+                        физические взаимодействия.
+                      </p>
+                      <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+                    </article>
 
-              <article class="course-card">
-                <div class="course-meta">12+ лет</div>
-                <div class="course-media">
-                  <picture>
-                    <source
-                      media="(max-width: 600px)"
-                      srcset="assets/images/courses/arduino_quad.webp"
-                    />
-                    <img
-                      src="assets/images/courses/arduino_165.webp"
-                      alt=""
-                    />
-                  </picture>
-                </div>
-                <h3 class="course-title">Arduino</h3>
-                <p class="course-desc">
-                  Основы схемотехники и электроники: сборка схем, работа с
-                  датчиками и программирование плат. Изучения
-                  программирования на базе языка Arduino C.
-                </p>
-                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
-              </article>
+                    <article class="course-card">
+                      <div class="course-meta">14+ лет</div>
+                      <div class="course-media">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              assets/images/courses/informatics_exam_quad.webp
+                            "
+                          />
+                          <img
+                            src="assets/images/courses/informatics_exam_165.webp"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <h3 class="course-title">ЕГЭ/ОГЭ по информатике</h3>
+                      <p class="course-desc">
+                        Индивидуальная подготовка с упором на практику. Разбор
+                        задач различными способами и систематическое повторение.
+                      </p>
+                      <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+                    </article>
 
-              <article class="course-card">
-                <div class="course-meta">6+ лет</div>
-                <div class="course-media">
-                  <picture>
-                    <source
-                      media="(max-width: 600px)"
-                      srcset="assets/images/courses/other_robots_quad.webp"
-                    />
-                    <img
-                      src="assets/images/courses/other_robots_165.webp"
-                      alt=""
-                    />
-                  </picture>
+                    <article class="course-card">
+                      <div class="course-meta">7+ лет</div>
+                      <div class="course-media">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              assets/images/courses/math_informatics_quad.webp
+                            "
+                          />
+                          <img
+                            src="assets/images/courses/math_informatics_165.webp"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <h3 class="course-title">
+                        Школьная программа.<br />Математика и информатика
+                      </h3>
+                      <p class="course-desc">
+                        Индивидуальная подготовка с упором на практику. помощь с
+                        алгоритмами, Pascal, работой в учебных редакторах и
+                        любыми темами, требуемыми в школе.
+                      </p>
+                      <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+                    </article>
+                  </div>
                 </div>
-                <h3 class="course-title">Другое</h3>
-                <p class="course-desc">
-                  Lego Boost, создание систем умного дома, настройка
-                  серверов и другие практические проекты.
-                </p>
-                <a class="course-cta" href="#">Узнать подробнее &gt;</a>
-              </article>
+
+                <!-- tab4 panel -->
+                <div id="tab4" class="tab-panel">
+                  <div class="panel-cards">
+                    <article class="course-card">
+                      <div class="course-meta">9+ лет</div>
+                      <div class="course-media">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="assets/images/courses/wedo_quad.webp"
+                          />
+                          <img
+                            src="assets/images/courses/wedo_165.webp"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <h3 class="course-title">Lego WeDo 2.0</h3>
+                      <p class="course-desc">
+                        начальная робототехника: создание и программирование
+                        простых моделей в блочном языке, а также в среде
+                        разработки WeDo.
+                      </p>
+                      <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+                    </article>
+
+                    <article class="course-card">
+                      <div class="course-meta">10+ лет</div>
+                      <div class="course-media">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="assets/images/courses/ev3_quad.webp"
+                          />
+                          <img
+                            src="assets/images/courses/ev3_165.webp"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <h3 class="course-title">Lego EV3</h3>
+                      <p class="course-desc">
+                        Продвинутые конструкции с большим количеством датчиков и
+                        более сложным программированием.
+                      </p>
+                      <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+                    </article>
+
+                    <article class="course-card">
+                      <div class="course-meta">12+ лет</div>
+                      <div class="course-media">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="assets/images/courses/arduino_quad.webp"
+                          />
+                          <img
+                            src="assets/images/courses/arduino_165.webp"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <h3 class="course-title">Arduino</h3>
+                      <p class="course-desc">
+                        Основы схемотехники и электроники: сборка схем, работа с
+                        датчиками и программирование плат. Изучения
+                        программирования на базе языка Arduino C.
+                      </p>
+                      <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+                    </article>
+
+                    <article class="course-card">
+                      <div class="course-meta">6+ лет</div>
+                      <div class="course-media">
+                        <picture>
+                          <source
+                            media="(max-width: 600px)"
+                            srcset="
+                              assets/images/courses/other_robots_quad.webp
+                            "
+                          />
+                          <img
+                            src="assets/images/courses/other_robots_165.webp"
+                            alt=""
+                          />
+                        </picture>
+                      </div>
+                      <h3 class="course-title">Другое</h3>
+                      <p class="course-desc">
+                        Lego Boost, создание систем умного дома, настройка
+                        серверов и другие практические проекты.
+                      </p>
+                      <a class="course-cta" href="#">Узнать подробнее &gt;</a>
+                    </article>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       <section id="reviews" style="margin-top: 20px">
         <div
