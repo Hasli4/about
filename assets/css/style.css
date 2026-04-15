@@ -78,7 +78,17 @@ body::after{
 header{position:sticky;top:0;z-index:60;background:linear-gradient(180deg, rgba(8,12,18,0.64), rgba(6,10,14,0.56));backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.02)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;align-items:center;gap:12px}
-.logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,hsl(var(--accent1-h) var(--accent-s) 52%),hsl(var(--accent2-h) var(--accent-s) 50%));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-family:var(--mono)}
+.logo{
+  width:46px;
+  height:46px;
+  border-radius:10px;
+  /* background:linear-gradient(135deg,hsl(var(--accent1-h) var(--accent-s) 52%),hsl(var(--accent2-h) var(--accent-s) 50%)); */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:700;
+  font-family:var(--mono)}
 .site-title{font-family:var(--mono);font-weight:600;font-size:16px;color:rgba(255,255,255,0.98)}
 nav ul{list-style:none;margin:0;padding:0;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
 nav a{color:rgba(255,255,255,0.96);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;display:inline-block;white-space:nowrap;text-align:center}
@@ -478,3 +488,6 @@ a[data-no-binary]:focus {
   transform: translate(-50%, -140%);
 }
 
+.logo img{
+  width: 100%;
+}
