@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Программа обучения | Игорь Мизёв</title>
+    <meta
+      name="description"
+      content="Универсальная страница направления обучения. Данные подгружаются из единого JSON-файла."
+    />
+
+    <link rel="icon" href="assets/images/logo/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/images/logo/favicon.png" type="image/png" />
+    <link rel="icon" href="assets/images/logo/favicon.ico" sizes="any" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/visual-overrides.css" />
+    <link rel="stylesheet" href="assets/css/program-template.css" />
+  </head>
+  <body data-programs-source="assets/data/programs.json">
+    <!--
+      Универсальная страница программы.
+      Открывается так: program.html?slug=web-development
+      Все данные берутся из assets/data/programs.json
+    -->
+
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="logo">
+            <img src="assets/images/logo/favicon.svg" alt="" />
+          </div>
+          <div>
+            <div class="site-title">Игорь Мизёв</div>
+            <div class="brand-subtitle">Программист · Преподаватель</div>
+          </div>
+        </div>
+
+        <nav aria-label="Главное меню">
+          <button
+            class="menu-toggle"
+            aria-expanded="false"
+            aria-controls="main-nav"
+          >
+            ☰
+          </button>
+          <ul id="main-nav" data-no-binary-container>
+            <li><a href="index.html#about">Обо мне</a></li>
+            <li><a href="index.html#programs">Курсы</a></li>
+            <li><a href="index.html#design">Дизайн</a></li>
+            <li><a href="index.html#music">Музыка</a></li>
+            <li><a href="index.html#contacts">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <div class="actions">
+          <div class="socials" aria-hidden="false" data-no-binary-container>
+            <a
+              href="https://t.me/ig_mizyovv"
+              title="Telegram"
+              aria-label="Telegram"
+              class="contact-link"
+              data-value="ig_mizyovv"
+              data-action="default"
+              rel="noopener noreferrer"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M22 2L3 11.2l4.2 1.4L10 21l3-2.8 6.8 4.6L22 2z"
+                  fill="#009dff"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://vk.com/ig_mizyovv"
+              class="contact-link"
+              data-value="ig_mizyovv"
+              data-action="default"
+              title="VK"
+              aria-label="VK"
+            >
+              <img width="18" src="assets/images/VK_Logo.webp" alt="VK Logo" />
+            </a>
+            <a
+              href="#"
+              class="contact-link"
+              data-action="whatsapp"
+              data-value="+7 950 469-74-61"
+              data-url="https://wa.me/79504697461?text=Здравствуйте!%20Интересует%20обучение%20программированию"
+              title="WhatsApp"
+              aria-label="WhatsApp"
+            >
+              <img
+                width="18"
+                src="assets/images/WhatsApp.webp"
+                alt="WhatsApp Logo"
+              />
+            </a>
+            <a
+              href="https://www.avito.ru/perm/predlozheniya_uslug/repetitor_po_programmirovaniyu_i_informatike_2920194207"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Avito"
+              aria-label="Avito"
+            >
+              <img
+                width="18"
+                src="assets/images/avito_logo.webp"
+                alt="Avito Logo"
+                style="border-radius: 25%"
+              />
+            </a>
+          </div>
+
+          <a
+            class="phone contact-link"
+            href="tel:+79504697461"
+            data-action="tel"
+            data-value="+79504697461"
+            >+7 (950) 469-74-61</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="container program-page">
+      <section class="program-intro">
+        <div class="program-intro-grid">
+          <div class="program-intro-copy">
+            <p class="program-kicker" id="program-kicker"></p>
+            <h1 class="program-title" id="program-title"></h1>
+            <p class="program-lead" id="program-lead"></p>
+            <div class="program-chip-row" id="program-chip-row"></div>
+          </div>
+
+          <div class="program-summary-card">
+            <div class="program-summary-title">Коротко о программе</div>
+            <div class="program-summary-list" id="program-summary-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="program-shell">
+        <aside class="program-sidebar">
+          <div class="program-sidebar-card">
+            <div class="program-sidebar-head">
+              <div>
+                <div class="program-sidebar-kicker">Навигация</div>
+                <h2 class="program-sidebar-title">Разделы страницы</h2>
+              </div>
+              <div class="program-nav-controls">
+                <button
+                  class="program-nav-arrow program-nav-arrow-left"
+                  type="button"
+                  aria-label="Прокрутить разделы влево"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M15 18L9 12L15 6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+                <button
+                  class="program-nav-arrow program-nav-arrow-right"
+                  type="button"
+                  aria-label="Прокрутить разделы вправо"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M9 18L15 12L9 6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div
+              class="program-nav"
+              role="tablist"
+              aria-label="Разделы страницы программы"
+            >
+              <button
+                class="program-nav-btn is-active"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="description"
+                id="tab-description"
+                data-program-tab="description"
+              >
+                <span class="program-nav-index">01</span>
+                <span class="program-nav-text">
+                  <span class="program-nav-title">Описание</span>
+                  <span class="program-nav-subtitle">Обзор программы</span>
+                </span>
+              </button>
+              <button
+                class="program-nav-btn"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="benefits"
+                id="tab-benefits"
+                data-program-tab="benefits"
+              >
+                <span class="program-nav-index">02</span>
+                <span class="program-nav-text">
+                  <span class="program-nav-title">Преимущества</span>
+                  <span class="program-nav-subtitle">Почему это направление</span>
+                </span>
+              </button>
+              <button
+                class="program-nav-btn"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="skills"
+                id="tab-skills"
+                data-program-tab="skills"
+              >
+                <span class="program-nav-index">03</span>
+                <span class="program-nav-text">
+                  <span class="program-nav-title">Навыки</span>
+                  <span class="program-nav-subtitle">Чему научится ребёнок</span>
+                </span>
+              </button>
+              <button
+                class="program-nav-btn"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="works"
+                id="tab-works"
+                data-program-tab="works"
+              >
+                <span class="program-nav-index">04</span>
+                <span class="program-nav-text">
+                  <span class="program-nav-title">Примеры работ</span>
+                  <span class="program-nav-subtitle">Итоги обучения</span>
+                </span>
+              </button>
+              <button
+                class="program-nav-btn"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="faq"
+                id="tab-faq"
+                data-program-tab="faq"
+              >
+                <span class="program-nav-index">05</span>
+                <span class="program-nav-text">
+                  <span class="program-nav-title">FAQ</span>
+                  <span class="program-nav-subtitle">Частые вопросы</span>
+                </span>
+              </button>
+            </div>
+            <div class="program-sidebar-return">
+              <a class="program-return-link" href="index.html#programs">
+                <span class="program-return-arrow" aria-hidden="true">←</span>
+                <span>Вернуться на главную</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <div class="program-content">
+          <section
+            class="program-panel is-active"
+            id="description"
+            role="tabpanel"
+            aria-labelledby="tab-description"
+          >
+            <div class="program-panel-header">
+              <span class="program-panel-badge">Описание программы</span>
+              <h2 class="program-panel-title">Обзор направления</h2>
+              <p class="program-panel-description">
+                Краткая презентация курса, формат занятий и ожидаемый результат.
+              </p>
+            </div>
+
+            <div class="program-overview-grid">
+              <div class="program-copy-card">
+                <div class="program-richtext" id="program-description-list"></div>
+              </div>
+              <figure class="program-image-card">
+                <img
+                  id="program-main-image"
+                  src="assets/images/courses/web_development_quad.webp"
+                  alt=""
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+
+            <div class="program-fact-grid" id="program-fact-grid"></div>
+          </section>
+
+          <section
+            class="program-panel"
+            id="benefits"
+            role="tabpanel"
+            aria-labelledby="tab-benefits"
+            hidden
+          >
+            <div class="program-panel-header">
+              <span class="program-panel-badge">Преимущества</span>
+              <h2 class="program-panel-title">Почему детям нравится это направление</h2>
+              <p class="program-panel-description">
+                Блок для подробного рассказа о сильных сторонах курса и формате
+                занятий.
+              </p>
+            </div>
+
+            <div class="program-card-grid" id="program-benefits-grid"></div>
+          </section>
+
+          <section
+            class="program-panel"
+            id="skills"
+            role="tabpanel"
+            aria-labelledby="tab-skills"
+            hidden
+          >
+            <div class="program-panel-header">
+              <span class="program-panel-badge">Навыки</span>
+              <h2 class="program-panel-title">Чему ребёнок научится</h2>
+              <p class="program-panel-description">
+                Конкретные умения и практические результаты, которые получит ученик.
+              </p>
+            </div>
+
+            <div class="program-skill-grid" id="program-skills-grid"></div>
+          </section>
+
+          <section
+            class="program-panel"
+            id="works"
+            role="tabpanel"
+            aria-labelledby="tab-works"
+            hidden
+          >
+            <div class="program-panel-header">
+              <span class="program-panel-badge">Примеры работ</span>
+              <h2 class="program-panel-title">Какие проекты можно сделать</h2>
+              <p class="program-panel-description">
+                Галерея примеров, которую можно наполнить скриншотами, афишами,
+                интерфейсами или фотографиями готовых проектов.
+              </p>
+            </div>
+
+            <div class="program-work-grid" id="program-works-grid"></div>
+          </section>
+
+          <section
+            class="program-panel"
+            id="faq"
+            role="tabpanel"
+            aria-labelledby="tab-faq"
+            hidden
+          >
+            <div class="program-panel-header">
+              <span class="program-panel-badge">FAQ</span>
+              <h2 class="program-panel-title">Часто задаваемые вопросы</h2>
+              <p class="program-panel-description">
+                Блок для ответов родителям о возрасте, подготовке, длительности и
+                формате обучения.
+              </p>
+            </div>
+
+            <div class="program-faq-list" id="program-faq-list"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container program-footer">
+      <div class="program-footer-text">
+        © Игорь Мизёв — дополнительные страницы программ обучения
+      </div>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite">Скопировано</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.0/tsparticles.bundle.min.js"></script>
+    <script src="assets/js/visual-init.js"></script>
+    <script src="script.js"></script>
+    <script src="assets/js/program-template.js"></script>
+  </body>
+</html>
