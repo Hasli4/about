@@ -445,7 +445,7 @@ body > header {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: var(--shadow-soft);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
 }
 
 .program-image-card img {
@@ -802,6 +802,9 @@ body > header {
 
   .program-image-card {
     order: -1;
+    width: calc(100% + 8px);
+    margin-left: -4px;
+    margin-right: -4px;
   }
 
   .program-nav-text {

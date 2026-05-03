@@ -1,4 +1,4 @@
-{
+﻿{
   "version": 1,
   "programs": [
     {
@@ -13,7 +13,7 @@
         { "label": "Результат", "value": "Уверенная работа с файлами и интернетом" }
       ],
       "image": {
-        "src": "assets/images/courses/computer_literacy_quad.webp",
+        "src": "assets/images/courses/computer_literacy_165.webp",
         "alt": "Обучение компьютерной грамотности"
       },
       "description": [
@@ -55,13 +55,13 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/computer_literacy_quad.webp",
+          "image": "assets/images/courses/computer_literacy_165.webp",
           "alt": "Пример базовой компьютерной работы",
           "title": "Учебная презентация",
           "text": "Ребёнок собирает аккуратную презентацию по теме урока: текст, изображения, простое оформление и структура."
         },
         {
-          "image": "assets/images/courses/computer_literacy_quad.webp",
+          "image": "assets/images/courses/computer_literacy_165.webp",
           "alt": "Пример работы с документами",
           "title": "Папка школьных материалов",
           "text": "Итоговая практика по организации файлов, документов и изображений в понятной системе хранения."
@@ -94,7 +94,7 @@
         { "label": "Результат", "value": "Свои игры и мультфильмы" }
       ],
       "image": {
-        "src": "assets/images/courses/scratch_quad.webp",
+        "src": "assets/images/courses/scratch_165.webp",
         "alt": "Визуальное программирование на Scratch"
       },
       "description": [
@@ -136,13 +136,13 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/scratch_quad.webp",
+          "image": "assets/images/courses/scratch_165.webp",
           "alt": "Пример игры на Scratch",
           "title": "Мини-игра с очками",
           "text": "Игра, где нужно собирать предметы, избегать препятствий и набирать баллы."
         },
         {
-          "image": "assets/images/courses/scratch_quad.webp",
+          "image": "assets/images/courses/scratch_165.webp",
           "alt": "Пример анимации на Scratch",
           "title": "Интерактивная история",
           "text": "Небольшой мультфильм или квест со сценами, диалогами и выбором действий."
@@ -175,7 +175,7 @@
         { "label": "Результат", "value": "Свой игровой прототип" }
       ],
       "image": {
-        "src": "assets/images/courses/roblox_quad.webp",
+        "src": "assets/images/courses/roblox_165.webp",
         "alt": "Roblox Studio — создание игр"
       },
       "description": [
@@ -217,13 +217,13 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/roblox_quad.webp",
+          "image": "assets/images/courses/roblox_165.webp",
           "alt": "Пример игры в Roblox Studio",
           "title": "Полоса препятствий",
           "text": "Игровая карта с этапами, ловушками, телепортами и проверкой логики прохождения."
         },
         {
-          "image": "assets/images/courses/roblox_quad.webp",
+          "image": "assets/images/courses/roblox_165.webp",
           "alt": "Пример проекта Roblox",
           "title": "Мини-игра со сбором предметов",
           "text": "Прототип игры, где игрок собирает ресурсы, взаимодействует с объектами и получает результат."
@@ -256,7 +256,7 @@
         { "label": "Результат", "value": "Осознанная работа с ИИ" }
       ],
       "image": {
-        "src": "assets/images/courses/ai_quad.webp",
+        "src": "assets/images/courses/ai_165.webp",
         "alt": "Обучение работе с ИИ"
       },
       "description": [
@@ -298,13 +298,13 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/ai_quad.webp",
+          "image": "assets/images/courses/ai_165.webp",
           "alt": "Пример AI-проекта",
           "title": "Серия изображений по своей теме",
           "text": "Проект, где ребёнок создаёт визуальную подборку, настраивает стилистику и учится работать с промптами."
         },
         {
-          "image": "assets/images/courses/ai_quad.webp",
+          "image": "assets/images/courses/ai_165.webp",
           "alt": "Пример работы с нейросетями",
           "title": "Учебный помощник",
           "text": "Сценарий, где ИИ используется для поиска идей, структурирования материала и подготовки творческой презентации."
@@ -337,7 +337,7 @@
         { "label": "Результат", "value": "Свой сайт и портфолио работ" }
       ],
       "image": {
-        "src": "assets/images/courses/web_development_quad.webp",
+        "src": "assets/images/courses/web_development_165.webp",
         "alt": "Иллюстрация курса по веб-разработке"
       },
       "description": [
@@ -379,13 +379,13 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/web_development_quad.webp",
+          "image": "assets/images/courses/web_development_165.webp",
           "alt": "Пример учебного сайта",
           "title": "Личный сайт-визитка",
           "text": "Страница с информацией о себе, проектах и контактах. Отличный первый проект для знакомства со структурой сайта."
         },
         {
-          "image": "assets/images/courses/web_development_quad.webp",
+          "image": "assets/images/courses/web_development_165.webp",
           "alt": "Пример страницы кружка",
           "title": "Страница кружка или секции",
           "text": "Небольшой сайт с расписанием, описанием занятий, преимуществами и формой записи."
@@ -418,7 +418,7 @@
         { "label": "Результат", "value": "Портфолио визуальных работ" }
       ],
       "image": {
-        "src": "assets/images/courses/graphic_design_quad.webp",
+        "src": "assets/images/courses/graphic_design_165.webp",
         "alt": "Графический дизайн"
       },
       "description": [
@@ -460,7 +460,7 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/graphic_design_quad.webp",
+          "image": "assets/images/courses/graphic_design_165.webp",
           "alt": "Пример дизайнерской работы",
           "title": "Афиша мероприятия",
           "text": "Работа с композицией, заголовками, изображениями и визуальной иерархией."
@@ -499,7 +499,7 @@
         { "label": "Результат", "value": "Рабочие программы и база для роста" }
       ],
       "image": {
-        "src": "assets/images/courses/python_dev_quad.webp",
+        "src": "assets/images/courses/python_dev_165.webp",
         "alt": "Python-разработка"
       },
       "description": [
@@ -541,13 +541,13 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/python_dev_quad.webp",
+          "image": "assets/images/courses/python_dev_165.webp",
           "alt": "Пример проекта на Python",
           "title": "Игра или текстовый квест",
           "text": "Проект, где есть логика, выбор действий, подсчёт очков и работа с условиями."
         },
         {
-          "image": "assets/images/courses/python_dev_quad.webp",
+          "image": "assets/images/courses/python_dev_165.webp",
           "alt": "Пример утилиты на Python",
           "title": "Полезная программа",
           "text": "Мини-утилита для обработки текста, файлов или расчётов под интересы ученика."
@@ -580,7 +580,7 @@
         { "label": "Результат", "value": "Игровой прототип или сцена" }
       ],
       "image": {
-        "src": "assets/images/courses/unity_csharp_quad.webp",
+        "src": "assets/images/courses/unity_csharp_165.webp",
         "alt": "Unity + C#"
       },
       "description": [
@@ -622,13 +622,13 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/unity_csharp_quad.webp",
+          "image": "assets/images/courses/unity_csharp_165.webp",
           "alt": "Пример проекта в Unity",
           "title": "3D-сцена с управлением",
           "text": "Игрок перемещается по сцене, взаимодействует с объектами и проходит простой сценарий."
         },
         {
-          "image": "assets/images/courses/unity_csharp_quad.webp",
+          "image": "assets/images/courses/unity_csharp_165.webp",
           "alt": "Пример игры в Unity",
           "title": "Мини-игра на очки",
           "text": "Прототип с таймером, сбором предметов, интерфейсом и простой победной логикой."
@@ -661,7 +661,7 @@
         { "label": "Результат", "value": "Сильная база и экзаменационная уверенность" }
       ],
       "image": {
-        "src": "assets/images/courses/informatics_exam_quad.webp",
+        "src": "assets/images/courses/informatics_exam_165.webp",
         "alt": "Подготовка к ЕГЭ и ОГЭ по информатике"
       },
       "description": [
@@ -703,13 +703,13 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/informatics_exam_quad.webp",
+          "image": "assets/images/courses/informatics_exam_165.webp",
           "alt": "Пример подготовки к информатике",
           "title": "Тематический блок задач",
           "text": "Собранный набор заданий по конкретной теме с разбором алгоритма решения."
         },
         {
-          "image": "assets/images/courses/informatics_exam_quad.webp",
+          "image": "assets/images/courses/informatics_exam_165.webp",
           "alt": "Пример экзаменационной практики",
           "title": "Пробная работа",
           "text": "Полноценная практика в формате экзамена с последующим подробным анализом ошибок."
@@ -742,7 +742,7 @@
         { "label": "Результат", "value": "Больше уверенности и понимания" }
       ],
       "image": {
-        "src": "assets/images/courses/math_informatics_quad.webp",
+        "src": "assets/images/courses/math_informatics_165.webp",
         "alt": "Школьная программа по математике и информатике"
       },
       "description": [
@@ -784,13 +784,13 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/math_informatics_quad.webp",
+          "image": "assets/images/courses/math_informatics_165.webp",
           "alt": "Пример учебной работы",
           "title": "Разбор сложной темы",
           "text": "Индивидуально собранный набор задач и решений по теме, которую ребёнку важно закрепить."
         },
         {
-          "image": "assets/images/courses/math_informatics_quad.webp",
+          "image": "assets/images/courses/math_informatics_165.webp",
           "alt": "Пример школьной практики",
           "title": "Подготовка к контрольной",
           "text": "Практика в формате ближайшей школьной работы с пояснением типичных ошибок."
@@ -823,7 +823,7 @@
         { "label": "Результат", "value": "Работающие робототехнические проекты" }
       ],
       "image": {
-        "src": "assets/images/courses/wedo_quad.webp",
+        "src": "assets/images/courses/wedo_165.webp",
         "alt": "Lego WeDo 2.0"
       },
       "description": [
@@ -865,13 +865,13 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/wedo_quad.webp",
+          "image": "assets/images/courses/wedo_165.webp",
           "alt": "Пример Lego WeDo проекта",
           "title": "Двигающаяся модель",
           "text": "Робот или механизм, который реагирует на команду, таймер или датчик."
         },
         {
-          "image": "assets/images/courses/wedo_quad.webp",
+          "image": "assets/images/courses/wedo_165.webp",
           "alt": "Пример робототехнической работы",
           "title": "Интерактивная конструкция",
           "text": "Сборка с несколькими действиями и простой логикой поведения."
@@ -904,7 +904,7 @@
         { "label": "Результат", "value": "Более умные и устойчивые проекты" }
       ],
       "image": {
-        "src": "assets/images/courses/ev3_quad.webp",
+        "src": "assets/images/courses/ev3_165.webp",
         "alt": "Lego EV3"
       },
       "description": [
@@ -946,13 +946,13 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/ev3_quad.webp",
+          "image": "assets/images/courses/ev3_165.webp",
           "alt": "Пример Lego EV3 проекта",
           "title": "Робот с датчиками",
           "text": "Модель, которая реагирует на расстояние, свет или касание и меняет поведение."
         },
         {
-          "image": "assets/images/courses/ev3_quad.webp",
+          "image": "assets/images/courses/ev3_165.webp",
           "alt": "Пример EV3 работы",
           "title": "Автономный сценарий",
           "text": "Проект с последовательными действиями, проверками и корректировкой маршрута."
@@ -985,7 +985,7 @@
         { "label": "Результат", "value": "Первые электронные устройства" }
       ],
       "image": {
-        "src": "assets/images/courses/arduino_quad.webp",
+        "src": "assets/images/courses/arduino_165.webp",
         "alt": "Arduino"
       },
       "description": [
@@ -1027,13 +1027,13 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/arduino_quad.webp",
+          "image": "assets/images/courses/arduino_165.webp",
           "alt": "Пример проекта Arduino",
           "title": "Устройство с датчиком",
           "text": "Проект, где плата получает данные с датчика и управляет реакцией системы."
         },
         {
-          "image": "assets/images/courses/arduino_quad.webp",
+          "image": "assets/images/courses/arduino_165.webp",
           "alt": "Пример схемы Arduino",
           "title": "Мини-автомат",
           "text": "Сборка, в которой кнопки, сигналы и световые элементы работают по заданному сценарию."
@@ -1066,7 +1066,7 @@
         { "label": "Результат", "value": "Проект под конкретный интерес" }
       ],
       "image": {
-        "src": "assets/images/courses/other_robots_quad.webp",
+        "src": "assets/images/courses/other_robots_165.webp",
         "alt": "Другие технические проекты"
       },
       "description": [
@@ -1108,13 +1108,13 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/other_robots_quad.webp",
+          "image": "assets/images/courses/other_robots_165.webp",
           "alt": "Пример технического проекта",
           "title": "Проект под интерес ученика",
           "text": "Индивидуальная идея, собранная из нужных инструментов и шагов: от задумки до работающего результата."
         },
         {
-          "image": "assets/images/courses/other_robots_quad.webp",
+          "image": "assets/images/courses/other_robots_165.webp",
           "alt": "Пример экспериментального проекта",
           "title": "Гибридный технический сценарий",
           "text": "Комбинация нескольких тем: робототехника, автоматика, логика управления, цифровая среда."
@@ -1137,3 +1137,4 @@
     }
   ]
 }
+
