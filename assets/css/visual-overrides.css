@@ -322,8 +322,8 @@ header nav a, header .site-title, header .site-title + div, .phone, .phone * {
   box-sizing: border-box;
 }
 
-/* slightly increase media area inside card for visibility */
-.course-media { height: 200px !important; }
+/* let the shared aspect-ratio rules control the media block */
+.course-media { height: auto !important; }
 
 /* adjust typography spacing inside card for compactness */
 .course-title { font-size: 18px; margin-bottom: 6px !important; }
@@ -357,9 +357,15 @@ header nav a, header .site-title, header .site-title + div, .phone, .phone * {
     opacity: 0.88;
   }
 
-  /* Cards on mobile: keep large visual but adapt to viewport */
-  .course-card { flex: 0 0 92% !important; max-width: 92% !important; padding: 12px !important; }
-  .course-media { height: 220px !important; }
+  /* Cards on mobile: one card per viewport width, no visible neighbor peek */
+  .panel-cards { gap: 0 !important; }
+  .course-card { flex: 0 0 100% !important; max-width: 100% !important; padding: 12px !important; }
+  .course-media { height: auto !important; }
+  .course-media img {
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: none !important;
+  }
 }
 
 /* === Desktop: keep original arrow vertical placement but adopt unified style === */
@@ -377,7 +383,7 @@ header nav a, header .site-title, header .site-title + div, .phone, .phone * {
 
   /* Slightly larger cards on desktop */
   .course-card { flex: 0 0 360px !important; max-width: 360px !important; padding: 14px !important; }
-  .course-media { height: 200px !important; }
+  .course-media { height: auto !important; }
   .panel-cards { gap: 18px !important; }
 }
 
@@ -850,17 +856,19 @@ body::after    { z-index: var(--visual-blobs-z) !important; }
 }
 
 .course-media {
-  height: 180px;              /* или ваша высота */
+  height: auto;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: stretch;
 }
 
+.course-media picture,
 .course-media img {
   width: 100%;
   height: 100%;
-  object-fit: contain;        /* картинка целиком помещается */
+  object-fit: cover;
+  object-position: center center;
   display: block;
 }
