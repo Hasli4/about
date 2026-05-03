@@ -684,6 +684,34 @@ body > header {
   font-weight: 700;
 }
 
+.program-directory-actions {
+  margin-top: 18px;
+}
+
+.program-directory-home--button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(97, 208, 255, 0.18);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 180ms var(--easing),
+    border-color 180ms var(--easing),
+    background 180ms var(--easing);
+}
+
+.program-directory-home--button:hover,
+.program-directory-home--button:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(97, 208, 255, 0.32);
+  background: rgba(255, 255, 255, 0.06);
+  outline: none;
+}
+
 .program-footer {
   padding-top: 20px;
   padding-bottom: 28px;

@@ -1,4 +1,4 @@
-const PROGRAMS_SOURCE = "assets/data/programs.json";
+﻿const PROGRAMS_SOURCE = "assets/data/programs.json";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const data =
@@ -54,6 +54,7 @@ function getRequestedSlug() {
 function renderProgramPage(data) {
   const shell = document.querySelector(".program-shell");
   const sidebar = document.querySelector(".program-sidebar");
+  const footerText = document.querySelector(".program-footer-text");
 
   if (shell) {
     shell.classList.remove("program-shell--single");
@@ -87,6 +88,10 @@ function renderProgramPage(data) {
   renderSkills("#program-skills-grid", data.skills || []);
   renderWorks("#program-works-grid", data.works || []);
   renderFaq("#program-faq-list", data.faq || []);
+
+  if (footerText) {
+    footerText.textContent = `© Игорь Мизёв — ${title}`;
+  }
 }
 
 function initProgramTabs() {
@@ -264,30 +269,15 @@ function renderProgramDirectory(programs, missingSlug = "") {
     }</h1>
     <p class="program-lead">${
       missingSlug
-        ? `Направление не найдено в базе данных. Выберите нужную программу из списка ниже или вернитесь на главную страницу.`
-        : "Ниже можно открыть любую программу по готовой ссылке."
+        ? "Такой страницы сейчас нет в базе. Ниже собраны доступные направления, а вернуться к программам можно одной кнопкой."
+        : "Ниже собраны все направления обучения. Откройте нужную страницу из списка."
     }</p>
-    <div class="program-chip-row">
-      <span class="program-chip">${safePrograms.length} программ в базе</span>
-      <span class="program-chip">Одна универсальная страница</span>
-    </div>
   `;
 
   summaryCard.innerHTML = `
-    <div class="program-summary-title">Как открыть программу</div>
-    <div class="program-summary-list">
-      <div class="program-summary-item">
-        <div class="program-summary-label">Ссылка</div>
-        <div class="program-summary-value">program.html?slug=...</div>
-      </div>
-      <div class="program-summary-item">
-        <div class="program-summary-label">Данные</div>
-        <div class="program-summary-value">assets/data/programs.json</div>
-      </div>
-      <div class="program-summary-item">
-        <div class="program-summary-label">Возврат</div>
-        <div class="program-summary-value"><a class="program-directory-home" href="index.html#programs">На главную к курсам</a></div>
-      </div>
+    <div class="program-summary-title">Возврат</div>
+    <div class="program-directory-actions">
+      <a class="program-directory-home program-directory-home--button" href="index.html#programs">Вернуться на главную</a>
     </div>
   `;
 
@@ -295,8 +285,14 @@ function renderProgramDirectory(programs, missingSlug = "") {
     <section class="program-panel is-active program-directory-panel">
       <div class="program-panel-header">
         <span class="program-panel-badge">Список направлений</span>
-        <h2 class="program-panel-title">Готовые ссылки на программы</h2>
-        <p class="program-panel-description">Используйте эти ссылки на главной странице или открывайте их напрямую. </p>
+        <h2 class="program-panel-title">${
+          missingSlug ? "Доступные программы" : "Все направления обучения"
+        }</h2>
+        <p class="program-panel-description">${
+          missingSlug
+            ? "Выберите нужное направление из списка ниже."
+            : "Откройте нужную программу и перейдите к её описанию."
+        }</p>
       </div>
       <div class="program-directory-grid">
         ${safePrograms
@@ -324,8 +320,7 @@ function renderProgramDirectory(programs, missingSlug = "") {
   `;
 
   if (footerText) {
-    footerText.textContent =
-      "© Игорь Мизёв — универсальная система страниц программ обучения";
+    footerText.textContent = "© Игорь Мизёв — каталог направлений";
   }
 }
 
@@ -627,3 +622,4 @@ function escapeHtml(value) {
 function escapeAttribute(value) {
   return escapeHtml(value);
 }
+
