@@ -264,13 +264,12 @@ function renderProgramDirectory(programs, missingSlug = "") {
     }</h1>
     <p class="program-lead">${
       missingSlug
-        ? `Направление со slug "${escapeHtml(missingSlug)}" не найдено в базе данных. Выберите нужную программу из списка ниже или вернитесь на главную страницу.`
-        : "Все страницы направлений теперь собираются из одного JSON-файла. Ниже можно открыть любую программу по готовой ссылке."
+        ? `Направление не найдено в базе данных. Выберите нужную программу из списка ниже или вернитесь на главную страницу.`
+        : "Ниже можно открыть любую программу по готовой ссылке."
     }</p>
     <div class="program-chip-row">
       <span class="program-chip">${safePrograms.length} программ в базе</span>
       <span class="program-chip">Одна универсальная страница</span>
-      <span class="program-chip">Редактирование через JSON</span>
     </div>
   `;
 
@@ -297,7 +296,7 @@ function renderProgramDirectory(programs, missingSlug = "") {
       <div class="program-panel-header">
         <span class="program-panel-badge">Список направлений</span>
         <h2 class="program-panel-title">Готовые ссылки на программы</h2>
-        <p class="program-panel-description">Используйте эти ссылки на главной странице или открывайте их напрямую. Чтобы добавить новую программу, достаточно создать новый объект в JSON.</p>
+        <p class="program-panel-description">Используйте эти ссылки на главной странице или открывайте их напрямую. </p>
       </div>
       <div class="program-directory-grid">
         ${safePrograms
