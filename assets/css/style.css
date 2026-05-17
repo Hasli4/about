@@ -223,6 +223,125 @@ body, main, section, article, aside, header, footer, .about, .adv-card, .course-
 @media (max-width:480px){.container{padding:18px 8px;width:calc(100% - 8px)}header .nav{flex-wrap:wrap;align-items:center;gap:10px}.brand{flex:0 1 auto;min-width:0}.menu-toggle{display:inline-flex}nav{order:3;width:100%}nav ul{display:none}.actions{flex:0 1 auto;display:flex;align-items:center;gap:8px;order:1}.socials{order:1}.phone{font-size:90%;order:2;width:100%;justify-content:flex-start;margin-top:6px;white-space:normal;padding:8px 10px; background:linear-gradient(90deg,hsl(var(--accent1-h) var(--accent-s) 62%),hsl(var(--accent2-h) var(--accent-s) 60%)) !important;}.logo{width:40px;height:40px}.about h1{font-size:18px}body{overflow-x:hidden}.courses-wrapper{margin-left:-4px;margin-right:-4px}.courses-scroll{padding:8px 0}.panel-cards{gap:0}.course-card{flex:0 0 100%;max-width:none;min-height:360px}.course-media{aspect-ratio:16 / 9;--course-media-scale:1}.scroll-btn.left{left:2px}.scroll-btn.right{right:2px}}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.course-card,.adv-card{transform:none!important;box-shadow:none!important}}
 
+/* Layout polish after the card/image pass */
+#programs{margin-top:20px !important}
+
+@media (min-width:1101px){
+  .hero{
+    padding-top:28px;
+    padding-bottom:14px;
+  }
+
+  .hero-grid{
+    align-items:stretch;
+  }
+
+  .about{
+    min-height:360px;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+}
+
+@media (max-width:1100px){
+  .hero{
+    padding-top:24px;
+    padding-bottom:12px;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+    align-items:start;
+  }
+
+  .avatar{
+    margin-inline:auto;
+    justify-self:center;
+  }
+
+  .about{
+    height:auto;
+  }
+}
+
+@media (max-width:700px){
+  .hero{
+    padding-top:18px;
+    padding-bottom:10px;
+  }
+
+  .hero-grid{
+    gap:16px;
+  }
+
+  .advantages-grid{
+    margin-top:14px;
+    gap:14px;
+  }
+
+  #programs{
+    margin-top:14px !important;
+  }
+}
+
+@media (max-width:480px){
+  header .nav{
+    align-items:flex-start;
+  }
+
+  .brand{
+    order:1;
+    flex:1 1 auto;
+    min-width:0;
+  }
+
+  nav{
+    order:2;
+    width:auto;
+    margin-left:auto;
+  }
+
+  .actions{
+    order:3;
+    flex:1 0 100%;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+
+  .socials{
+    order:1;
+  }
+
+  .phone{
+    order:2;
+    width:auto;
+    margin-top:0;
+    margin-left:auto;
+    white-space:nowrap;
+    justify-content:center;
+  }
+
+  .avatar{
+    width:min(100%, 360px);
+    margin-inline:auto;
+  }
+
+  .about{
+    padding:18px 16px;
+  }
+
+  #programs{
+    margin-top:12px !important;
+  }
+}
+
 /* ---------------------------
    Унифицированный стиль ссылок
    Кодерский неон, underline + glow
