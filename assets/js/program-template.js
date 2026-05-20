@@ -617,6 +617,8 @@ function renderWorkMedia(item) {
           class="program-work-iframe"
           src="${escapeAttribute(embedSrc)}"
           title="${title}"
+          width="${embedWidth}"
+          height="${embedHeight}"
           loading="lazy"
           allowtransparency="true"
           scrolling="no"
