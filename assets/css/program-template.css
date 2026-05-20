@@ -583,6 +583,7 @@ body > header {
 }
 
 .program-work-fallback,
+.program-work-embed-stage,
 .program-work-iframe {
   position: absolute;
   inset: 0;
@@ -614,7 +615,7 @@ body > header {
   transform: none;
 }
 
-.program-work-iframe {
+.program-work-embed-stage {
   z-index: 2;
   width: var(--work-embed-width, 485px);
   height: var(--work-embed-height, 402px);
@@ -622,13 +623,19 @@ body > header {
   bottom: auto;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%) scale(var(--work-embed-scale, 1));
+  transform-origin: center center;
+}
+
+.program-work-iframe {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
   border: 0;
   display: block;
   opacity: 0;
   transition: opacity 220ms var(--easing);
   background: transparent;
-  transform: translate(-50%, -50%) scale(var(--work-embed-scale, 1));
-  transform-origin: center center;
 }
 
 .program-work-embed.is-loaded .program-work-iframe {

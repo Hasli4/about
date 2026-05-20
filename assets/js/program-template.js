@@ -613,18 +613,20 @@ function renderWorkMedia(item) {
             loading="lazy"
           />
         </div>
-        <iframe
-          class="program-work-iframe"
-          src="${escapeAttribute(embedSrc)}"
-          title="${title}"
-          width="${embedWidth}"
-          height="${embedHeight}"
-          loading="lazy"
-          allowtransparency="true"
-          scrolling="no"
-          allowfullscreen
-          referrerpolicy="strict-origin-when-cross-origin"
-        ></iframe>
+        <div class="program-work-embed-stage">
+          <iframe
+            class="program-work-iframe"
+            src="${escapeAttribute(embedSrc)}"
+            title="${title}"
+            width="${embedWidth}"
+            height="${embedHeight}"
+            loading="lazy"
+            allowtransparency="true"
+            scrolling="no"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
       </div>
     </figure>
   `;
@@ -692,7 +694,7 @@ function fitWorkEmbed(embed) {
     return;
   }
 
-  const scale = Math.min(bounds.width / width, bounds.height / height);
+  const scale = Math.min(1, bounds.width / width, bounds.height / height);
 
   embed.style.setProperty("--work-embed-width", `${width}px`);
   embed.style.setProperty("--work-embed-height", `${height}px`);
