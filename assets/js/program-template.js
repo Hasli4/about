@@ -564,13 +564,7 @@ function renderWorks(selector, items) {
     .map(
       (item) => `
         <article class="program-work-card">
-          <figure class="program-work-media">
-            <img
-              src="${escapeAttribute(item.image || "")}"
-              alt="${escapeAttribute(item.alt || item.title || "")}"
-              loading="lazy"
-            />
-          </figure>
+          ${renderWorkMedia(item)}
           <div class="program-work-body">
             <h3 class="program-work-title">${escapeHtml(item.title || "")}</h3>
             <p class="program-work-text">${escapeHtml(item.text || "")}</p>
@@ -579,6 +573,93 @@ function renderWorks(selector, items) {
       `,
     )
     .join("");
+
+  initWorkEmbeds(container);
+}
+
+function renderWorkMedia(item) {
+  const title = escapeAttribute(item.title || "");
+  const alt = escapeAttribute(item.alt || item.title || "");
+  const fallbackImage = escapeAttribute(item.image || "");
+  const embedSrc = typeof item.embed === "string" ? item.embed.trim() : "";
+
+  if (!embedSrc) {
+    return `
+      <figure class="program-work-media">
+        <img
+          src="${fallbackImage}"
+          alt="${alt}"
+          loading="lazy"
+        />
+      </figure>
+    `;
+  }
+
+  return `
+    <figure class="program-work-media program-work-media--embed">
+      <div class="program-work-embed" data-work-embed>
+        <div class="program-work-fallback">
+          <img
+            class="program-work-fallback-image"
+            src="${fallbackImage}"
+            alt="${alt}"
+            loading="lazy"
+          />
+        </div>
+        <iframe
+          class="program-work-iframe"
+          src="${escapeAttribute(embedSrc)}"
+          title="${title}"
+          loading="lazy"
+          allowtransparency="true"
+          scrolling="no"
+          allowfullscreen
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+      </div>
+    </figure>
+  `;
+}
+
+function initWorkEmbeds(container) {
+  const embeds = container.querySelectorAll("[data-work-embed]");
+
+  embeds.forEach((embed) => {
+    const frame = embed.querySelector(".program-work-iframe");
+    if (!frame) {
+      return;
+    }
+
+    let settled = false;
+
+    const markLoaded = () => {
+      if (settled) {
+        return;
+      }
+      settled = true;
+      embed.classList.add("is-loaded");
+    };
+
+    const markFailed = () => {
+      if (settled) {
+        return;
+      }
+      settled = true;
+      embed.classList.add("is-fallback");
+    };
+
+    frame.addEventListener("load", () => {
+      window.setTimeout(markLoaded, 160);
+    });
+
+    frame.addEventListener("error", markFailed);
+
+    window.setTimeout(() => {
+      if (!settled) {
+        embed.classList.add("is-fallback");
+      }
+    }, 6000);
+  });
 }
 
 function renderFaq(selector, items) {
