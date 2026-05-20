@@ -563,7 +563,7 @@ function renderWorks(selector, items) {
   container.innerHTML = items
     .map(
       (item) => `
-        <article class="program-work-card${item && item.embed ? " program-work-card--embed" : ""}">
+        <article class="${getWorkCardClass(item)}">
           ${renderWorkMedia(item)}
           <div class="program-work-body">
             <h3 class="program-work-title">${escapeHtml(item.title || "")}</h3>
@@ -575,6 +575,29 @@ function renderWorks(selector, items) {
     .join("");
 
   initWorkEmbeds(container);
+}
+
+function getWorkCardClass(item) {
+  const classes = ["program-work-card"];
+
+  if (item && item.embed) {
+    classes.push("program-work-card--embed");
+  }
+
+  if (isScratchEmbed(item)) {
+    classes.push("program-work-card--scratch");
+  }
+
+  return classes.join(" ");
+}
+
+function isScratchEmbed(item) {
+  return (
+    item &&
+    typeof item.embed === "string" &&
+    item.embed.includes("scratch.mit.edu/projects/") &&
+    item.embed.includes("/embed")
+  );
 }
 
 function renderWorkMedia(item) {
@@ -593,6 +616,33 @@ function renderWorkMedia(item) {
           alt="${alt}"
           loading="lazy"
         />
+      </figure>
+    `;
+  }
+
+  if (isScratchEmbed(item)) {
+    return `
+      <figure class="program-work-media program-work-media--scratch">
+        <div class="program-scratch-frame-wrap">
+          <iframe
+            class="program-scratch-frame"
+            src="${escapeAttribute(embedSrc)}"
+            title="${title}"
+            allowtransparency="true"
+            width="${embedWidth}"
+            height="${embedHeight}"
+            frameborder="0"
+            scrolling="no"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <noscript>
+          <img
+            class="program-scratch-fallback-image"
+            src="${fallbackImage}"
+            alt="${alt}"
+          />
+        </noscript>
       </figure>
     `;
   }
