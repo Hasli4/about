@@ -582,6 +582,8 @@ function renderWorkMedia(item) {
   const alt = escapeAttribute(item.alt || item.title || "");
   const fallbackImage = escapeAttribute(item.image || "");
   const embedSrc = typeof item.embed === "string" ? item.embed.trim() : "";
+  const embedWidth = Number(item.embedWidth) || 485;
+  const embedHeight = Number(item.embedHeight) || 402;
 
   if (!embedSrc) {
     return `
@@ -597,7 +599,12 @@ function renderWorkMedia(item) {
 
   return `
     <figure class="program-work-media program-work-media--embed">
-      <div class="program-work-embed" data-work-embed>
+      <div
+        class="program-work-embed"
+        data-work-embed
+        data-embed-width="${embedWidth}"
+        data-embed-height="${embedHeight}"
+      >
         <div class="program-work-fallback">
           <img
             class="program-work-fallback-image"
@@ -649,10 +656,22 @@ function initWorkEmbeds(container) {
     };
 
     frame.addEventListener("load", () => {
+      fitWorkEmbed(embed);
       window.setTimeout(markLoaded, 160);
     });
 
     frame.addEventListener("error", markFailed);
+
+    fitWorkEmbed(embed);
+
+    if (typeof ResizeObserver !== "undefined") {
+      const resizeObserver = new ResizeObserver(() => {
+        fitWorkEmbed(embed);
+      });
+      resizeObserver.observe(embed);
+    } else {
+      window.addEventListener("resize", () => fitWorkEmbed(embed));
+    }
 
     window.setTimeout(() => {
       if (!settled) {
@@ -660,6 +679,22 @@ function initWorkEmbeds(container) {
       }
     }, 6000);
   });
+}
+
+function fitWorkEmbed(embed) {
+  const width = Number(embed.dataset.embedWidth) || 485;
+  const height = Number(embed.dataset.embedHeight) || 402;
+  const bounds = embed.getBoundingClientRect();
+
+  if (!bounds.width || !bounds.height) {
+    return;
+  }
+
+  const scale = Math.min(bounds.width / width, bounds.height / height);
+
+  embed.style.setProperty("--work-embed-width", `${width}px`);
+  embed.style.setProperty("--work-embed-height", `${height}px`);
+  embed.style.setProperty("--work-embed-scale", String(scale));
 }
 
 function renderFaq(selector, items) {
