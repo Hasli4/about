@@ -563,7 +563,7 @@ function renderWorks(selector, items) {
   container.innerHTML = items
     .map(
       (item) => `
-        <article class="program-work-card">
+        <article class="program-work-card${item && item.embed ? " program-work-card--embed" : ""}">
           ${renderWorkMedia(item)}
           <div class="program-work-body">
             <h3 class="program-work-title">${escapeHtml(item.title || "")}</h3>
@@ -602,8 +602,6 @@ function renderWorkMedia(item) {
       <div
         class="program-work-embed"
         data-work-embed
-        data-embed-width="${embedWidth}"
-        data-embed-height="${embedHeight}"
       >
         <div class="program-work-fallback">
           <img
@@ -613,20 +611,19 @@ function renderWorkMedia(item) {
             loading="lazy"
           />
         </div>
-        <div class="program-work-embed-stage">
-          <iframe
-            class="program-work-iframe"
-            src="${escapeAttribute(embedSrc)}"
-            title="${title}"
-            width="${embedWidth}"
-            height="${embedHeight}"
-            loading="lazy"
-            allowtransparency="true"
-            scrolling="no"
-            allowfullscreen
-            referrerpolicy="strict-origin-when-cross-origin"
-          ></iframe>
-        </div>
+        <iframe
+          class="program-work-iframe"
+          src="${escapeAttribute(embedSrc)}"
+          title="${title}"
+          width="${embedWidth}"
+          height="${embedHeight}"
+          loading="lazy"
+          allowtransparency="true"
+          frameborder="0"
+          scrolling="no"
+          allowfullscreen
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
       </div>
     </figure>
   `;
@@ -659,23 +656,9 @@ function initWorkEmbeds(container) {
       embed.classList.add("is-fallback");
     };
 
-    frame.addEventListener("load", () => {
-      fitWorkEmbed(embed);
-      window.setTimeout(markLoaded, 160);
-    });
+    frame.addEventListener("load", () => window.setTimeout(markLoaded, 160));
 
     frame.addEventListener("error", markFailed);
-
-    fitWorkEmbed(embed);
-
-    if (typeof ResizeObserver !== "undefined") {
-      const resizeObserver = new ResizeObserver(() => {
-        fitWorkEmbed(embed);
-      });
-      resizeObserver.observe(embed);
-    } else {
-      window.addEventListener("resize", () => fitWorkEmbed(embed));
-    }
 
     window.setTimeout(() => {
       if (!settled) {
@@ -683,22 +666,6 @@ function initWorkEmbeds(container) {
       }
     }, 6000);
   });
-}
-
-function fitWorkEmbed(embed) {
-  const width = Number(embed.dataset.embedWidth) || 485;
-  const height = Number(embed.dataset.embedHeight) || 402;
-  const bounds = embed.getBoundingClientRect();
-
-  if (!bounds.width || !bounds.height) {
-    return;
-  }
-
-  const scale = Math.min(1, bounds.width / width, bounds.height / height);
-
-  embed.style.setProperty("--work-embed-width", `${width}px`);
-  embed.style.setProperty("--work-embed-height", `${height}px`);
-  embed.style.setProperty("--work-embed-scale", String(scale));
 }
 
 function renderFaq(selector, items) {
