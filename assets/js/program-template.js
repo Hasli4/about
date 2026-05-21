@@ -86,6 +86,7 @@ function renderProgramPage(data) {
   renderFacts("#program-fact-grid", data.facts || []);
   renderBenefits("#program-benefits-grid", data.benefits || []);
   renderSkills("#program-skills-grid", data.skills || []);
+  warmUpScratchEmbeds(data.works || []);
   renderWorks("#program-works-grid", data.works || []);
   renderFaq("#program-faq-list", data.faq || []);
 
@@ -575,6 +576,7 @@ function renderWorks(selector, items) {
     .join("");
 
   initWorkEmbeds(container);
+  initScratchEmbeds(container);
 }
 
 function getWorkCardClass(item) {
@@ -623,7 +625,7 @@ function renderWorkMedia(item) {
   if (isScratchEmbed(item)) {
     return `
       <figure class="program-work-media program-work-media--scratch">
-        <div class="program-scratch-frame-wrap">
+        <div class="program-scratch-frame-wrap" data-scratch-embed>
           <iframe
             class="program-scratch-frame"
             src="${escapeAttribute(embedSrc)}"
@@ -635,14 +637,13 @@ function renderWorkMedia(item) {
             scrolling="no"
             allowfullscreen
           ></iframe>
-        </div>
-        <noscript>
           <img
             class="program-scratch-fallback-image"
             src="${fallbackImage}"
             alt="${alt}"
+            loading="lazy"
           />
-        </noscript>
+        </div>
       </figure>
     `;
   }
@@ -716,6 +717,120 @@ function initWorkEmbeds(container) {
       }
     }, 6000);
   });
+}
+
+function initScratchEmbeds(container) {
+  const embeds = container.querySelectorAll("[data-scratch-embed]");
+
+  embeds.forEach((embed) => {
+    const frame = embed.querySelector(".program-scratch-frame");
+    const fallback = embed.querySelector(".program-scratch-fallback-image");
+
+    if (!frame || !fallback) {
+      return;
+    }
+
+    let settled = false;
+    let reachabilityFailed = false;
+    const embedSrc = frame.getAttribute("src") || "";
+
+    const markLoaded = () => {
+      if (settled) {
+        return;
+      }
+
+      settled = true;
+      embed.classList.add("is-loaded");
+    };
+
+    const showFallback = () => {
+      if (settled) {
+        return;
+      }
+
+      settled = true;
+      embed.classList.add("is-fallback");
+      frame.removeAttribute("src");
+    };
+
+    if (embedSrc && window.fetch) {
+      fetch(embedSrc, { mode: "no-cors" }).catch(() => {
+        reachabilityFailed = true;
+        showFallback();
+      });
+    }
+
+    frame.addEventListener("load", () => {
+      window.setTimeout(() => {
+        if (reachabilityFailed || hasScratchFrameFailed(frame)) {
+          showFallback();
+        } else {
+          markLoaded();
+        }
+      }, 2500);
+    });
+    frame.addEventListener("error", showFallback);
+
+    window.setTimeout(() => {
+      if (settled) {
+        return;
+      }
+
+      if (reachabilityFailed || hasScratchFrameFailed(frame)) {
+        showFallback();
+      } else {
+        markLoaded();
+      }
+    }, 18000);
+  });
+}
+
+function hasScratchFrameFailed(frame) {
+  try {
+    const href = frame.contentWindow && frame.contentWindow.location.href;
+
+    return (
+      !href ||
+      href === "about:blank" ||
+      href.startsWith("chrome-error://") ||
+      href.startsWith("edge-error://")
+    );
+  } catch (error) {
+    return false;
+  }
+}
+
+function warmUpScratchEmbeds(items) {
+  const scratchSources = items
+    .filter(isScratchEmbed)
+    .map((item) => item.embed.trim());
+
+  if (!scratchSources.length) {
+    return;
+  }
+
+  addResourceHint("dns-prefetch", "https://scratch.mit.edu");
+  addResourceHint("preconnect", "https://scratch.mit.edu", true);
+}
+
+function addResourceHint(rel, href, crossOrigin = false) {
+  const exists = Array.from(document.head.querySelectorAll("link")).some(
+    (link) => link.rel === rel && link.href === href,
+  );
+
+  if (exists) {
+    return;
+  }
+
+  const link = document.createElement("link");
+  link.rel = rel;
+  link.href = href;
+
+  if (crossOrigin) {
+    link.crossOrigin = "anonymous";
+  }
+
+  document.head.append(link);
 }
 
 function renderFaq(selector, items) {

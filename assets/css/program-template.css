@@ -676,10 +676,22 @@ body > header {
   background: #e8edf2;
 }
 
-.program-scratch-fallback-image {
-  width: min(100%, 485px);
+.program-work-media .program-scratch-fallback-image {
+  width: 100%;
+  aspect-ratio: 485 / 402;
   height: auto;
+  object-fit: cover;
+  object-position: center center;
   border-radius: 10px;
+  display: none;
+  transform: none;
+}
+
+.program-scratch-frame-wrap.is-fallback .program-scratch-frame {
+  display: none;
+}
+
+.program-scratch-frame-wrap.is-fallback .program-scratch-fallback-image {
   display: block;
 }
 
