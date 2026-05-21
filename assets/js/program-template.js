@@ -569,6 +569,7 @@ function renderWorks(selector, items) {
           <div class="program-work-body">
             <h3 class="program-work-title">${escapeHtml(item.title || "")}</h3>
             <p class="program-work-text">${escapeHtml(item.text || "")}</p>
+            ${renderWorkActions(item)}
           </div>
         </article>
       `,
@@ -591,6 +592,45 @@ function getWorkCardClass(item) {
   }
 
   return classes.join(" ");
+}
+
+function renderWorkActions(item) {
+  const projectUrl = getScratchProjectUrl(item);
+
+  if (!projectUrl) {
+    return "";
+  }
+
+  return `
+    <div class="program-work-actions">
+      <a
+        class="program-work-game-link"
+        href="${escapeAttribute(projectUrl)}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ссылка на игру
+      </a>
+      <span
+        class="program-work-help"
+        tabindex="0"
+        aria-label="Подсказка о ссылке на игру"
+      >
+        ?
+        <span class="program-work-tooltip" role="tooltip">
+          Если Scratch-проект грузится неправильно, откройте игру на основной странице Scratch.
+        </span>
+      </span>
+    </div>
+  `;
+}
+
+function getScratchProjectUrl(item) {
+  if (!isScratchEmbed(item)) {
+    return "";
+  }
+
+  return item.embed.trim().replace(/\/embed\/?$/, "");
 }
 
 function isScratchEmbed(item) {
