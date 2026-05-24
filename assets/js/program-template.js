@@ -650,6 +650,8 @@ function renderWorkMedia(item) {
   const embedWidth = Number(item.embedWidth) || 485;
   const embedHeight = Number(item.embedHeight) || 402;
   const videoSources = getWorkVideoSources(item);
+  const imageMediaClass = getWorkImageMediaClass(item);
+  const imageMediaStyle = getWorkImageMediaStyle(item);
 
   if (!embedSrc) {
     if (videoSources.length) {
@@ -682,7 +684,7 @@ function renderWorkMedia(item) {
     }
 
     return `
-      <figure class="program-work-media">
+      <figure class="${imageMediaClass}"${imageMediaStyle ? ` style="${imageMediaStyle}"` : ""}>
         <img
           src="${fallbackImage}"
           alt="${alt}"
@@ -748,6 +750,26 @@ function renderWorkMedia(item) {
       </div>
     </figure>
   `;
+}
+
+function getWorkImageMediaClass(item) {
+  const classes = ["program-work-media"];
+
+  if (item && item.imageFit === "contain") {
+    classes.push("program-work-media--contain");
+  }
+
+  return classes.join(" ");
+}
+
+function getWorkImageMediaStyle(item) {
+  const styles = [];
+
+  if (item && typeof item.imageBackground === "string" && item.imageBackground.trim()) {
+    styles.push(`--program-work-media-bg: ${item.imageBackground.trim()}`);
+  }
+
+  return styles.join("; ");
 }
 
 function getWorkVideoSources(item) {

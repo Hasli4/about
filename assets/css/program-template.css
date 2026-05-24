@@ -559,7 +559,7 @@ body > header {
 .program-work-media {
   margin: 0;
   aspect-ratio: 16 / 10;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--program-work-media-bg, rgba(255, 255, 255, 0.03));
 }
 
 .program-work-media img {
@@ -570,6 +570,11 @@ body > header {
   display: block;
   transform: scale(var(--program-work-scale, 1.06));
   transform-origin: center center;
+}
+
+.program-work-media--contain img {
+  object-fit: contain;
+  transform: none;
 }
 
 .program-work-video {
@@ -709,7 +714,7 @@ body > header {
 }
 
 .program-work-body {
-  padding: 18px 20px 20px;
+  padding: 21px 20px 20px;
 }
 
 .program-work-actions {
@@ -1191,6 +1196,10 @@ body > header {
 
   .program-work-media--scratch {
     padding: 10px;
+  }
+
+  .program-work-body {
+    padding: 23px 18px 20px;
   }
 
   .phone {
