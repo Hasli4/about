@@ -572,6 +572,19 @@ body > header {
   transform-origin: center center;
 }
 
+.program-work-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  background: rgba(6, 12, 20, 0.96);
+}
+
+.program-work-media--video {
+  --program-work-scale: 1;
+}
+
 .program-work-media--embed {
   aspect-ratio: auto;
   display: flex;

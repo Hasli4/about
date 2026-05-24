@@ -649,8 +649,38 @@ function renderWorkMedia(item) {
   const embedSrc = typeof item.embed === "string" ? item.embed.trim() : "";
   const embedWidth = Number(item.embedWidth) || 485;
   const embedHeight = Number(item.embedHeight) || 402;
+  const videoSources = getWorkVideoSources(item);
 
   if (!embedSrc) {
+    if (videoSources.length) {
+      return `
+        <figure class="program-work-media program-work-media--video">
+          <video
+            class="program-work-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="${fallbackImage}"
+            aria-label="${title}"
+            disablepictureinpicture
+          >
+            ${videoSources
+              .map(
+                (source) => `
+              <source
+                src="${escapeAttribute(source.src)}"
+                type="${escapeAttribute(source.type)}"
+              />
+            `,
+              )
+              .join("")}
+          </video>
+        </figure>
+      `;
+    }
+
     return `
       <figure class="program-work-media">
         <img
@@ -718,6 +748,37 @@ function renderWorkMedia(item) {
       </div>
     </figure>
   `;
+}
+
+function getWorkVideoSources(item) {
+  const sources = [];
+
+  if (item && typeof item.videoWebm === "string" && item.videoWebm.trim()) {
+    sources.push({ src: item.videoWebm.trim(), type: "video/webm" });
+  }
+
+  if (item && typeof item.videoMp4 === "string" && item.videoMp4.trim()) {
+    sources.push({ src: item.videoMp4.trim(), type: "video/mp4" });
+  }
+
+  if (item && typeof item.video === "string" && item.video.trim()) {
+    sources.push({
+      src: item.video.trim(),
+      type: inferVideoMimeType(item.video.trim()),
+    });
+  }
+
+  return sources;
+}
+
+function inferVideoMimeType(src) {
+  const normalized = src.toLowerCase();
+
+  if (normalized.endsWith(".webm")) {
+    return "video/webm";
+  }
+
+  return "video/mp4";
 }
 
 function initWorkEmbeds(container) {
