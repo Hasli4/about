@@ -554,12 +554,18 @@ body > header {
 
 .program-work-card {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 14px;
 }
 
 .program-work-media {
   margin: 0;
   aspect-ratio: 16 / 10;
   background: var(--program-work-media-bg, rgba(255, 255, 255, 0.03));
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .program-work-media img {
@@ -714,7 +720,7 @@ body > header {
 }
 
 .program-work-body {
-  padding: 21px 20px 20px;
+  padding: 0 6px 6px;
 }
 
 .program-work-actions {
@@ -1131,6 +1137,11 @@ body > header {
     --program-work-scale: 1.12;
   }
 
+  .program-work-card {
+    gap: 14px;
+    padding: 12px;
+  }
+
   .program-work-media--embed {
     aspect-ratio: auto;
     --program-work-scale: 1;
@@ -1199,7 +1210,7 @@ body > header {
   }
 
   .program-work-body {
-    padding: 23px 18px 20px;
+    padding: 0 4px 6px;
   }
 
   .phone {
