@@ -397,12 +397,12 @@
           "projectInfo": ""
         },
         {
-          "image": "assets/images/courses/web_development_165.webp",
-          "alt": "Пример страницы кружка",
-          "title": "Страница кружка или секции",
-          "text": "Небольшой сайт с расписанием, описанием занятий, преимуществами и формой записи.",
-          "projectUrl": "",
-          "projectInfo": ""
+          "image": "assets/images/program-works/web-development/web2.png",
+          "alt": "Редактор пиксель-артов на JavaScript",
+          "title": "Редактор пиксель-артов",
+          "text": "Интерактивный веб-проект, где можно рисовать пиксельные изображения, выбирать цвета и сразу видеть результат на сетке.",
+          "projectUrl": "https://hasli4.github.io/pixel-web/",
+          "projectInfo": "Проект показывает, как HTML, CSS и JavaScript превращаются в настоящий инструмент: сетку для рисования, палитру цветов и простую логику редактора."
         }
       ],
       "faq": [
