@@ -595,34 +595,85 @@ function getWorkCardClass(item) {
 }
 
 function renderWorkActions(item) {
-  const projectUrl = getScratchProjectUrl(item);
+  const projectData = getWorkProjectData(item);
 
-  if (!projectUrl) {
+  if (!projectData.url && !projectData.info) {
     return "";
   }
 
   return `
     <div class="program-work-actions">
-      <a
-        class="program-work-game-link"
-        href="${escapeAttribute(projectUrl)}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Ссылка на игру
-      </a>
-      <span
-        class="program-work-help"
-        tabindex="0"
-        aria-label="Подсказка о ссылке на игру"
-      >
-        ?
-        <span class="program-work-tooltip" role="tooltip">
-          Если Scratch-проект грузится неправильно, откройте игру на основной странице Scratch.
+      ${
+        projectData.url
+          ? `
+        <a
+          class="program-work-game-link"
+          href="${escapeAttribute(projectData.url)}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ${escapeHtml(projectData.label)}
+        </a>
+      `
+          : ""
+      }
+      ${
+        projectData.info
+          ? `
+        <span
+          class="program-work-help"
+          tabindex="0"
+          aria-label="${escapeAttribute(projectData.helpLabel)}"
+        >
+          ?
+          <span class="program-work-tooltip" role="tooltip">
+            ${escapeHtml(projectData.info)}
+          </span>
         </span>
-      </span>
+      `
+          : ""
+      }
     </div>
   `;
+}
+
+function getWorkProjectData(item) {
+  const explicitUrl =
+    item && typeof item.projectUrl === "string" ? item.projectUrl.trim() : "";
+  const explicitInfo =
+    item && typeof item.projectInfo === "string" ? item.projectInfo.trim() : "";
+  const explicitLabel =
+    item && typeof item.projectLabel === "string"
+      ? item.projectLabel.trim()
+      : "";
+
+  if (explicitUrl || explicitInfo || explicitLabel) {
+    return {
+      url: explicitUrl,
+      info: explicitInfo,
+      label: explicitLabel || "Открыть проект",
+      helpLabel: item && item.title
+        ? `Подсказка о проекте «${item.title}»`
+        : "Подсказка о проекте",
+    };
+  }
+
+  const scratchUrl = getScratchProjectUrl(item);
+  if (!scratchUrl) {
+    return {
+      url: "",
+      info: "",
+      label: "",
+      helpLabel: "",
+    };
+  }
+
+  return {
+    url: scratchUrl,
+    info: "Если Scratch-проект грузится неправильно, откройте игру на основной странице Scratch.",
+    label: "Ссылка на игру",
+    helpLabel: "Подсказка о ссылке на игру",
+  };
 }
 
 function getScratchProjectUrl(item) {
