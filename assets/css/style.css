@@ -194,7 +194,7 @@ nav a:hover{background:rgba(255,255,255,0.02)}
   color: inherit !important;
   box-shadow: none !important;
 }
-#contacts > div[style], #design > div[style], #music > div[style], section[style] {
+#programs > div[style], #reviews > div[style], #contacts > div[style], #design > div[style], #music > div[style] {
   background: var(--card) !important;
   color: inherit !important;
   box-shadow: var(--shadow) !important;
@@ -210,7 +210,7 @@ nav a:hover{background:rgba(255,255,255,0.02)}
 
 nav ul{ background: linear-gradient(180deg, rgba(6,12,18,0.96), rgba(4,8,12,0.94)) !important; color: inherit !important; }
 [style*="var(--card)"]{ background: var(--card) !important; }
-#contacts div[style], #design div[style], #music div[style] { background: var(--card) !important; color: inherit !important; box-shadow: var(--shadow) !important; }
+#contacts > div[style], #design > div[style], #music > div[style] { background: var(--card) !important; color: inherit !important; box-shadow: var(--shadow) !important; }
 body, main, section, article, aside, header, footer, .about, .adv-card, .course-card { color: rgba(255,255,255,0.98) !important; }
 .small, .muted, .chip, p { color: rgb(210, 220, 230) !important; }
 .course-media img, .avatar img { background: transparent !important; }
@@ -2148,5 +2148,34 @@ a:not(.phone):not(.btn-primary):not(.course-cta):not(.review-avito):not(nav a):n
 @media (prefers-reduced-motion: reduce) {
   body::after {
     animation: none !important;
+  }
+}
+
+/* Remove legacy square section plates; keep only rounded inner cards. */
+main > section[style] {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+#programs > div[style],
+#reviews > div[style],
+#design > div[style],
+#music > div[style],
+#contacts > div[style] {
+  border-radius: 18px !important;
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  #programs > div[style],
+  #reviews > div[style],
+  #design > div[style],
+  #music > div[style],
+  #contacts > div[style] {
+    border-radius: 16px !important;
   }
 }
