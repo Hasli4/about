@@ -474,7 +474,7 @@
       ],
       "works": [
         {
-          "image": "assets/images/courses/graphic_design_165.webp",
+          "image": "assets/images/portfolio/2_necover_poster.webp",
           "alt": "Пример дизайнерской работы",
           "title": "Афиша мероприятия",
           "text": "Работа с композицией, заголовками, изображениями и визуальной иерархией.",
@@ -482,7 +482,7 @@
           "projectInfo": ""
         },
         {
-          "image": "assets/images/portfolio/11_fgp_poster.webp",
+          "image": "assets/images/courses/graphic_design_165.webp",
           "alt": "Пример постера",
           "title": "Постер или обложка",
           "text": "Проект под выбранную тему ребёнка: концерт, игра, клуб, книга или собственная идея.",
