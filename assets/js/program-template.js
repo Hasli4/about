@@ -107,6 +107,7 @@ function setOptionalProgramPanel(id, isEnabled) {
 
   if (button) {
     button.hidden = !isEnabled;
+    button.style.display = isEnabled ? "" : "none";
     button.classList.remove("is-active");
 
     if (isEnabled) {
