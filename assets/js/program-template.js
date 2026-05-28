@@ -89,15 +89,56 @@ function renderProgramPage(data) {
   warmUpScratchEmbeds(data.works || []);
   renderWorks("#program-works-grid", data.works || []);
   renderFaq("#program-faq-list", data.faq || []);
+  syncOptionalProgramPanels(data);
 
   if (footerText) {
     footerText.textContent = `© Игорь Мизёв — ${title}`;
   }
 }
 
+function syncOptionalProgramPanels(data) {
+  const hasWorks = Array.isArray(data.works) && data.works.length > 0;
+  setOptionalProgramPanel("works", hasWorks);
+}
+
+function setOptionalProgramPanel(id, isEnabled) {
+  const button = document.querySelector(`[data-program-tab="${id}"]`);
+  const panel = document.getElementById(id);
+
+  if (button) {
+    button.hidden = !isEnabled;
+    button.classList.remove("is-active");
+
+    if (isEnabled) {
+      button.removeAttribute("aria-hidden");
+      button.removeAttribute("disabled");
+    } else {
+      button.setAttribute("aria-hidden", "true");
+      button.setAttribute("aria-selected", "false");
+      button.tabIndex = -1;
+    }
+  }
+
+  if (panel) {
+    if (isEnabled) {
+      delete panel.dataset.programPanelDisabled;
+      panel.removeAttribute("aria-hidden");
+    } else {
+      panel.dataset.programPanelDisabled = "true";
+      panel.setAttribute("aria-hidden", "true");
+      panel.classList.remove("is-active");
+      panel.hidden = true;
+    }
+  }
+}
+
 function initProgramTabs() {
-  const buttons = Array.from(document.querySelectorAll("[data-program-tab]"));
-  const panels = Array.from(document.querySelectorAll(".program-panel"));
+  const buttons = Array.from(
+    document.querySelectorAll("[data-program-tab]"),
+  ).filter((button) => !button.hidden);
+  const panels = Array.from(document.querySelectorAll(".program-panel")).filter(
+    (panel) => panel.dataset.programPanelDisabled !== "true",
+  );
   const validIds = new Set(panels.map((panel) => panel.id));
 
   if (!buttons.length || !panels.length) {
@@ -416,7 +457,7 @@ function initProgramNavArrows() {
   }
 
   const getStep = () => {
-    const button = nav.querySelector(".program-nav-btn");
+    const button = nav.querySelector(".program-nav-btn:not([hidden])");
     const gap = parseInt(getComputedStyle(nav).gap || "0", 10);
     if (!button) {
       return Math.round(nav.clientWidth * 0.8);
