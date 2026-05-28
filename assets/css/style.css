@@ -1667,3 +1667,476 @@ body::after    { z-index: var(--visual-blobs-z) !important; }
     transform: none !important;
   }
 }
+
+/* ========================================================
+   Premium developer interface layer
+   Visual-only overrides. Keeps existing structure and JS intact.
+   ======================================================== */
+:root {
+  --dev-bg-0: #071019;
+  --dev-bg-1: #0b1622;
+  --dev-bg-2: #111c2a;
+  --dev-surface: rgba(13, 22, 33, 0.78);
+  --dev-surface-strong: rgba(16, 26, 39, 0.9);
+  --dev-surface-soft: rgba(255, 255, 255, 0.035);
+  --dev-border: rgba(142, 211, 255, 0.12);
+  --dev-border-strong: rgba(122, 216, 255, 0.24);
+  --dev-cyan: #4dd7ff;
+  --dev-blue: #497cff;
+  --dev-violet: #8d7cff;
+  --dev-mint: #6dffd7;
+  --dev-text: rgba(246, 250, 255, 0.98);
+  --dev-muted: rgba(201, 214, 229, 0.82);
+  --dev-faint: rgba(160, 178, 198, 0.68);
+  --dev-radius: 16px;
+  --dev-radius-lg: 22px;
+  --dev-shadow: 0 22px 70px rgba(0, 0, 0, 0.42);
+  --dev-shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.28);
+  --dev-glow: 0 0 36px rgba(77, 215, 255, 0.14);
+  --card:
+    linear-gradient(180deg, rgba(17, 27, 40, 0.86), rgba(10, 17, 27, 0.74));
+  --shadow: var(--dev-shadow-soft);
+  --glass-border: var(--dev-border);
+}
+
+html::before {
+  background:
+    radial-gradient(circle at 16% 12%, rgba(77, 215, 255, 0.16), transparent 34%),
+    radial-gradient(circle at 82% 18%, rgba(73, 124, 255, 0.14), transparent 32%),
+    radial-gradient(circle at 72% 86%, rgba(109, 255, 215, 0.08), transparent 32%),
+    linear-gradient(180deg, #0d1a28 0%, #07111c 48%, #050b12 100%) !important;
+}
+
+body {
+  color: var(--dev-text) !important;
+  letter-spacing: 0;
+}
+
+body::before {
+  display: block !important;
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(120, 210, 255, 0.042) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 210, 255, 0.033) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.018), transparent 42%);
+  background-size: 84px 84px, 84px 84px, 100% 100%;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.45));
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.45));
+  opacity: 0.48 !important;
+}
+
+body::after {
+  background-image:
+    radial-gradient(520px 360px at 8% 18%, rgba(77, 215, 255, 0.18), transparent 34%),
+    radial-gradient(520px 380px at 88% 68%, rgba(73, 124, 255, 0.15), transparent 30%),
+    radial-gradient(420px 320px at 48% 92%, rgba(109, 255, 215, 0.07), transparent 34%);
+  opacity: 0.72 !important;
+  filter: saturate(1.1);
+}
+
+body > header {
+  border-bottom: 1px solid rgba(122, 216, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(8, 14, 23, 0.82), rgba(8, 13, 21, 0.58)) !important;
+  backdrop-filter: blur(18px) saturate(1.18);
+  -webkit-backdrop-filter: blur(18px) saturate(1.18);
+  box-shadow: 0 16px 46px rgba(0, 0, 0, 0.22);
+}
+
+.nav {
+  gap: 18px;
+}
+
+.brand {
+  min-width: 0;
+}
+
+.logo {
+  border: 1px solid rgba(122, 216, 255, 0.18);
+  background:
+    linear-gradient(145deg, rgba(77, 215, 255, 0.14), rgba(73, 124, 255, 0.08));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 16px 34px rgba(0, 0, 0, 0.25),
+    0 0 24px rgba(77, 215, 255, 0.12);
+}
+
+.site-title,
+.about h1,
+.course-title,
+.review-name {
+  letter-spacing: 0;
+}
+
+.site-title {
+  color: var(--dev-text);
+}
+
+nav ul {
+  padding: 6px;
+  gap: 4px;
+  border: 1px solid rgba(122, 216, 255, 0.09);
+  border-radius: 999px;
+  background: rgba(8, 15, 24, 0.54) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+nav a {
+  border-radius: 999px;
+  color: rgba(231, 241, 252, 0.9) !important;
+  background-image: none;
+  -webkit-text-fill-color: currentColor;
+  text-shadow: none;
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: #fff !important;
+  background: rgba(77, 215, 255, 0.09);
+  box-shadow: inset 0 0 0 1px rgba(122, 216, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+nav a::after,
+.socials a::after,
+.phone::after,
+.tab-btn::after,
+.course-cta::after,
+.review-avito::after {
+  display: none !important;
+}
+
+.socials a,
+.menu-toggle {
+  border: 1px solid rgba(122, 216, 255, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 10px 24px rgba(0, 0, 0, 0.22);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.socials a:hover,
+.socials a:focus-visible,
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(77, 215, 255, 0.32);
+  background:
+    linear-gradient(180deg, rgba(77, 215, 255, 0.12), rgba(73, 124, 255, 0.06));
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.28),
+    0 0 24px rgba(77, 215, 255, 0.12);
+  outline: none;
+}
+
+.phone,
+.btn-primary,
+.tab-btn.active {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background:
+    linear-gradient(135deg, var(--dev-cyan), var(--dev-blue)) !important;
+  color: #f8fbff !important;
+  -webkit-text-fill-color: currentColor !important;
+  box-shadow:
+    0 14px 36px rgba(73, 124, 255, 0.25),
+    0 0 28px rgba(77, 215, 255, 0.16);
+}
+
+.phone:hover,
+.btn-primary:hover,
+.tab-btn.active:hover {
+  filter: saturate(1.08) brightness(1.04);
+  box-shadow:
+    0 18px 44px rgba(73, 124, 255, 0.34),
+    0 0 34px rgba(77, 215, 255, 0.22);
+}
+
+.hero-grid,
+.advantages-grid,
+.panel-cards {
+  isolation: isolate;
+}
+
+.about,
+.adv-card,
+.course-card,
+#contacts > div[style],
+#design > div[style],
+#music > div[style],
+#reviews > div[style] {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--dev-border) !important;
+  background:
+    linear-gradient(180deg, rgba(19, 31, 45, 0.82), rgba(10, 17, 27, 0.72)) !important;
+  box-shadow:
+    var(--dev-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(14px) saturate(1.08);
+  -webkit-backdrop-filter: blur(14px) saturate(1.08);
+}
+
+.about::before,
+.adv-card::before,
+.course-card::before,
+#contacts > div[style]::before,
+#design > div[style]::before,
+#music > div[style]::before,
+#reviews > div[style]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(77, 215, 255, 0.12), transparent 34%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03), transparent 46%);
+  opacity: 0.65;
+}
+
+.about > *,
+.adv-card > *,
+.course-card > *,
+#contacts > div[style] > *,
+#design > div[style] > *,
+#music > div[style] > *,
+#reviews > div[style] > * {
+  position: relative;
+  z-index: 1;
+}
+
+.avatar {
+  border: 1px solid rgba(122, 216, 255, 0.15);
+  background:
+    linear-gradient(145deg, rgba(77, 215, 255, 0.13), rgba(73, 124, 255, 0.06));
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.38),
+    0 0 40px rgba(77, 215, 255, 0.08);
+}
+
+.avatar img {
+  filter: contrast(1.035) saturate(0.98);
+}
+
+.about h1,
+#programs h2,
+#reviews h2,
+#music h2,
+#design h2,
+#contacts h2 {
+  color: var(--dev-text) !important;
+  text-shadow:
+    0 0 28px rgba(77, 215, 255, 0.08),
+    0 1px 0 rgba(0, 0, 0, 0.28);
+}
+
+.about p.lead,
+.course-desc,
+.review-text,
+.adv-card p,
+p {
+  color: var(--dev-muted) !important;
+}
+
+.adv-card,
+.course-card,
+.review-card {
+  transition:
+    transform 260ms var(--easing),
+    border-color 260ms ease,
+    box-shadow 260ms ease,
+    background 260ms ease;
+}
+
+.adv-card:hover,
+.course-card:hover,
+.review-card:hover {
+  border-color: var(--dev-border-strong) !important;
+  box-shadow:
+    0 28px 82px rgba(0, 0, 0, 0.48),
+    0 0 34px rgba(77, 215, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.adv-card h4,
+.course-meta,
+.review-name {
+  color: rgba(218, 237, 255, 0.96) !important;
+}
+
+.adv-card h4::before,
+.course-meta::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--dev-cyan);
+  box-shadow: 0 0 14px rgba(77, 215, 255, 0.55);
+  vertical-align: 1px;
+}
+
+.tab-btn {
+  border-color: rgba(122, 216, 255, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018));
+  color: rgba(232, 242, 252, 0.9);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.tab-btn:hover,
+.tab-btn:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(77, 215, 255, 0.24);
+  background:
+    linear-gradient(180deg, rgba(77, 215, 255, 0.09), rgba(255, 255, 255, 0.02));
+  outline: none;
+}
+
+.courses-wrapper {
+  border-radius: var(--dev-radius-lg);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.024), rgba(255, 255, 255, 0));
+}
+
+.course-card {
+  border-radius: 18px;
+}
+
+.course-media {
+  border: 1px solid rgba(122, 216, 255, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 12px 30px rgba(0, 0, 0, 0.24);
+}
+
+.course-card:hover .course-media img {
+  transform: scale(calc(var(--course-media-scale) * 1.025));
+}
+
+.course-cta {
+  color: var(--dev-cyan) !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-shadow: 0 0 20px rgba(77, 215, 255, 0.16);
+  transition:
+    color 180ms ease,
+    transform 180ms ease,
+    text-shadow 180ms ease;
+}
+
+.course-cta:hover,
+.course-cta:focus-visible {
+  color: #a8ecff !important;
+  transform: translateX(3px);
+  text-shadow: 0 0 28px rgba(77, 215, 255, 0.28);
+  outline: none;
+}
+
+.scroll-btn,
+.tabs-arrow,
+.reviews-arrow {
+  border-color: rgba(122, 216, 255, 0.16) !important;
+  background:
+    linear-gradient(145deg, rgba(17, 33, 48, 0.86), rgba(8, 15, 25, 0.7)) !important;
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.scroll-btn:hover,
+.tabs-arrow:hover,
+.reviews-arrow:hover {
+  border-color: rgba(77, 215, 255, 0.38) !important;
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.38),
+    0 0 26px rgba(77, 215, 255, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+#reviews .review-card {
+  background:
+    linear-gradient(180deg, rgba(18, 29, 42, 0.88), rgba(11, 18, 29, 0.82));
+  border: 1px solid rgba(122, 216, 255, 0.11);
+  box-shadow:
+    0 16px 42px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.review-avito {
+  border: 1px solid rgba(122, 216, 255, 0.12);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+a:not(.phone):not(.btn-primary):not(.course-cta):not(.review-avito):not(nav a):not(.socials a) {
+  color: var(--dev-cyan);
+}
+
+@media (max-width: 1100px) {
+  nav ul {
+    border-radius: 16px;
+    padding: 10px;
+    background: rgba(8, 15, 24, 0.92) !important;
+  }
+}
+
+@media (min-width: 1101px) {
+  body > header nav ul {
+    padding: 6px !important;
+    gap: 4px !important;
+    border: 1px solid rgba(122, 216, 255, 0.09) !important;
+    border-radius: 999px !important;
+    background: rgba(8, 15, 24, 0.54) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  }
+
+  body > header nav a:hover,
+  body > header nav a:focus-visible {
+    background: rgba(77, 215, 255, 0.09) !important;
+    box-shadow: inset 0 0 0 1px rgba(122, 216, 255, 0.16);
+  }
+}
+
+@media (max-width: 700px) {
+  body::before {
+    background-size: 68px 68px, 68px 68px, 100% 100%;
+    opacity: 0.32 !important;
+  }
+
+  .about,
+  .adv-card,
+  .course-card,
+  #contacts > div[style],
+  #design > div[style],
+  #music > div[style],
+  #reviews > div[style] {
+    border-radius: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    animation: none !important;
+  }
+}
