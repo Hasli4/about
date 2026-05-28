@@ -1631,34 +1631,44 @@ body::after    { z-index: var(--visual-blobs-z) !important; }
 
 @media (max-width: 520px) {
   #reviews .reviews-wrap {
-    padding-inline: 42px;
+    padding: 8px 0 56px;
+    border-radius: 14px;
   }
 
   #reviews .review-card {
-    flex-basis: min(78vw, 320px);
-    width: min(78vw, 320px);
-    min-width: min(78vw, 320px);
-    max-width: min(78vw, 320px);
+    flex-basis: 100%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
   }
 
   #reviews .reviews-wrap::before,
   #reviews .reviews-wrap::after {
-    width: 48px;
+    display: none;
   }
 
   #reviews .reviews-arrow {
+    top: auto !important;
+    bottom: 10px !important;
     width: 36px !important;
     min-width: 36px !important;
     height: 36px !important;
     border-radius: 9px;
+    transform: none !important;
   }
 
   #reviews .reviews-arrow-left {
-    left: 4px !important;
+    left: 10px !important;
   }
 
   #reviews .reviews-arrow-right {
-    right: 4px !important;
+    right: 10px !important;
+  }
+
+  #reviews .reviews-arrow:hover,
+  #reviews .reviews-arrow:focus-visible,
+  #reviews .reviews-arrow:active {
+    transform: none !important;
   }
 }
 
