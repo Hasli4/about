@@ -1524,7 +1524,7 @@ body::after    { z-index: var(--visual-blobs-z) !important; }
 
 #reviews .reviews-track {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   gap: 18px;
   flex-wrap: nowrap;
   animation: none !important;
@@ -1537,6 +1537,18 @@ body::after    { z-index: var(--visual-blobs-z) !important; }
   width: 360px;
   max-width: 360px;
   min-width: 360px;
+  min-height: 0;
+  height: auto;
+  margin: 0;
+  padding: 18px 18px 46px;
+  justify-content: flex-start;
+}
+
+#reviews .review-name {
+  margin: 0 0 10px;
+}
+
+#reviews .review-text {
   margin: 0;
 }
 
