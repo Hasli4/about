@@ -2789,11 +2789,11 @@ html[data-theme="light"] {
 html[data-theme="light"] body::before {
   display: block !important;
   background-image:
-    linear-gradient(rgba(var(--light-code-ink), 0.052) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(var(--light-code-ink), 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(var(--light-code-ink), 0.068) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--light-code-ink), 0.054) 1px, transparent 1px),
     linear-gradient(135deg, rgba(255, 255, 255, 0.5), transparent 44%),
-    radial-gradient(circle at 18% 22%, rgba(var(--light-code-ink), 0.1) 0 1px, transparent 2px),
-    radial-gradient(circle at 73% 36%, rgba(var(--light-code-blue), 0.095) 0 1px, transparent 2px) !important;
+    radial-gradient(circle at 18% 22%, rgba(var(--light-code-ink), 0.14) 0 1px, transparent 2px),
+    radial-gradient(circle at 73% 36%, rgba(var(--light-code-blue), 0.13) 0 1px, transparent 2px) !important;
   background-size:
     84px 84px,
     84px 84px,
@@ -2806,7 +2806,7 @@ html[data-theme="light"] body::before {
     0 0,
     30px 22px,
     120px 58px;
-  opacity: 0.54 !important;
+  opacity: 0.66 !important;
   animation: light-code-grid-drift 34s linear infinite;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.42));
   -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.42));
@@ -2815,10 +2815,10 @@ html[data-theme="light"] body::before {
 html[data-theme="light"] body::after {
   mix-blend-mode: normal;
   background-image:
-    radial-gradient(560px 380px at 8% 18%, rgba(var(--light-code-blue), 0.16), transparent 34%),
-    radial-gradient(540px 380px at 88% 68%, rgba(var(--light-code-mint), 0.12), transparent 31%),
-    radial-gradient(420px 320px at 52% 94%, rgba(var(--light-code-ink), 0.08), transparent 34%);
-  opacity: 0.68 !important;
+    radial-gradient(560px 380px at 8% 18%, rgba(var(--light-code-blue), 0.22), transparent 34%),
+    radial-gradient(540px 380px at 88% 68%, rgba(var(--light-code-mint), 0.17), transparent 31%),
+    radial-gradient(420px 320px at 52% 94%, rgba(var(--light-code-ink), 0.12), transparent 34%);
+  opacity: 0.76 !important;
   filter: saturate(0.95);
   animation: light-code-lines-float 22s ease-in-out infinite;
 }
@@ -2834,13 +2834,13 @@ html[data-theme="light"] #visual-animated-bg::after {
 
 html[data-theme="light"] #visual-animated-bg::before {
   background-image:
-    linear-gradient(132deg, transparent 0 16%, rgba(var(--light-code-blue), 0.1) 16.08% 16.22%, transparent 16.36% 100%),
-    linear-gradient(36deg, transparent 0 64%, rgba(var(--light-code-mint), 0.08) 64.08% 64.22%, transparent 64.36% 100%),
-    linear-gradient(90deg, transparent 0 27%, rgba(var(--light-code-ink), 0.075) 27.08% 27.2%, transparent 27.34% 100%),
-    linear-gradient(0deg, transparent 0 38%, rgba(var(--light-code-blue), 0.07) 38.08% 38.2%, transparent 38.34% 100%),
-    radial-gradient(circle at 16% 22%, rgba(var(--light-code-ink), 0.18) 0 2px, transparent 3px),
-    radial-gradient(circle at 44% 38%, rgba(var(--light-code-blue), 0.13) 0 2px, transparent 3px),
-    radial-gradient(circle at 78% 66%, rgba(var(--light-code-mint), 0.12) 0 2px, transparent 3px);
+    linear-gradient(132deg, transparent 0 16%, rgba(var(--light-code-blue), 0.14) 16.08% 16.22%, transparent 16.36% 100%),
+    linear-gradient(36deg, transparent 0 64%, rgba(var(--light-code-mint), 0.12) 64.08% 64.22%, transparent 64.36% 100%),
+    linear-gradient(90deg, transparent 0 27%, rgba(var(--light-code-ink), 0.105) 27.08% 27.2%, transparent 27.34% 100%),
+    linear-gradient(0deg, transparent 0 38%, rgba(var(--light-code-blue), 0.1) 38.08% 38.2%, transparent 38.34% 100%),
+    radial-gradient(circle at 16% 22%, rgba(var(--light-code-ink), 0.24) 0 2px, transparent 3px),
+    radial-gradient(circle at 44% 38%, rgba(var(--light-code-blue), 0.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 66%, rgba(var(--light-code-mint), 0.17) 0 2px, transparent 3px);
   background-size:
     760px 520px,
     760px 520px,
@@ -2857,16 +2857,16 @@ html[data-theme="light"] #visual-animated-bg::before {
     -120px 30px,
     210px 170px,
     210px 170px;
-  opacity: 0.48;
-  filter: drop-shadow(0 10px 24px rgba(var(--light-code-ink), 0.05));
+  opacity: 0.62;
+  filter: drop-shadow(0 10px 24px rgba(var(--light-code-ink), 0.08));
   animation: light-circuit-pan 30s linear infinite;
 }
 
 html[data-theme="light"] #visual-animated-bg::after {
   background-image:
     linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.42) 46%, transparent 72%),
-    radial-gradient(circle at 22% 28%, rgba(var(--light-code-blue), 0.08) 0 1px, transparent 2px),
-    radial-gradient(circle at 70% 72%, rgba(var(--light-code-mint), 0.075) 0 1px, transparent 2px);
+    radial-gradient(circle at 22% 28%, rgba(var(--light-code-blue), 0.12) 0 1px, transparent 2px),
+    radial-gradient(circle at 70% 72%, rgba(var(--light-code-mint), 0.11) 0 1px, transparent 2px);
   background-size:
     100% 100%,
     260px 260px,
@@ -2875,7 +2875,7 @@ html[data-theme="light"] #visual-animated-bg::after {
     0 0,
     0 0,
     130px 80px;
-  opacity: 0.32;
+  opacity: 0.4;
   mix-blend-mode: multiply;
   animation: light-fractal-breathe 20s ease-in-out infinite;
 }
@@ -2941,11 +2941,11 @@ html[data-theme="light"] #vparticles canvas {
       100% 100%,
       180px 180px,
       220px 220px;
-    opacity: 0.42 !important;
+    opacity: 0.52 !important;
   }
 
   html[data-theme="light"] #visual-animated-bg::before {
-    opacity: 0.34;
+    opacity: 0.46;
     background-size:
       520px 380px,
       520px 380px,
@@ -2957,7 +2957,7 @@ html[data-theme="light"] #vparticles canvas {
   }
 
   html[data-theme="light"] #visual-animated-bg::after {
-    opacity: 0.22;
+    opacity: 0.3;
   }
 }
 
