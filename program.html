@@ -8,6 +8,16 @@
       name="description"
       content="Универсальная страница направления обучения. Данные подгружаются из единого JSON-файла."
     />
+    <meta name="theme-color" content="#0b121d" />
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("site-theme") === "light") {
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (error) {}
+      })();
+    </script>
 
     <link
       rel="icon"
@@ -21,8 +31,8 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/style.css?v=20260528-round-only" />
-    <link rel="stylesheet" href="assets/css/program-template.css?v=20260528-premium-dev-ui" />
+    <link rel="stylesheet" href="assets/css/style.css?v=20260528-theme-toggle" />
+    <link rel="stylesheet" href="assets/css/program-template.css?v=20260528-theme-toggle" />
   </head>
   <body data-programs-source="assets/data/programs.json?v=20260528-robot-work-examples">
     <!--
@@ -61,6 +71,39 @@
         </nav>
 
         <div class="actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Включить светлую тему"
+            aria-pressed="false"
+            title="Включить светлую тему"
+            data-theme-toggle
+          >
+            <svg
+              class="theme-toggle-sun"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+            <svg
+              class="theme-toggle-moon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M20.4 14.4A8.5 8.5 0 0 1 9.6 3.6a8.5 8.5 0 1 0 10.8 10.8Z"></path>
+            </svg>
+          </button>
           <div class="socials" aria-hidden="false" data-no-binary-container>
             <a
               href="https://t.me/ig_mizyovv"
@@ -412,6 +455,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.0/tsparticles.bundle.min.js"></script>
     <script src="assets/js/visual-init.js"></script>
+    <script src="assets/js/theme-toggle.js?v=20260528-theme-toggle"></script>
     <script src="script.js"></script>
     <script src="assets/js/program-template.js?v=20260528-remove-empty-works-tab"></script>
   </body>
