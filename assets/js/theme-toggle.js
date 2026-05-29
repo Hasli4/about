@@ -53,7 +53,25 @@
     }, 520);
   }
 
+  function syncHeaderHeight() {
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    const update = () => {
+      const height = Math.ceil(header.getBoundingClientRect().height);
+      document.documentElement.style.setProperty("--header-height", `${height}px`);
+    };
+
+    update();
+    window.addEventListener("resize", update, { passive: true });
+
+    if (typeof ResizeObserver !== "undefined") {
+      new ResizeObserver(update).observe(header);
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    syncHeaderHeight();
     setTheme(getSavedTheme());
 
     document.querySelectorAll("[data-theme-toggle]").forEach((button) => {

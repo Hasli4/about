@@ -2969,3 +2969,152 @@ html[data-theme="light"] #vparticles canvas {
     animation: none !important;
   }
 }
+
+/* Mobile header polish: icons first, theme toggle last, phone + menu below. */
+.actions .socials {
+  order: 1;
+}
+
+.actions .theme-toggle {
+  order: 2;
+}
+
+.actions .phone {
+  order: 3;
+}
+
+.theme-toggle:not(.theme-toggle-touched) {
+  animation: theme-toggle-attention 1800ms ease-in-out 360ms 4 !important;
+}
+
+.theme-toggle::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 14px;
+  border: 1px solid rgba(77, 215, 255, 0.34);
+  opacity: 0;
+  transform: scale(0.82);
+  pointer-events: none;
+  box-shadow: 0 0 22px rgba(77, 215, 255, 0.2);
+  animation: theme-toggle-attention-ring 1800ms ease-in-out 360ms 4;
+}
+
+.theme-toggle.theme-toggle-touched,
+.theme-toggle.theme-toggle-touched::after {
+  animation: none !important;
+}
+
+@keyframes theme-toggle-attention {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 10px 24px rgba(0, 0, 0, 0.22),
+      0 0 18px rgba(77, 215, 255, 0.1);
+  }
+  42% {
+    transform: translateY(-2px) scale(1.055);
+    border-color: rgba(77, 215, 255, 0.48);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 16px 36px rgba(0, 0, 0, 0.3),
+      0 0 34px rgba(77, 215, 255, 0.38),
+      0 0 58px rgba(73, 124, 255, 0.18);
+  }
+}
+
+@keyframes theme-toggle-attention-ring {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.84);
+  }
+  42% {
+    opacity: 0.86;
+    transform: scale(1.18);
+  }
+}
+
+html[data-theme="light"] .theme-toggle::after {
+  border-color: rgba(20, 127, 159, 0.34);
+  box-shadow: 0 0 20px rgba(20, 127, 159, 0.18);
+}
+
+@media (max-width: 520px) {
+  header .container.nav {
+    display: grid !important;
+    grid-template-columns: auto auto 1fr auto;
+    grid-template-areas:
+      "brand brand brand brand"
+      "socials theme . ."
+      "phone phone . menu";
+    align-items: center !important;
+    gap: 8px 8px !important;
+  }
+
+  header .brand {
+    grid-area: brand;
+    width: 100%;
+  }
+
+  header .actions {
+    display: contents !important;
+  }
+
+  header .socials {
+    grid-area: socials;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  header .theme-toggle {
+    grid-area: theme;
+    justify-self: start;
+  }
+
+  header nav {
+    grid-area: menu;
+    justify-self: end;
+    align-self: center;
+    width: auto !important;
+    margin: 0 !important;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  header .menu-toggle {
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header .phone {
+    grid-area: phone;
+    justify-self: start;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 9px 12px;
+    font-size: 0.92rem;
+    line-height: 1;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 360px) {
+  header .phone {
+    font-size: 0.84rem;
+    padding-inline: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .theme-toggle::after {
+    animation: none !important;
+  }
+}
